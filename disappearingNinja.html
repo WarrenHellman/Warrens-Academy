@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jQuery Disappering Ninja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            $("img").click(function(){
+                $(this).hide();
+            });
+            $("button").click(function(){
+                $("img").show();
+            });
+        });
+        
+    
+    </script>
+    <style>
+        .box{
+            display: inline-block;
+            width: 180px;
+        }
+        img {
+            border: solid black 2px;
+        }
+        .row1 {
+            display: block;
+            height: 215px;
+        }
+        .row2 {
+            display: block;
+            height: 215px;
+        }
+        #button {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Disappearing Ninja</h1>
+    <div class="container">
+        <div class="row1">
+            <div class="box">
+                <img src="Ninja.jpg" height=200>
+            </div>
+            <div class="box">
+                <img src="Ninja.jpg" height=200>
+            </div>
+            <div class="box">
+                <img src="Ninja.jpg" height=200>
+            </div>
+            <div class="box">
+                <img src="Ninja.jpg" height=200>
+            </div>
+            
+        </div>
+        <div class="row2">
+            <div class="box">
+                <img src="Ninja.jpg" height=200>
+            </div>
+            <div class="box">
+                <img src="Ninja.jpg" height=200>
+            </div>
+            <div class="box">
+                <img src="Ninja.jpg" height=200>
+            </div>
+            <div class="box">
+                <img src="Ninja.jpg" height=200>
+            </div>
+            
+        </div>
+        <div id="button">
+            <button id="restore">Restore</button>
+        </div>  
+    </div>
+    
+</body>
+</html>

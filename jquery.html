@@ -77,6 +77,14 @@
             $("#Addclass").click(function(){
                 $("#Addclass").addClass("red");
             });
+            $("#After").after("<p>I'm additional!</p>");
+            $("#Before").before("<p>If you are reading this text, the before stuff worked!</p>");
+            $("#Append").click(function(){
+                $("#Append").append("<p>Consider me appended!</p>")
+            });
+            $("#HTML").hover(function(){
+                $("div").html("<h2>Don't click that button bro!</h2>")
+            });
         });
     </script>
 </head>
@@ -129,20 +137,18 @@
     <p>Do I turn magenta?</p>
     <hr> 
     <h2>Before</h2>
+    <p id="Before">If there is text before me, it's because I'm good</p>
     <hr> 
     <h2>After</h2>
+    <p id="After">jQuery added the next text</p>
     <hr> 
     <h2>Append</h2>
+    <button id="Append">Click to append!</button>
     <hr> 
     <h2>HTML</h2>
+    <button id="HTML">Hover me</button>
+    <div></div>
     <hr> 
-    <h2>Attr</h2>
-    <hr> 
-    <h2>Val</h2>
-    <hr> 
-    <h2>Text</h2>
-    <hr> 
-    <h2>Data</h2>
     
     
 </body>
