@@ -5,14 +5,145 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <style>
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
+            } 
+        h2 {
+            text-align: center;
+        }
+        #Slidebox {
+            display: block;
+            height: 30px;
+            width: 30px;
+            background-color: green;
+        }
+        
+        #Slidebox2 {
+            display: block;
+            height: 30px;
+            width: 30px;
+            background-color: blue;
+        }
+        .red {
+            background-color: magenta;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        //The dollar sign accesses the library. Document selects entire document (DOM). ready is necessary so that the code that follows will not run until the HTML has loaded.
+        $(document).ready(function(){
+
+            $("#Click").click(function(){
+                $("#Click").css('background-color','red');
+            });
+            $("#Hide").click(function(){
+                $("#Hide").hide("slow");
+            });
+            $("#Show").click(function(){
+                $("#Friend").show();
+            });
+            $("#Toggle").click(function(){
+                $("#Line").toggle();
+            });
+            $("#Slidedown").click(function(){
+                if ( $( "#Slidebox:first" ).is( ":hidden" ) ) {
+                    $( "#Slidebox" ).slideDown( "slow" );
+                } else {
+                $( "#Slidebox" ).hide();
+                }
+            });
+            $("#Slideup").click(function(){
+                if ( $( "#Slidebox2:first" ).is( ":hidden" ) ) {
+                    $( "#Slidebox2" ).slideUp( "slow" );
+                } else {
+                $( "#Slidebox2" ).hide();
+                }
+            });
+            $("#SlideToggle").click(function(){
+                $("#SlideP").slideToggle();
+            });
+            $("#Fadein").click(function(){
+                $("#Smooth").fadeIn();
+            });
+            $("#Fadeout").click(function(){
+                $("#Broke").fadeOut();
+            });
+            $("#Addclass").click(function(){
+                $("#Addclass").addClass("red");
+            });
+        });
+    </script>
 </head>
 <body>
-    <script>
-        console.log($);
-    </script>
+    <h1>The jQuery Playground</h1>
+    <hr>   
+    <h2>Click</h2>
+    <button class="Click">Click Button</button>
+    <p>On click button turns red</p>
+    <hr> 
+    <h2>Hide</h2>
+    <button id="Hide">Click Button</button>
+    <p>On click button hides</p>
+    <hr> 
+    <h2>Show</h2>
+    <button id="Show">Click Button</button>
+    <p>On click my friend comes</p>
+    <p id="Friend" style = "display: none">Here I am!</p>
+    <hr> 
+    <h2>Toggle</h2>
+    <button id="Toggle">Click Button</button>
+    <p>On click lower line hides and appears</p>
+    <hr id="Line"> 
+    <h2>Slide Down</h2>
+    <button id="Slidedown">Click Button</button>
+    <p>On click a box appears</p>
+    <div id="Slidebox"></div>
+    <hr> 
+    <h2>Slide Up</h2>
+    <button id="Slideup">Click Button</button>
+    <p>On click a box appears</p>
+    <div id="Slidebox2"></div>
+    <hr> 
+    <h2>SlideToggle</h2>
+    <button id="SlideToggle">Click Button</button>
+    <p id="SlideP">Where do I go?</p>
+    <hr> 
+    <h2>Fade In</h2>
+    <button id="Fadein">Click Button</button>
+    <button id="Smooth" style="display: none">Yo Baby!</button>
+    <p>Mr Steal Your Girl</p>
+    <hr> 
+    <h2>Fade Out</h2>
+    <button id="Fadeout">Click Button</button>
+    <button id="Broke">Gotta go!</button>
+    <p>Rent is due!</p>
+    <hr> 
+    <h2>Add Class</h2>
+    <button id="Addclass">Click Button</button>
+    <p>Do I turn magenta?</p>
+    <hr> 
+    <h2>Before</h2>
+    <hr> 
+    <h2>After</h2>
+    <hr> 
+    <h2>Append</h2>
+    <hr> 
+    <h2>HTML</h2>
+    <hr> 
+    <h2>Attr</h2>
+    <hr> 
+    <h2>Val</h2>
+    <hr> 
+    <h2>Text</h2>
+    <hr> 
+    <h2>Data</h2>
+    
     
 </body>
 </html>
