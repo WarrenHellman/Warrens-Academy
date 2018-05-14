@@ -1,0 +1,191 @@
+<html lang="en">
+    <head>
+        
+        <title>Portfolio: Warren Hellman</title>
+        <link href="https://unpkg.com/ionicons@4.0.0/dist/css/ionicons.min.css"rel="stylesheet"/>  
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://github.com/kswedberg/jquery-smooth-scroll/blob/master/jquery.smooth-scroll.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="portfolio.css">
+        <script>
+        $('.smooth').on('click', function() {
+            $.smoothScroll({
+                scrollElement: $('body'),
+                scrollTarget: '#' + this.id
+            });
+        
+            return false;
+            });
+        </script>
+
+        <script>
+        // Borrowed jQuery from  http://reusableforms.com/d/o5/html5-contact-form-send-email
+        $(function(){
+            function after_form_submitted(data)
+            {
+            if(data.result == 'success'){
+                $('form#reused_form').hide();
+                $('#success_message').show();
+                $('#error_message').hide();
+            }
+            else{
+                $('#error_message').append('<ul></ul>');
+
+                jQuery.each(data.errors,function(key,val){
+                $('#error_message ul').append('<li>'+key+':'+val+'</li>');
+                });
+                $('#success_message').hide();
+                $('#error_message').show();
+
+            //reverse the response on the button
+            $('button[type="button"]', $form).each(function(){
+                $btn = $(this);
+                label = $btn.prop('orig_label');
+                if(label){
+                    $btn.prop('type','submit' );
+                    $btn.text(label);
+                    $btn.prop('orig_label','');
+                }
+                });
+
+            }}
+
+        $('#reused_form').submit(function(e){
+            e.preventDefault();
+            $form = $(this);
+            //show some response on the button
+            $('button[type="submit"]', $form).each(function(){
+                $btn = $(this);
+                $btn.prop('type','button' );
+                $btn.prop('orig_label',$btn.text());
+                $btn.text('Sending ...');
+                });
+
+
+            $.ajax({
+                type: "POST",
+                url: 'handler.php',
+                data: $form.serialize(),
+                success: after_form_submitted,
+                dataType: 'json'
+            });
+            });
+            });
+        </script>
+        
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <div class="row">
+            
+                    <ul class="main-nav">
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#social">Social</a></li> 
+                    </ul>
+                </div>
+            </nav>
+                <div class="intro-text">
+                    <h1>Portfolio</h1>
+                </div>
+        </header>
+            <a id="about" class="smooth"></a>
+            <section class="about-me">
+                <div class="row">
+                    <h2> Introducing Warren Hellman</h2>
+                </div>
+                <hr>
+                <div class="about">
+                    <div class="about-img">
+                        <img src="https://i.imgur.com/EHKL2ih.jpg" alt="pink-wall" height=250>
+                    </div>
+                    <div class="about-text">
+                        <h3>Designer statement</h3>
+                        <h4 class="statement">Driven but humble on this journey. This portfolio page is a special offering. Apologies in advance for the sentimentality; this small page a token of commitment going forward. I left behind a great career to challenge and enrich myself. I hope this to be the embarrassing time capsule left find later.   </h4>
+                    </div>
+                </div>
+            </section>
+            <a id="portfolio" class="smooth"></a>
+            <div class="portfolio">
+                <div class="portfolio-title">
+                    <h2>Projects of Interest</h2>
+                    <hr>
+                </div>
+                <div class="portfolio-project-container">
+                <!--built from here https://medium.com/@jamesfuthey/simulating-the-creation-of-website-thumbnail-screenshots-using-iframes-7145269891db              -->
+                    <div class="portfolio-projects">
+                        <h4>PNW Website</h4>
+                        <div class="thumbnail">
+                            <iframe src="http://www.premiumnorthwest.com/" frameborder="0" onload="this.style.opacity = 1"></iframe>
+                        </div>
+                    </div>
+                    <div class="portfolio-projects">
+                        <h4>RC Dev Day Website</h4>
+                        <div class="thumbnail">
+                            <iframe src="https://seattledevday.com/" frameborder="0" onload="this.style.opacity = 1"></iframe>
+                        </div>
+                    </div>
+                    <div class="portfolio-projects">
+                        <h4>Vibe Placeholder</h4>
+                        <div class="thumbnail">
+                            <iframe src="http://www.vibecoworks.com/the-vibe-lab/" frameborder="0" onload="this.style.opacity = 1"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <a id="contact" class= "smooth"></a>
+        <div class="contact-container">
+            <div class="contact">
+                <h2>Contact- For Hiring or General Inquery</h2>
+            <hr>
+            </div>
+            <!--         borrowed html from http://reusableforms.com/d/o5/html5-contact-form-send-email -->
+            <div class="container form-top">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                <form id="reused_form">
+                                    <div class="form-group">
+                                        <label><i class="fa fa-user" aria-hidden="true"></i> Name</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+                                        <input type="email" name="email" class="form-control" placeholder="Enter Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-comment" aria-hidden="true"></i> Message</label>
+                                        <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-raised btn-block">Post &rarr;</button>
+                                    </div>
+                                </form>
+                                <div id="error_message" style="width:100%; height:100%; display:none; ">
+                                    <h4>
+                                        Error
+                                    </h4>
+                                    Sorry there was an error sending your form. 
+                                </div>
+                                <div id="success_message" style="width:100%; height:100%; display:none; ">
+                                    <h2>Success! Your Message was Sent Successfully.</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="social" class="smooth"></a>
+        <div class="social-container">
+            <div class="social-icons">
+                <a href="https://github.com/WarrenHellman" title="Github"><i class="icon ion-logo-github bottom"></i></a>
+                <a href="https://www.linkedin.com/in/warren-hellman/" title="LinkedIn"><i class="icon ion-logo-linkedin bottom"></i></a>
+                <a href="http://instagram.com/premiumnorthwest" title="Instagram"><i class="icon ion-logo-instagram bottom"></i></a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,267 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: #555;
+    /* imports preferred font families, lato first, Arial second,  sans-serif if offline */
+    font-family: "Lato", "Arial", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+h1{
+    color: white;
+    font-family: 'Lato';
+    font-size:540%;
+    font-weight: 300;
+}
+.row{
+    max-width: 1140px;
+    /* centers all margins instead of typing out instructions for each margin directions */
+    margin: 0 auto;
+}
+header{
+    background-image: url(https://cdn.pixabay.com/photo/2017/11/09/10/45/yosemite-park-2933024_1280.jpg);
+    /* fits image to the space */
+    background-size: cover;
+    /* auto adjusts positioning dynamically */
+    background-position: center;
+    /* sets height to 100% of the viewport image*/
+    height: 100vh;
+}
+.main-nav{
+    float: right;
+    list-style: none;
+    color: none;
+}
+.main-nav li {
+    /* puts elements inline */
+    display: inline-block;
+    font-size: 150%;
+    margin-left: 40px;
+    margin-top: 55px;
+}
+/* selects only a tags within li within the main.nav */
+/* we want a mouse over effect so we will split into link/visited and hover/active */
+.main-nav li a:link,
+.main-nav li a:visited {
+    color : white;
+    padding: 8px 0px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+.intro-text{
+  /* locks this into the correct position in the header */
+    position: absolute;
+    width: 1140px;
+    /* gives relative positioning in the header */
+    top: 50%;
+    left: 50%;
+    /* moves position half of it's width and height up and left */
+    /*     transform: translate(-50%, -50%); */
+}
+.about-me{
+    margin-top: 50px;
+}
+h2{
+    text-align: center;
+    color: #555;
+    font-family: lato;
+    font-family: "Lato", "Arial", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    text-rendering: optimizeLegibility;
+}
+.about-text {
+    text-align: center;
+    margin-bottom: 40px;
+    
+}
+.about-img {
+    margin-top: 20px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 25%;
+    overflow: hidden;
+}
+.about-img img {
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+    /* zooms in on image 15% */
+    transform: scale(1.15);
+    /* references the 2 hover characteristics below and times their transition */
+    transition: transform 0.5s, opacity 0.5s;
+    background-color: #000;
+}
+
+.about-img img:hover {
+    transform: scale(1.03);
+    opacity: 1;
+}
+hr {
+    width: 50%;
+    margin-left: 25%;
+    margin-right:25%;
+}
+
+h3 {
+    color: #555;
+    font-family: lato;
+    font-family: "Lato", "Arial", sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    text-rendering: optimizeLegibility;
+}
+.statement {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 15px;
+    line-height: 30px;
+}
+h4{
+    color: #555;
+    font-family: lato;
+    font-family: "Lato", "Arial", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+/* ////////////////// */
+/* Portfolio Section */
+/* ////////////////// */
+.portfolio {
+    background-color: #555;
+}
+.portfolio-title {
+    padding: 50px;
+}
+.portfolio-title h2{
+    color: white;
+
+}
+.porfolio-project-container {
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 60%;
+}
+.portfolio-title hr {
+    color: blanchedalmond;
+}
+.portfolio-projects {
+    display: inline-block;
+    height: 250px;
+    width: 300px; 
+    margin-left: 1%;
+    width: calc(1440px * 0.25);
+    height: calc(900px * 0.25);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+}
+.portfolio-projects h4 {
+    color: white; 
+    text-align: center;
+}
+.thumbnail iframe {
+    width: 1440px;
+    height: 900px;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+.thumbnail {
+    position: relative;
+    -ms-zoom: 0.25;
+    -moz-transform: scale(0.25);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.25);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.25);
+    -webkit-transform-origin: 0 0;
+}
+.thumbnail:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/* ////////////////// */
+/* Contact section */
+/* ////////////////// */
+
+.contact {
+    margin-top: 50px;
+}
+.btn{
+    background-color:#e67e22;
+    color: white;
+}
+
+/* ////////////////// */
+/* Social section */
+/* ////////////////// */
+.social-container {
+    background-color: #555;
+    margin-top: 10px;
+}
+.social-icons {
+    height: 70px;
+    text-align: right;
+}
+.bottom {
+    font-size: 200%;
+    color: white;
+    padding: 10px;
+    margin-right: 2%;
+}
+
+
+
+
+
+/* Borrowed CSS from http://reusableforms.com/d/o5/html5-contact-form-send-email */
+.form-top{
+    margin-top: 30px;
+}
+.panel{
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12);
+    border-radius: 6px;
+    border: 0;
+}
+@-moz-document url-prefix() {
+    .form-control{
+    height: auto;
+    }
+}
+.panel-primary{
+    background-color: #2c3e50;
+    color: #fff;
+}
+.panel-primary>.panel-heading {
+    color: #fff;
+    font-size: 20px;
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+.btn-warning{
+    background-color: transparent;
+    border-color: #bdc3c7;
+}
