@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Algorithms</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    
+    <script>
+        //now test them out
+        
+        //Basic 13
+        
+        //1-print 1-255
+        
+        function printTwoFiveFive(){
+            for (var i=1; i<256;i++){
+                console.log(i);
+            }
+        }
+        
+        
+        //2-print sum 0-255
+        
+        function sumTwofiveFive(){
+            var sum=0;
+            for(var i=0; i<256;i++){
+                sum=sum+i;
+                console.log(sum);
+            }
+        }
+        
+        //3-find and print max
+        
+        function printMax(arr){
+            var max=arr[0];
+            for (var i=0; i<arr.length; i++){
+                if (max<arr[i]){
+                    max=arr[i];
+                }
+            }
+            console.log(max);
+        }
+        
+        //4-array with odds
+        
+        function arrayOdds(){
+            var arr=[];
+            for (i=1; i<256;i=i+2){
+                arr.push(i);
+            }
+            console.log(arr);
+        }
+        
+        //5- greater than Y
+        
+        function greaterY (arr,Y){
+            var sum=0;
+            for(var i=0; i<arr.length; i++){
+                if (arr[i]>Y){
+                    sum=sum+1;
+                }
+            }
+            console.log(sum);
+        }
+        
+        //6- max min avg
+        
+        function maxMinAvg(arr){
+            var max=arr[0];
+            var min=arr[0];
+            var avg=0
+            for (var i=0; i<arr.length; i++){
+                if (arr[i]>max){
+                    max=arr[i];
+                }
+                if (arr[i]<min){
+                    min=arr[i];
+                }
+                avg+=arr[i];
+            }
+            console.log(max,min,avg/arr.length);
+        }
+
+        //7-swap string for array neg value
+        
+        function swapString(arr){
+            for (var i=0; i<arr.length;i++){
+                if (arr[i]<0){
+                    arr[i]="Dojo";
+                }
+            }
+            console.log(arr)
+        }
+        //8-print odds from 1-255
+        
+        function printOdd(){
+            for(var i=1;i<256;i=i+2){
+                console.log(i)
+            }
+        }
+        //9-iterate and print array
+        
+        function iteratePrint(arr){
+            for (var i=0;i<arr.length;i++){
+                console.log(arr[i]);
+            }
+        }
+        
+        //10- average of an array
+        
+        function averageArray(arr){
+            var avg=0
+            for(var i=0; i<arr.length; i++){
+                avg=avg+arr[i];
+            }
+            console.log(avg/arr.length);
+        }
+        
+        //11- square values
+        
+        function square(arr){
+            for (var i=0; i<arr.length;i++){
+                arr[i]=arr[i]*arr[i];
+            }
+            console.log(arr);
+        }
+        
+        //12- zero out negs
+        
+        function zeroNeg(arr){
+            for (var i=0;i<arr.length;i++){
+                if (arr[i]<0){
+                    arr[i]=0;
+                }
+            }
+            console.log(arr);
+        }
+        
+        //13- shift array values
+        
+        function shiftArray(arr){
+            for (var i =0; i<arr.length-1;i++){
+                arr[i]=arr[i+1];
+            }
+            arr[arr.length-1]=0;
+            console.log(arr);
+        }
+
+    //    function removeletter(str, char){
+    //        var newstr="";
+    //        for (var i=0;i<str.length;i++){
+    //            if (str[i]==char){
+    //                continue;
+    //            }
+    //            else {newstr+=str[i]}
+    //        }
+    //        console.log(newstr);
+    //    }
+
+    //    removeletter("hello", l);
+        //Arrays
+
+        //pushFront- put a value at the front of an array
+
+        // function pushFront(arr,val){
+        //     var newarr=[val];
+        //     for (var i=0; i<arr.length; i++){
+        //         newarr[i+1]=arr[i];
+        //     }
+        //     arr=newarr;
+        //     return arr;
+        // }
+
+        // pushFront([1,3,4,5,6,7,9], 10);
+       
+
+        //popFront- remove and return first value of an array, may use pop
+
+        // function popFront(arr){
+        //     var popped=arr[0];
+        //     for(var i=0; i<arr.length-1;i++){
+        //         arr[i]=arr[i+1];
+        //     }
+        //     arr.pop();
+        //     return(popped);
+        // }
+        // popFront([1,3,4,5,6,7,9]);
+
+        //insertAt- given array, index and value, insert that value at that index
+
+        // function insertAt(arr, idx, val){
+        //     for (var i=arr.length;i>idx;i--){
+        //         arr[i]=arr[i-1]
+        //     }
+        //     arr[idx]=val;
+        //     console.log(arr);
+        // }
+
+        // insertAt([1,2,3,4,5,6,7,8,9],7,103);
+            
+        //insertAt- given array, index and value, insert that value at that index
+
+
+        //removeAt-given and array and index, remove value at index and return in. 
+
+        // function removeAt(arr,idx){
+        //     var popper= arr[idx];
+        //     for (var i=arr.length-1; i>idx; i--){
+        //         arr[i-1]=arr[i];
+        //     }
+        //     arr.pop();
+        //     return(popper);
+        // }
+        // function removeAt(arr, idx){
+        //     for (var i=idx; i<arr.length;i++){
+        //             arr[i]=arr[i+1];
+        //         }
+        //         arr.pop();
+        //         return arr;
+        // }
+        // removeAt([1,2,3,4,5,6,7,8,9],7);
+
+        // removeAt([1,2,3,4,5,6,7,8,9],7);
+
+        // second to last- return second to last value
+
+        // function secondLast(arr){
+        //     console.log (arr[arr.length-2]);
+        // }
+
+        // secondLast([1,2,3,4,5,6,7,8,9]);
+
+        // return nth last- return nth to the last value in array
+
+        // function nthLast(arr,n){
+        //     console.log(arr[arr.length-(n)]);
+        // }
+
+        // nthLast([0,1,2,3,4,5,6,7,8,9],6);
+
+        // second largest- return second largest value, keeps array intact
+
+        // function secondLarge(arr){
+        //     var max=arr[0];
+        //     for (var i=0; i<arr.length;i++){
+        //         if (arr[i]>max){
+        //             max=arr[i];
+        //         }
+        //     }
+        //     for (var k=0; k<arr.length; k++){
+        //         if (max===arr[k]){
+        //             var oldMax= arr[k];
+        //             arr[k]="dojo";
+        //             var pos=k;
+        //         }
+        //     }
+        //     var secondMax=arr[0];
+        //     for (var j=0; j<arr.length;j++){
+        //         if (arr[j]>secondMax){
+        //             secondMax=arr[j];
+        //         }
+        //     }
+        //     return(secondMax);
+        //     arr[pos]=oldMax;
+        // }
+
+        // secondLarge([4,77,98,105,79,31]);
+
+        //return nth largest element;
+
+        // function nthLarge(arr,n){
+        //     //this code makes a new array, obliterates it and returns value of nth largest. arr currently does not stays intact
+        //     var arrnew=arr;
+        //     var count = 0;
+        //     while (n>count){
+        //         count++;
+        //         var max=arrnew[0];
+        //         for(var i=0; i<arrnew.length;i++){
+        //             if (arrnew[i]>max){
+        //                 max = arrnew[i];
+        //                 var pos = i;
+        //             }
+        //         }
+        //         arrnew[pos]="Dojo";
+        //     }
+        //     console.log("The nth largest value is "+max);
+        //     return max;
+        // }
+        // nthLarge([3,5,7,9,11,4],3);
+            
+        // function concat(arr1,arr2){
+        //     //creates new array, loops values of first array into new array and remembers new array position. adds second array values
+        //     var newarr = [];
+        //     for (var i=0; i<arr1.length; i++){
+        //         newarr[i]=arr1[i];
+        //     }
+        //     var roundOne=i;
+        //     for (var j=0; j<arr2.length;j++){
+        //         newarr[roundOne]=arr2[j];
+        //         roundOne++;
+        //     }
+        //     console.log(newarr);
+        //     return newarr;
+            
+        // }
+
+        // concat([1,2,3,4], [5,6,7,8]);
+        
+        // function time()
+        // var pre = Date.now();
+        // var total = 1;
+        // for(var i=1;i<=num;i++){
+        //     total=total*i;
+        // }
+        // var post=Date.now();
+        // console.log("Time: ",post-pre);
+        // return total;
+
+
+        // var arr=[0];
+        // function fasterFactorial(num){
+        //     //takes a number and multiplies it by all positive integers less than it. can call all factorials by arr[factorial] 
+            
+        //     var fast=1;
+        //     if (num===0){return null};
+        //     if (num<0){return "Factorial number is less than 0, cannot compute"}
+        //     if (num<=arr.length-1){
+        //         console.log("In Array");
+        //         return arr[num]
+        //         }
+        //         for (var i=1;i<=num;i++){
+                
+        //         fast*=i;
+        //     //     arr.push(fast);
+        //     // }
+        //     // //for (var i=num-1;i>0;i--){
+        //     //     //num*=i;
+        //     // //}
+        //     // console.log(fast);
+        // }
+        // fasterFactorial(5);
+        // console.log(arr[4]);
+    
+
+
+        // function shuffle(arr){
+        //     //holds each value in a temporary variable, assigns it a new position and swaps the original value 
+        //     var pos;
+        //     var hold;
+        //     for (var i=arr.length-1;i>0;i--){
+        //         pos=Math.floor(Math.random()*(i+1));
+        //         hold=arr[i];
+        //         arr[i]=arr[pos];
+        //         arr[pos]=hold;
+        //     }
+        //     console.log(arr);
+
+        // }
+
+        // shuffle([1,2,3,4,5]);
+
+        // function smartSum(num){
+        //     //adds up all of the integer components of the number (sigma4=1+2+3+4). call by arr[number]
+        //     var arr=[];
+        //     var sum=0;
+        //     for (var pos=0; pos<=num;pos++){
+        //         sum+=pos;
+        //         arr.push(sum);
+        //     }
+        //     console.log(arr);
+        //     return sum;
+        // }
+        // smartSum(10);
+    
+        // function fibon(fn){
+        //     //each number gives the the sum of the previous 2 numbers- draw it out
+        //     if (fn<0){return "Error, fn less than 0"};
+        //     if (fn==0){return 0};
+        //     if (fn==1){return 1};
+        //     var arr=[0,1];
+        //     var f1=0;
+        //     var f2=1;
+        //     for(var idx=2; idx<=fn;idx++){
+        //        var ans=f1 + f2;
+        //        f1=f2;
+        //        f2=ans;
+        //        arr.push(ans);
+        //     }
+        //     console.log(ans);
+        //     console.log(arr[8]);
+        //     return ans;
+        // }
+
+        // fibon(9);    
+
+        // function tribon(fn){
+        //     //each number gives the the sum of the previous 2 numbers- draw it out
+        //     if (fn<0){return "Error, fn less than 0"};
+        //     if (fn==0){return 0};
+        //     if (fn==1){return 1};
+        //     if (fn==2){return 1};
+        //     var arr=[0,1,1]
+        //     var f1=0;
+        //     var f2=1;
+        //     var f3=1;
+        //     for(var idx=3; idx<=fn;idx++){
+        //        var ans=f1 + f2 + f3;
+        //        f1=f2;
+        //        f2=f3;
+        //        f3=ans;
+        //        arr.push(ans);
+        //     }
+        //     console.log(ans);
+        //     console.log(arr);
+        //     console.log(arr[10]);
+        //     return ans;
+        // }
+        
+        // tribon(10);
+        
+        // function arrs2Map(arr1, arr2){
+        //     //create new grouping with first group as key, second as value
+        //     var map= {};
+        //     for (var idx=0; idx<arr2.length;idx++){
+        //         map[arr1[idx]]=arr2[idx];
+        //     }
+        //     return map;
+        // }
+        
+        // arrs2Map(["abc", 3, "yo"], [42, "wassup", true])
+
+        // function invertHash(obj){
+        //     //swaps key and value in an hash system
+        //     var newObj={}
+        //     for (var key in obj){ 
+        //         newObj[obj[key]]=key
+        //     }
+        //     console.log(newObj);
+        //     return newObj;
+        // }
+
+        // invertHash({"name": "Zaphod", "numHeads": 2});
+
+        // function myJoin(arr){
+        //     //given an array of strings, return a string
+        //     var newString= ""
+        //     for (var idx=0; idx<arr.length;idx++){
+        //         newString += arr[idx]; 
+        //     }
+        //     console.log(newString);
+        //     return newString;
+        // }
+        
+        // myJoin(['a','b','c']);
+
+        // function mySplit(str){
+        //     //given a string, create an array of the characters
+        //     var arr=[];
+        //     for (var idx=0; idx<str.length; idx++){
+        //         arr[idx]=str[idx];
+        //     }
+        //     console.log(arr);
+        //     return arr;
+        // }
+
+        // mySplit("Bonjour");
+
+        // function reverseString(str){
+        //     var newstr="";
+        //     var arr=[];
+        //     for (var idx=str.length-1;idx>=0; idx--){
+        //         arr[idx]=str[idx]   
+        //     }
+        //     for (var countdown=arr.length-1;countdown>=0; countdown--){
+        //         newstr+=arr[countdown];
+        //     }
+        //     console.log(arr);
+        //     console.log(newstr);
+        // }
+        // reverseString("Bon Jour");
+            
+        // function removeBlanks(str){
+        //     //removes white spaces in string, skipping blank spaces
+        //     var arr=[];
+        //     var adjuster=0;
+        //     var newStr="";
+        //     for (var idx=0; idx<str.length; idx++){
+        //         if (str[idx]==" "){
+        //             adjuster-=1
+        //             continue;
+        //         }
+        //         else {arr[idx+adjuster]=str[idx]}
+        //     }
+        //     for (var rejoin=0; rejoin<arr.length;rejoin++){
+        //         newStr+=arr[rejoin];
+        //     }
+        //     console.log(newStr);
+        //     return newStr
+        // }
+        // removeBlanks("  play  that   Funky Music  ")
+            
+        // function removeletter(str, char){
+        //     var newstr="";
+        //     for (var i=0;i<str.length;i++){
+        //         if (str[i]==char){
+        //             continue;
+        //         }
+        //         else {newstr+=str[i];} 
+        //     }
+        //     return newstr;
+        // }
+        // removeletter("hello", "l");
+        // removeletter("parallelogram", "l");
+
+
+        // function onlyDigits(str){
+        //     //returns only integers from a string. Checks for integer by dividing by 1. Uses an adjuster to put integers in an array then converts to string
+        //     var arr=[];
+        //     var newStr=""
+        //     var adjuster=0
+        //     for (var idx=0; idx<str.length; idx++){
+        //         if (str[idx]/1==str[idx]){
+        //             arr[idx+adjuster]=str[idx];
+        //         }
+        //         else {
+        //             adjuster-=1;
+        //             continue;
+        //         }
+        //     }
+        //     for (var rejoin=0; rejoin<arr.length; rejoin++){
+        //         newStr+=arr[rejoin];
+        //     }
+        //     return Number(newStr);
+        // }
+
+        // onlyDigits("0s1a3y5w7h9a2t4?6!8?0")
+
+        
+        // function acroNYM(str){
+        //     //splits a string into words takes first letter in an array. capitalizes and returns a string. No edge cases considered
+        //     var arr2=str.split(" ");
+        //     var arr1=[];
+        //     var answer="";
+        //     for (var i=0; i<arr2.length; i++){
+        //         arr1.push(arr2[i][0]);
+        //     }
+        //     for (var j=0; j<arr1.length; j++){
+        //         arr1[j] = arr1[j].toUpperCase()
+        //         answer+=arr1[j];
+        //     }
+        //     console.log(answer);
+        //     return answer;
+        // }
+
+        // acroNYM("Live from New York, it's Saturday Night!");    
+            //ideas for manually changing character value.
+            // for (var j=0;j<.length;j++){
+            //     if (string.charCodeAt(0)>96){
+            //         str.charCodeAt(arr1[j])-=32;
+                
+            //         // arr1[j].fromCharCode(temp-32);
+            //     }
+            //     else {continue}
+
+            // }            
+            // console.log(arr1.charCodeAt(1));
+        // function parensValid(str){
+        //     //given a string, validates whether all parentheses are syntactically correct with boolean. can update combining smartBraces function ideas
+        //     var array=[];
+        //     var open=0;
+        //     var closed=0;
+        //     for (var i=0; i<str.length; i++){
+        //         //repeated twice because can't get OR to work 
+        //         if (str[i].charCodeAt()===40){
+        //             array.push(str[i]);
+        //             open+=1;
+        //         }
+        //         if (str[i].charCodeAt()===41){
+        //             array.push(str[i]);
+        //             closed+=1;
+        //             if(closed>open){
+        //                 console.log("false. Error, too many closed brackets");
+        //                 return false
+        //             }
+        //         }
+        //     }
+        //     if (open!=closed){
+        //         console.log("false. Error, unmatched brackets")
+        //         return false
+        //     }
+        //     else return true, console.log("true");
+        // }
+            
+        // parensValid("y(3(p)p(3)r)s");
+        // parensValid("n(0(p)3");
+        // parensValid("n)0(t(0)k");
+
+        // function bracesValid(str){
+
+        //     //try to check for matching pairs and pop them. 
+        //     var array=[];
+        //     var openpar=0;
+        //     var closepar=0;
+        //     var openbrace=0;
+        //     var closebrace=0;
+        //     var openbrack=0;
+        //     var closebrack=0;
+        //     for (var i=0; i<str.length; i++){
+        //         //builds array of enclosures and checks for too many closed par, brack, brace and cases where closing enclosures don't have opening enclosures. 
+        //         if (str[i].charCodeAt()===40){
+        //             array.push(str[i]);
+        //             openpar+=1;
+        //         }
+        //         else if(str[i].charCodeAt()===41){
+        //             array.push(str[i]);
+        //             closepar+=1;
+        //             if (closepar>openpar){
+        //                 console.log("false. Too many closed parentheses");
+        //                 return false;
+        //             }
+        //         }
+        //         else if(str[i].charCodeAt()===123){
+        //             array.push(str[i]);
+        //             openbrack+=1;
+        //         }
+        //         else if(str[i].charCodeAt()===125){
+        //             array.push(str[i]);
+        //             closebrack+=1;
+        //             if (closebrack>openbrack){
+        //                 console.log("false. Too many closed brackets");
+        //                 return false;
+        //             }
+        //             if (openpar!=closepar){
+        //                 console.log("false. Unclosed parentheses in bracket");
+        //                 return false;
+        //             }
+        //         }
+        //         else if(str[i].charCodeAt()===91){
+        //             array.push(str[i]);
+        //             openbrace+=1;
+        //         }
+        //         else if(str[i].charCodeAt()===93){
+        //             array.push(str[i]);
+        //             closebrace+=1;
+        //             if (closebrace>openbrace){
+        //                 console.log("false. Too many closed braces");
+        //                 return false;
+        //             }
+        //             if (openbrack!=closebrack){
+        //                 console.log("false. Too many closed brackets");
+        //                 return false;
+        //             }
+        //         }
+        //     }
+        //     //creates an error if number of parentheses, brackets and braces are not matched
+        //     if (openpar!=closepar){
+        //         console.log("false. Error, unmatched parentheses")
+        //     }
+        //     if (openbrack!=closebrack){
+        //         console.log("false. Error, unmatched brackets")
+        //     } 
+        //     if (openbrace!=closebrace){
+        //         console.log("false. Error, unmatched braces")
+        //     } 
+        // }
+        //Check 
+
+        // function smartBraces(str){
+        //     //builds and array with enclosures. Try to shorten with OR statementIf the preceding value closes a parenthetical, pop out the matching pair. If the array is empty at the end, all match and true. Else false, unmatched values
+        //     var array=[];
+        //     for (var i=0; i<str.length;i++){
+        //         if (str[i].charCodeAt()===40){
+        //             array.push(str[i]);
+        //         }
+        //         else if (str[i].charCodeAt()===41){
+        //             array.push(str[i]);
+        //             if (array.length===1){
+        //                 continue;
+        //             }
+        //             if (array[array.length-2].charCodeAt()===40){
+        //                 array.pop();
+        //                 array.pop();
+        //             }
+        //         }
+        //         else if (str[i].charCodeAt()===91){
+        //             array.push(str[i]);
+        //         }
+        //         else if (str[i].charCodeAt()===93){
+        //             array.push(str[i]);
+        //             if (array.length===1){
+        //                 continue;
+        //             }
+        //             if (array[array.length-2].charCodeAt()===91){
+        //                 array.pop();
+        //                 array.pop();
+        //             }
+        //         }
+        //         else if (str[i].charCodeAt()===123){
+        //             array.push(str[i]);
+        //         }
+        //         else if (str[i].charCodeAt()===125){
+        //             array.push(str[i]);
+        //             if (array.length===1){
+        //                 continue;
+        //             }
+        //             if (array[array.length-2].charCodeAt()===123){
+        //                 array.pop();
+        //                 array.pop();
+        //             }
+        //         }
+        //     }
+        //     console.log(array);
+        //     if (array.length===0){
+        //         console.log(true);
+        //         return true;
+        //     }
+        //     else console.log(false); return false;
+        // }
+
+        // smartBraces("w(a{t}s[o(n{c}o)m]e)h[e{r}e]!");
+        // smartBraces("d(i{a}l[t]o)n{e");
+        // smartBraces("a(1)s[O(n]0{t)0}k");
+        // smartBraces("rr]()(dd{})d([dd{d}])")
+        
+        // function strictPalindrome(str){
+        //     //decides if string is a strict palindrome considering spaces and capitalization and punctionation. can cut the array step to shorten it. Can also just reverse string and compare. Way easier
+        //     var array=[];
+        //     for (var i=0;i<str.length;i++){
+        //         array[i]=str[i];
+        //     }
+            
+        //     //determines how many times to look for matches on outside
+        //     var length=null;
+        //     if(array.length%2===0){
+        //         length=array.length/2;
+        //     }
+        //     else(length=(array.length/2)-.5)
+            
+        //     for (var run=0; run<=length; run++){
+        //         if (array[run]===array[(array.length-1)-run]){
+        //             continue;
+        //         }
+        //         else console.log(str + " is not a palindrome");
+        //         return false;
+        //     }
+        //     console.log(str + " is a palindrome!");
+        //     return true;
+
+        // }
+        // strictPalindrome("racecar");
+        // strictPalindrome("Dud");
+        // strictPalindrome("ahhhhhha");
+
+        // function palindrome(str){        
+        //         var reversestring = "";
+        //         for (var i=str.length-1; i>=0; i--){
+        //             reversestring+=str[i];
+        //         }
+        //         if (str==reversestring){
+        //             return true;
+        //         }
+        //         else {return false;}
+        // }
+        // palindrome("racecar");
+        // palindrome("Dud");
+        // palindrome("ahhhrhhrha");
+
+        // function longestPalindrome(str){
+        //     var length=0;
+        //     var position=0;
+        //     //attempts to iterate through a string. At each index, it checks previous characters for palindrome and stores length and position to recall the string later
+        //     for (var i=0;i<str.length;i++){
+        //         //this will find the longest palindrome with even number of letters, figure out how wide and return start of palindrome
+        //         if (str[i+1]===str[i]){
+        //             var count=2;
+        //             var posfinder=0
+        //             for (var j=2;j<=(str.length/2);j++){
+        //                 if (str[i+j]===str[(i+1)-j]){
+        //                     count+=2;
+        //                     posfinder-=1;
+        //                 }
+        //                 position=(i+posfinder);
+        //                 continue;
+        //             }
+        //             //resetting value each loop, need to have it store max value
+        //             console.log(posfinder);
+        //         }
+        //         // else if (str[i+2]===str[i]){
+                    
+        //         // }
+        //     }
+        // }
+        //use switch case outlined in monday around 10 min. Can maybe use to find palindrome
+
+        // longestPalindrome("warraw");
+        // longestPalindrome("not much");
+        // longestPalindrome("My favorrofff");
+
+        //Single linked list from https://vimeo.com/258033256/753d89ad4b, beginning of video
+
+        // function SLNode(value){
+        //     //node generator
+        //     this.val =value;
+        //     this.next =null;
+        // }
+
+        // function SLList(){
+        //     //list blueprint, designates a head
+        //     this.head =null;
+        //     this.tail =null;
+        // }
+
+        // // (creates new nodes with values of 1-4) new create new object
+        // node1= new SLNode(1);
+        // node2= new SLNode(22);
+        // node3= new SLNode(3);
+        // node4= new SLNode(4);
+        
+        // //links nodes. 
+        // node1.next = node2; 
+        // node2.next = node3;
+        // node3.next = node4;    
+        
+        // function delEnd(node){
+        //     var current=node;
+        //     while (current){
+        //         if (current.next.next===null){
+        //             delete current.next;
+        //             console.log(node);
+        //             return node;
+        //         }
+        //         current=current.next;
+        //     }
+        // }
+        // delEnd(node1);
+        // function addFront(firstNode,val){
+        //     //replaces the head node with a new head. 
+        //     //creates a new node with the value indicated in the called function
+        //     var newNode= new SLNode(val);
+        //     // reassigns the pointer to the original first node
+        //     newNode.next=firstNode;
+        //     // after connection, the whole list has now been increased by 1
+        //     return newNode;
+        // }
+
+        // function removeFront(firstNode){
+        //     //removes first value, shortening list by one
+        //     //creates a variable that is equal to where first node points to. returns that value and JS deletes first value
+        //     var newFirst=firstNode.next;
+        //     return newFirst;
+
+        // }
+        
+        // removeFront(node1);
+
+        // //creates a list called list and sets head to node1
+        // var list = new SLList();
+        // list.head= node1;
+
+        // function contains(list, val){
+        //     //given the first node of a list, searches through the list and returns boolean if item is in list
+        //     //first checks if list or list.head exists. if not, return false
+        //     if(!list || !list.head){
+        //         return false;
+        //     }
+        //     var current = list.head;
+        //     while (current){
+        //         if (current.val===val){
+        //             console.log("true");
+        //             return true;
+        //         }
+        //         current=current.next;
+        //     }
+        //     return false;
+        // }
+        // contains(list, 5);
+
+        // function front(list){
+        //     //returns value or null for the first value in a list. assumes that value==null will report 
+        //     return (list.head.val);
+        //     //or return (list.head ? list.head.val: null); tthis uses a ternary condition (if statement is true return first statement, false second statement)
+        // }
+
+        // front(list);
+
+        // function length(firstNode){
+        //     //accepts a pointer to first node and returns number of nodes in list
+        //     var current = firstNode;
+        //     var counter = 0;
+        //     while (current){
+        //         counter++;
+        //         if (current.next===null){
+        //             console.log(counter);
+        //             return counter;
+        //         }
+        //         current=current.next;
+        //     }
+        // }
+        // console.log(node1);
+        // length(node1);
+
+        // function nodeAvg(firstNode){
+        //     //given first node, givess average value of nodes in a list
+        //     var current = firstNode;
+        //     var counter=0;
+        //     var avg=0;
+        //     while (current){
+        //         avg+=current.val;
+        //         counter++;
+        //         if (current.next===null){
+        //             console.log(avg/counter);
+        //             return avg/counter;
+        //         }
+                
+        //         current=current.next;
+        //     }
+
+        // }
+
+        // nodeAvg(node1);
+
+        // function min(firstNode){
+        //     //given a first node, find min and max values
+        //     var current= firstNode;
+        //     var min=current.val;
+        //     while (current){
+        //         if (current.val<min){
+        //             min=current.val;
+        //         }
+        //         if (current.next===null){
+        //             console.log(min);
+        //             return min
+        //         }
+        //         current=current.next;
+        //     }
+        // }
+
+        // min(node1);
+
+        // function max(firstNode){
+        //     //given a first node, find max value
+        //     var current= firstNode
+        //     var max=current.val;
+        //     while (current){
+        //         if (current.val>max){
+        //             max=current.val;
+        //         }
+        //         if (current.next===null){
+        //             console.log(max);
+        //             return max
+        //         }
+        //         current=current.next;
+        //     }
+        // }
+
+        // max(node1);
+
+        // function display(firstNode){
+        //     //returns a string with all list values
+        //     var current = firstNode;
+        //     var array = [];
+        //     var nodeVals = "";
+        //     while (current){
+        //         array.push(current.val);
+        //         if (current.next===null){
+        //             //adds each node value to the answer string
+        //             for (var i=0;i<array.length;i++){
+        //                 nodeVals+=(array[i]);
+        //                 //adds a separater to all but last value
+        //                 if (i<array.length-1){
+        //                     nodeVals+=",";
+        //                 }
+        //             }
+        //             console.log(nodeVals);
+        //             return nodeVals;
+        //         }
+        //         current=current.next;
+        //     }
+        // }
+ 
+        // function shiftValuesByNum(arr, num){
+
+        //     while (num > 0) {
+        //         for (let i = arr.length; i > 0; i--) {
+        //             arr[i] = arr[i-1];
+        //         }   
+        //         console.log(arr);
+        //         arr[0] = arr.pop();
+        //         num--;
+        //     }
+
+        //     return arr;
+        //     };
+
+        // console.log(shiftValuesByNum([1,2,3,4,5], 1));
+        // console.log(shiftValuesByNum([1,2,3,4,5], 2));
+        // console.log(shiftValuesByNum([1,2,3,4,5], 3));
+        // console.log(shiftValuesByNum([1,2,3,4,5], 4));
+        // function shiftValue(arr,num){
+        //     //increases array length to accomodate some new values. Feel free to console log along the way to see what is happening!
+        //     arr.length=arr.length+num;
+        //     //shifts all of the array values forward 
+        //     for (var i=arr.length-1; i>=0; i--){
+        //             arr[i]=arr[i-num];
+        //     }
+        //     //moves the shifting values from the end of the array
+        //     for(var j=0; j<num;j++){
+        //         arr[j]=arr[j+arr.length-num];
+
+        //     }
+        //     //pops off all of the extra undefined spaces to restore array length
+        //     var counter=num
+        //     while (counter>0){
+        //         arr.pop();
+        //         counter--;
+        //     }
+        //     console.log(arr);
+        //     return arr;
+        // }
+        // shiftValue([1,2,3,4,5], 2);
+
+        // display(node1);
+
+        //My way
+        // function removeDups(arr){
+        //     arr.sort();
+        //     var counter=0;
+        //     for (var i=0;i<arr.length;i++){
+        //         if (arr[i+1]==arr[i]){
+        //             counter++;
+        //             delete arr[i];
+        //         }
+        //     }
+        //     arr.sort();
+        //     for (var j=0;j<counter;j++){
+        //         arr.pop();
+        //     }
+        //     return arr;
+        // }
+        
+        // removeDups([1,1,2,2,3,3,4,5,6]);
+
+        //other ways- Create a set, wont allow duplicates. 
+
+
+        // function kthLarge(arr, num){
+        //     arr.sort();
+        //     var counter=0;
+        //     for (var i=0;i<arr.length;i++){
+        //         if (arr[i+1]==arr[i]){
+        //             counter++;
+        //             delete arr[i];
+        //         }
+        //     }
+        //     arr.sort();
+        //     for (var j=0;j<counter;j++){
+        //         arr.pop();
+        //     }
+        //     return arr[arr.length-num];
+        // }
+        // kthLarge([1,1,2,2,3,3,4,5,6], 2);
+        
+        // function sequence(arr){
+        //     arr.sort();
+        //     var array2=[];
+        //     var counter=1;
+        //     var pos=0;
+        //     for (var i=0; i<arr.length; i++){
+        //         if (arr[i+1]===arr[i]+1){
+        //             counter++;
+        //             pos=i+1;
+        //             continue;
+        //         }
+        //         console.log(counter);
+        //     }
+        //     for (var j=counter; j>0;j--){
+        //         array2.push(arr[pos-j+1]);
+        //     }
+        //     console.log(array2);
+        // }
+        // sequence([1,2,3,4,5,6,50,42,28,29,30,31,18]);
+
+        //for exam, can use split, join, pop, push built in functions. 
+
+
+        // Double linked lists
+
+        // function dlNode(value){
+        //     //node object constructor
+        //     if (!(this instanceof dlNode)){
+        //         return new dlNode(value);
+        //     }
+        //     this.val = value;
+        //     this.prev = null;
+        //     this.next = null;
+        //     }
+
+        // function dList(){
+        //     //dlist object constructor
+        //     if (!(this instanceof dList)){
+        //         return new dList();
+        //     }
+        //     this.head = null;
+        //     this.tail = null;
+        //     }
+        
+        // //constructing new nodes
+
+        // node1= new dlNode(1);
+        // node2= new dlNode(2);
+        // node3= new dlNode(3);
+        // node4= new dlNode(4);
+        // node5= new dlNode(5); 
+        
+        // //linking the nodes
+        // node1.next= node2;
+        // node1.prev= null;
+
+        // node2.next= node3;
+        // node2.prev=node1;
+
+        // node3.next=node4;
+        // node3.prev=node2;
+
+        // node4.next=node5;
+        // node4.prev=node3;
+
+        // node5.next=null;
+        // node5.prev=node4;
+
+        // //creates new formatted doubly linked list
+        // mylist= new dList();
+
+        // //designates head and tail properties
+
+        // mylist.head = node1;
+        // mylist.tail = node5;
+
+        //prepend. Add a node with new value before a node with a target value. Edge cases, what if head node is the value? redefine head
+
+        // function prepend(list, newVal, targetVal){
+        //     //checks if list exists
+        //     if (list){
+        //         //sets a traversing variable and creates a new node through node factory with new value
+        //         var current = list.head;
+        //         var newNode = new dlNode(newVal);
+        //         //edge case if target value is at the head
+        //         if (current.val=== targetVal){
+        //             current.prev=newNode;
+        //             newNode.next=current;
+        //             list.head=newNode    
+        //         }
+        //         //otherwise, finds target value and relinks network between previous node, new node and current node
+        //         while (current){
+        //             if (current.val===targetVal){
+        //                 after=current;
+        //                 before=current.prev;
+        //                 after.prev= newNode;
+        //                 before.next= newNode;
+        //                 newNode.next= after;
+        //                 newNode.prev= before;
+        //             }
+        //             current=current.next
+        //         }
+        //         return list;
+        //     }
+        // }
+
+        // prepend(mylist, 9, 1);
+
+        //kth to last value function. return node value kth from last
+
+        // function kthLast(list, k){
+        //     if (list){
+        //         var current = list.head;
+        //         //finds last node of list
+        //         while (current.next!=null){
+        //             current = current.next;
+        //             }
+        //             console.log(current.val);
+        //         // counts back 'k' times until it hits kth from last node
+        //         while (k>0){
+        //             current=current.prev;
+        //             k--;
+        //         }
+        //         return current.val;
+        //     }
+        // } 
+
+        // kthLast(mylist, 2);
+
+        // runs through a list and makes sure head and tail nodes are where they say they are
+        // function validDlist(list){
+        //     //
+        //     if (list){
+        //         var current = list.head;
+        //         //iterates to end of dl list
+        //         while (current.next!=null){
+        //             current=current.next;
+        //         }
+        //         //checks if last node is equal to tail
+        //         if (current!=list.tail){
+        //             return false;
+        //         }
+        //         //iterates back to first node
+        //         while (current.prev!=null){
+        //             current=current.prev;
+        //         }
+        //         //checks if first node is the head
+        //         if (current!=list.head){
+        //             return false;
+        //         }
+        //         //if it makes it this far, list works!
+        //         else {return true;}
+        //     }
+        // }
+        // validDlist(mylist);
+
+        //palidrome function. Checks whether dl list is palindromic
+        // function dlPalinddrome(list){
+        //     //iterates through list and pushes values to an array. checks array against reverse array to see if it is the same
+        //     if (list){
+        //         var current = list.head;
+        //         var arr1 = [];
+        //         var arr2 = [];
+        //         while (current.next!=null){
+        //             arr1.push(current.val);
+        //             current = current.next;
+        //         }
+        //         arr1.push(current.val);
+        //         while (current.prev!=null){
+        //             arr2.push(current.val);
+        //             current = current.prev;
+        //         }
+        //         arr2.push(current.val);
+        //         if (arr1=arr2){
+        //             return true;
+        //         }
+        //         else {return false;}
+        //     }
+        // }
+        // dlPalinddrome(mylist);
+
+        //function loop start- determines if the list is actually looped. if so, returns node that begins loop 
+        
+        // function loopStart(list){
+        //     if (list){
+        //         var current = list.head;
+        //         while (current.next!=null){
+        //             current = current.next;
+        //             if (current.next === list.head){
+        //                 console.log(current);
+        //                 return current;
+        //                 break
+        //             }
+        //             else if (current.next == null){
+        //                 console.log("not loopin");
+        //                 return false;
+        //             }
+        //         }
+        //     }
+        // }
+        // loopStart(mylist);
+    
+        // =============================
+        // ======Algorithms IV==========
+        // ==Recursive/Binary Tree======
+        // =============================
+
+        // function rSigma(num, counter=0, sum=0){
+        //     // Write a recursive function that, given a number, returns the sum of integers from one up to that number. For example, rSigma(5) = 1+2+3+4+5 = 15; rSigma(2.5) = 1+2 = 3; rSigma(-1) = 0.
+        //     //floors num value so that it doesn't run beyond integer values
+        //     if (counter>=Math.floor(num)||num<0){
+        //         console.log(sum);
+        //         return sum;
+        //     }
+        //     //runs the function for each integer value
+        //     counter++;
+        //     sum=sum+counter;
+        //     rSigma(num, counter, sum);
+        // }
+
+        // or... without extra parameters. Jason's method
+
+        // var counter = 0;
+
+        // function rsigma(n) {
+        //     if (n<=0){return 0;}
+
+        //     if (counter++ > 1000) {throw new Error "whoops!"}
+            
+        //     return rsigma(n-1)+Math.floor(n);
+        // }
+
+        // rSigma(2);
+        // rSigma(2.5);
+        // rSigma(5)
+        // rSigma(-1);
+
+        // function rBinarySearch(arr, val, index=0){
+        //     // Write a recursive function that, given a sorted array and a value, determines whether the value is found within the array. For example, rBinarySearch([1,3,5,6], 4) = false; rBinarySearch([4,5,6,8,12], 5) = true.
+        //     //checks 0 index first, finds cases where array is empty. First Solution
+        //     if (index===arr.length){
+        //         console.log("false");
+        //         return false;
+        //     }
+        //     if (arr[index]===val){
+        //         console.log("true");
+        //         console.log("The value in question is located at the index of", index);
+        //         return true;
+        //     }
+        //     index++;
+        //     console.log("index is ", index);
+        //     rBinarySearch(arr, val, index);
+        // }
+
+        // function rBinarySearch(arr, val, start=0, end=arr.length-1){
+        //     // Write a recursive function that, given a sorted array and a value, determines whether the value is found within the array. For example, rBinarySearch([1,3,5,6], 4) = false; rBinarySearch([4,5,6,8,12], 5) = true.
+        //         //more recursive solution. Defines a middle point and searches for higher or lower. This moves forward
+        //     var middle=Math.floor((start+end)/2);
+        //     //if middle is the value or middle +1 (for rounding errors with Math.floor)
+        //     if (arr[middle]===val||arr[middle+1]===val) {console.log("true"); return true;}
+        //     //end condition
+        //     else if (middle<=0||end-start===1){console.log("false"); return false;}
+        //     //forward progress
+        //     else if (val>arr[middle]){
+        //         return rBinarySearch(arr, val, middle, end);
+        //     }
+        //     //backwards progress
+        //     else if (val<arr[middle]){
+        //         return rBinarySearch(arr, val, start, middle);
+        //     }
+        //     }
+            
+
+        // rBinarySearch([], 4);
+        // rBinarySearch([1,2,3,4,5,6,7,8,9,10], 11);
+
+        // function rFib(num, a=0, b=1, total=null, counter=2){
+        //     // Write rFib(num). Recursively compute and return the numth Fibonacci value. As earlier, treat the first two (num = 0, num = 1) Fibonacci values as 0 and 1. Thus, rFib(2) = 1 (0+1); rFib(3) = 2 (1+1); rFib(4) = 3 (1+2); rFib(5) = 5 (2+3). Also, rFib(3.65) = rFib(3) = 2. Finally, rFib(-2) = rFib(0) = 0.
+        //     //taking care of default values
+        //     if (num===0||num<0){
+        //         console.log(0);
+        //         return 0;
+        //     }
+        //     if (num===1){
+        //         console.log(1);
+        //         return 1;
+        //     }
+        //     //doing the fibonacci substitutions
+        //     total=a+b;
+        //     a=b;
+        //     b=total;
+        //     //base case
+        //     if (counter===Math.floor(num)){
+        //         console.log(total);
+        //         return total;
+        //     }
+        //     //forward progress
+        //     counter++;
+        //     //call itself
+        //     rFib(num, a, b, total, counter);
+        // }
+        
+        // Jason's solution
+        // function rFib(n){
+        //     // base cases
+        //     if (n < 1) {return 0;}
+        //     if (n===1) {return 0;}
+
+        //     return rFib(Math.floor(n)-1) + rFib(Math.floor(n)-2);
+        // }
+        
+        // function rTrib(n){
+        
+        //     // base cases
+        //     if (n < 1) {return 0;}
+        //     if (n===1) {return 0;}
+        //     if (n===2) {return 1;}
+
+        //     return rTrib(Math.floor(n)-1) + rTrib(Math.floor(n)-2) + rTrib(Math.floor(n)-3);
+        // }
+
+        // console.log(rFib(2));
+        // console.log(rFib(3));
+        // console.log(rFib(4));
+        // console.log(rFib(6));
+        // console.log(rFib(3.65));
+        // console.log(rFib(-2));
+        // console.log(rFib(0));
+
+        
+
+        // function floodFill(canvas, startXY, newColor, oldColor){
+        //     //defines start point
+        //     var x = startXY[0];
+        //     var y = startXY[1];
+        //     //defines the old color only once
+        //     if (!oldColor){
+        //         oldColor=canvas[y][x];
+        //     }
+        //     //base case, won't act on any values that aren't the old color
+        //     if (canvas[y][x] !== oldColor){
+        //         return;
+                
+        //     }
+        //     //changes old color to new color
+        //     canvas[y][x]=newColor;
+        //     //recursive call for each direction. I had messed up before by not adding or subtracting from x, y in the conditional
+        //     if (x+1<canvas[y].length){
+        //         floodFill(canvas, [(x+1),y], newColor, oldColor);
+        //     }
+        //     if (y-1>=0){
+        //         floodFill(canvas, [x,(y-1)], newColor, oldColor);
+        //     }
+        //     if (y+1<canvas.length){
+        //         floodFill(canvas, [x,(y+1)], newColor, oldColor);
+        //     }
+        //     if (x-1>=0){
+        //         floodFill(canvas, [(x-1),y], newColor, oldColor);
+        //     }
+        // }    
+        // var canvas = [  
+        //     [3,2,3,4,3],
+        //     [2,3,3,4,0],
+        //     [7,3,3,4,1],
+        //     [6,5,3,4,1],
+        //     [1,2,3,3,3] ]
+        
+        // floodFill(canvas, [2,2], 9);
+        // console.log(canvas);
+        
+        
+        // function rNode(node){
+        //     // Given the first node of a singly linked list, create a recursive function that returns the number of nodes in that list. You can assume the list contains no loops, and that it is short enough that you will not ‘blow your stack’. 
+            
+        //     //this is not summing the value, why?
+        //     if (!node){return 0;}
+        //     else {
+        //         node=node.next;
+        //     }
+
+        //     return rNode(node)+1;
+
+        // }
+        // console.log(rNode(node1));
+
+        //-------------------------------------
+        //------Binary Search Trees------------
+        //-------------------------------------
+
+        // questions: how to use the root generator to add classes. I'm just making functions
+
+
+        //binary node generator
+        // function btNode(value) {
+        //     this.val = value;
+        //     this.left = null;
+        //     this.right = null;
+        // }
+        // // //root generator
+        // // function bst() {
+        // //     this.root = null;
+        // // }
+
+
+        // //constructing new nodes
+
+        // node1= new btNode(1);
+        // node2= new btNode(2);
+        // node3= new btNode(3);
+        // node4= new btNode(4);
+        // node5= new btNode(5); 
+        // node6= new btNode(6);
+        // node7= new btNode(7); 
+        
+        // //linking nodes
+        // node4.right = node6;
+        // node4.left = node3;
+        
+        // node3.left = node2;
+        
+        // node2.left = node1;
+
+        // node6.left = node5;
+        // node6.right = node7;
+
+      
+        
+
+       
+        
+        
+        // //Create an add(val) method on the bst object to add a new value to the tree. This entails creating a btNode with this value and connecting it at the appropriate place in the tree. Note: BSTs can contain duplicate values.
+        
+    
+        // //root generator
+        // function bst() {
+        //     this.root = null;
+        //     this.add = function (val) {
+        //         //added, doesn't make sense
+        //         var root = this.root;
+        //         //added, doesn't make sense
+        //         if (!this.root){
+        //             this.root = new btNode(val);
+        //             return;
+        //         }
+        //         //creates new node and sets root to current
+        //         var newnode= new btNode(val);
+        //         var current = root;
+        //         //keeps going right or left depending on greater/less values and attaches to an empty end
+        //         while (current){
+        //             if (val < current.val){
+        //                 if (!current.left){
+        //                     current.left=newnode;
+        //                     break;
+        //                 }
+        //                 else {
+        //                     current = current.left;
+        //                 }
+        //             }
+        //             else {
+        //                 if (!current.right){
+        //                     current.right = newnode;
+        //                     break;
+        //                 }
+        //                 else {
+        //                     current = current.right;
+        //                 }
+        //             }
+        //         }  
+        //     }
+        //     this.min = function () {
+        //         if (!this.root){
+        //             return false;
+        //         }
+
+        //         var current = this.root;
+            
+        //         while (current) {
+        //             current = current.left;
+        //             if (current.left == null){
+        //                 return current.val;
+        //             }
+        //         }
+        //     }
+        //     this.max = function () {
+        //         if (!this.root){return false;}
+
+        //         var current = this.root;
+            
+        //         while (current) {
+        //             current = current.right;
+        //             if (current.right == null){
+        //                 return current.val;
+        //             }
+        //         }
+        //     }
+        //     this.contains = function (val){
+        //         if (!this.root){return false;}
+        //         var current = this.root;
+                
+        //         while (current){
+        //             if (current.val === val) {return true;}
+        //             else if (val<current.val){
+        //                 if (current.left==null) {return false;}
+        //                 else {current = current.left;}
+        //                 contains(val,current);
+        //             }
+        //             else if (val>=current.val){
+        //                 if (current.right== null){return false;}
+        //                 else {
+        //                 current=current.right;
+        //                 contains(val,current);
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     this.sizes = function (){
+        //         var counter= 0;
+        //         if (this.root){
+        //             counter++;
+        //             rSizes(this.root);
+        //         }
+        //         function rSizes(node){
+        //             if (node.right){
+        //                 counter++;
+        //                 rSizes(node.right);
+        //             }
+        //             if (node.left){
+        //                 counter++;
+        //                 rSizes(node.left);
+        //             }
+        //         }
+        //         return counter;
+                
+        //     }
+        //     this.isEmpty = function (){
+        //         //checks if a BST contains values. If there is an empty value on a node, it will return false. 
+        //         if (this.root){
+        //             empty(this.root);
+        //         }
+        //         else {return false;}
+        //         function empty(node){
+        //             if (node.right){
+        //                 if (node.val===null){
+        //                     return false;
+        //                 }
+        //                 empty(node.right);
+        //             }
+        //             if (node.left){
+        //                 if (node.val===null){
+        //                     return false;
+        //                 }
+        //                 empty(node.left);
+        //             }
+        //         }
+        //         return true;
+        //     }
+        //     this.remove = function (val){
+        //         if (this.root){
+        //             valNull(this.root);
+        //         }
+        //         function valNull(node){
+        //             if (node.val===val){
+        //                 console.log("replaced");
+        //                 node.val=null;
+        //             }
+        //             else{
+        //                 if (node.right){
+        //                     valNull(node.right);
+        //                 }
+        //                 if (node.left){
+        //                     valNull(node.left);
+        //                 }
+        //                 return false;
+        //             }
+                    
+
+        //         }
+
+        //     }
+        //     this.removeAll = function(){
+        //         //removes all vales in a BST turning them into null
+        //         if (this.root){
+        //             nullify(this.root);
+        //         }
+        //         function nullify(node){
+        //             node.val=null;
+        //             if (node.left){
+                        
+        //                 nullify(node.left);
+        //             }
+        //             if (node.right){
+                        
+        //                 nullify(node.right);
+        //             }
+        //         }
+        //     }
+        //     this.isValid = function(){
+                
+        //         //checks for downstream node values that don't follow the right/left hierarchy. test with Seth's code. 
+        //         if (this.root){
+        //             checkRL(this.root);
+        //         }
+        //         function checkRL(node){
+        //             if (node.left){
+        //                 if (node.left.val>=node.val){
+        //                     console.log("falso");
+        //                     return false;
+        //                 }
+        //                 else {
+        //                     checkRL(node.left);
+        //                 }
+        //             }
+        //             if (node.right){
+        //                 if (node.right.val<node.val){
+        //                     console.log("falso");
+        //                     return false;
+        //                 }
+        //                 else {
+        //                     checkRL(node.right);
+        //                 }
+        //             }
+                    
+        //         }
+        //     }
+        // }
+        
+        // var newTree = new bst();
+
+        // newTree.add(8);
+        // newTree.add(109);
+        // newTree.add(9);
+        // newTree.add(2);
+        // newTree.add(1);
+        // newTree.add(3);
+        // console.log(newTree.isValid());
+        
+        // ////////////////////////
+        // ///Queues and Stacks////
+        // ////////////////////////
+
+        //Constructor Function
+
+        function SLNode(value) {
+            this.val = value;
+            this.next = null;
+        }
+
+        function SLQueue() {
+            this.head = null; //front of list
+            this.tail = null; //back of list
+            //create SLQueue method enqueue(val) to add the given value to end of queue
+            this.enqueue = function(val){
+                //Create new node
+                let newNode = new SLNode(val);
+                //Check if tail exists
+                
+
+                if (!this.tail){
+                //  if it doesn't, set new node as head and tail
+                    this.head = newNode;
+                    this.tail = newNode;
+                    return this;
+                }
+                //If it does, link tail to new node
+                this.tail.next = newNode;
+                // assign new node to tail
+                this.tail = newNode;
+                return this;
+            }
+            this.front = function(){
+                //Create SLQueue method front() to return the value at front of our queue, without removing it.
+                if (this.head){
+                    return this.head.val;
+                }
+                else {return false};
+            }
+            this.dequeue = function(){
+                //Create SLQueue method dequeue() to remove and return value at front of queue
+                //check if head
+                if (!this.head){return false;}
+                else {
+                    var tempNode = this.head;
+                    if (this.head.next){
+                        this.head= this.head.next;
+                    }
+                    tempNode.next=null;
+                    return tempNode.val;
+                }
+            }
+            this.contains = function(val){
+                //Create method contains(val) to return whether given value is found within our queue.
+                //does not account for lack of head/null head values
+                if (this.head){
+                    var crawler = this.head;
+                    while (crawler){
+                        if (crawler.val=== val){
+                            return true;
+                        }
+                        else {crawler=crawler.next;}
+                    }
+                    return false;
+                }
+            }
+            this.isEmpty = function(){
+                //Create SLQueue method isEmpty() thatreturns whether our queue contains no values.
+                //true = empty, false = contains values
+                if (!this.head){return true;}
+                var crawler = this.head;
+                while (crawler){
+                    if (crawler.val==null){return true;}
+                    else {crawler=crawler.next;}
+                }
+                return false;
+            }
+        }
+        
+        //building a few nodes
+        const queue = new SLQueue();
+        const node1 = new SLNode(3);
+        const node2 = new SLNode(2);
+        const node3 = new SLNode(1);
+        const node4 = new SLNode(4);
+        const node5 = new SLNode(1);
+        
+        node1.next= node2;
+        node2.next= node3;
+        node3.next= node4;
+        node4.next= node5;
+
+        queue.head = node1;
+        queue.tail = node5;
+
+        
+
+
+        // function compareQueues (queue1, queue2){
+        //     //Given two SLQueue objects, create a standalone function that returns whether they are equal. Queues are equal only if they have equal elements in identical order. Allocate no other object, and return the queues in their original condition upon exit.
+        //     if (queue1.head&&queue2.head){
+        //         //after checking for a head, creates a temp node to traverse both queues
+        //         var crawler1 = queue1.head;
+        //         var crawler2 = queue2.head;
+                
+        //         while (crawler1){
+        //             if (crawler1.val!==crawler2.val){
+        //                 return false;
+        //             }
+        //             else {
+        //                 crawler1 = crawler1.next;
+        //                 crawler2 = crawler2.next;
+        //             }
+        //         }
+        //         if (crawler2){return false;}
+        //         else {return true;}
+        //     }
+        // }
+        
+        //Remove Minimums Create a standalone function to remove an SLQueue’s lowest value, otherwise leaving values in the same sequence. Use only local variables; allocate no other objects. Remove all duplicates of this value.
+		// Bonus: Remove only the last minimum value. Convert [7,2,5,2,4] to [7,2,5,4]
+        
+        // function removeMinSLQ(queue){
+        //     //create a checker that goes through the whole queue looking for lowest value
+        //     var checker = queue.head;
+        //     //counter records the index in the queue, in array format
+        //     var counter = 0;
+        //     //a storage array that logs the current lowest value and queue index
+        //     var arr = [null,0];
+        //     //initial lowest value will be head value
+        //     arr[0]=checker.val;
+        //     while (checker){
+        //         if (checker.next===null){break;}
+        //         else {
+        //             checker=checker.next;
+        //             counter++;
+        //         }
+        //         if (checker.val<arr[0]){
+        //             arr[0]=checker.val;
+        //             arr[1]=counter;
+        //         }
+        //     }
+        //     //now to go back through and remove lowest values
+        //     //currently broken
+        //     var remover=queue.head;
+        //     while(remover){
+        //         if (remover.val===arr[0]){
+        //             queue.head=queue.head.next;
+        //             remover.next=null;
+        //         }
+        //         console.log(remover.next)
+        //         if (remover.next===arr[0]){
+        //             var temp=remover;
+
+        //         }
+        //         if (remover.next===null){break;}
+        //         else {remover=remover.next}
+        //     }
+
+            
+        // }
+
+        // removeMinSLQ(queue);
+        
+        ////////////////////////
+        ////Sorts///////////////
+        ////////////////////////
+
+        // function bubbleSort(arr){
+        //      // sort using the bubble method https://en.wikipedia.org/wiki/Bubble_sort        
+        //     //creates a countdown that doesn't check the last value (unneeded). Each loop for the second for loop it checks one less value because they have already been sorted
+        //     for (var k=0; k<arr.length; k++){
+                
+        //         //runs a loop that checks once less value at the eand each round
+        //         for (var i=0; i<arr.length-1-k; i++){
+        //             //checks the next value to see if it is smaller. If it is is, it swaps itself with that value
+        //             if (arr[i]>arr[i+1]){
+        //                 var temp = arr[i];
+        //                 arr[i]=arr[i+1];
+        //                 arr[i+1]=temp;
+        //             }
+        //         }
+        //     }
+        // }
+
+        // var bubArray = [9,8,7,6,6];
+
+        // bubbleSort(bubArray);
+        // console.log(bubArray);
+        
+        function selectionSort(arr){
+            //sorts and array with the selection method https://en.wikipedia.org/wiki/Selection_sort
+            //incrementally moves through the array, moving the for loop up one each round to account for each round of sorting
+            for (var k =0; k<arr.length; k++){
+                //sets the minimum value to the k starting point
+                var min=arr[k];
+                //from here it iterates through the remains of the array looking for a lower value
+                for (var i = k; i<arr.length-1; i++){
+                    //temporarily stores the current lowest value
+                    if (arr[i+1]<min){
+                        min=arr[i+1];
+                        var pos = i+1;
+                    }
+                }
+                //once it reaches the end of the loop, it has the lowest value. It swaps that with the head of the unsorted list, sorting once value each round
+                var temp = arr[k];
+                arr[k]=min;
+                arr[pos]=temp;
+            }
+            
+        }
+        var selectArr = [10,9,8,7,6,6];
+        selectionSort(selectArr);
+        console.log(selectArr);
+    </script>
+</body>
+
+</html>
+
