@@ -1,5 +1,200 @@
+
 <script>
-    let result = ['3',1,2];
-    console.log(JSON.stringify(result) == JSON.stringify([3,1,2]));
+    //FCC Algorithms round 1
+
+    // function reverseString(str){
+    //     var split = str.split("");
+    //     var reverse = split.reverse();
+    //     var join = reverse.join("");
+    //     return join;
+    // }
+
+    // reverseString("Hello");
+    // //gives "olleH"
+
+    // function factorialize(num){
+    //     //gives the factorial
+    //     if (num===0){
+    //         return 1;
+    //     }
+    //     for (var i=num-1; i>0; i--){
+    //         var start *=i;
+    //     }
+    //     return start;
+    // }
+
+    function palindrome(str) {
+        var lowercase = str.toLowerCase();
+        emptyArray=[];
+       
+        for (var i=0; i<lowercase.length; i++){
+            if (lowercase[i]==1||lowercase[i]===2||lowercase[i]===3||lowercase[i]===4||lowercase[i]===5||lowercase[i]===6||lowercase[i]===7||lowercase[i]===8||lowercase[i]===9||lowercase[i]===0){
+              
+                emptyArray.push(lowercase[i]);
+            }
+            else if (lowercase.charCodeAt(i)<123&& lowercase.charCodeAt(i)>96){
+                emptyArray.push(lowercase[i]);
+            }
+        }
+        
+        reverseArray = [];
+        for (var x = emptyArray.length-1; x>=0; x--){
+            reverseArray.push(emptyArray[x]);
+        }
+        console.log(reverseArray);
+        for (var j=0; j<emptyArray.length; j++){
+            if (reverseArray[j]!==emptyArray[j]){
+                console.log(false);
+                return false;
+            }
+        }
+        
+        return true;
+        }
+
+        //FCC Beginner Solution
+
+        // function palindrome(str) {
+        //     return str.replace(/[\W_]/g, '').toLowerCase() ===
+        //      str.replace(/[\W_]/g, '').toLowerCase().split('').reverse().join('');
+        // }
+
+        // FCC Advanced Solution
+            //advantage is that it doesn't have to parse through a very large string to get the answer
+
+    //     function palindrome(str) {
+    //         //assign a front and a back pointer
+    //         let front = 0;
+    //         let back = str.length - 1;
+
+    //         //back and front pointers won't always meet in the middle, so use (back > front)
+    //         while (back > front) {
+    //             //increments front pointer if current character doesn't meet criteria
+    //             while ( str[front].match(/[\W_]/) ) {
+    //             front++;
+    //             continue;
+    //             }
+    //             //decrements back pointer if current character doesn't meet criteria
+    //             while ( str[back].match(/[\W_]/) ) {
+    //             back--;
+    //             continue;
+    //             }
+    //             //finally does the comparison on the current character
+    //             if ( str[front].toLowerCase() !== str[back].toLowerCase() ) return false
+    //             front++;
+    //             back--;
+    //         }
+            
+    //         //if the whole string has been compared without returning false, it's a palindrome!
+    //         return true;
+
+    //         }
+
+    // palindrome("never odd or even");
+
+    // function findLongestWord(str){
+    //     var words = str.split(" ");
+    //     var longest = 0;
+    //     for (var i = 0; i<words.length; i++){
+    //         if (words[i].length>longest){
+    //             longest=words[i].length;
+    //         }
+    //     }
+    //     console.log(longest);
+    //     return longest;
+    // }
+
+    // findLongestWord("The quick brown fox jumped over the lazy dog");
+
+    // function titleCase(str) {
+            //splits string into one word arrays
+    //     var upper = str.split(" ");
+    //     for (var i=0; i<upper.length; i++){
+            //replaces each word/string with an uppercase character plus a sliced in rest of the word converted to lowercase
+    //         upper[i]=upper[i].charAt(0).toUpperCase() + upper[i].slice(1).toLowerCase();
+    //     }
+            //rejoins the string
+    //     console.log(upper.join(" "));
+    // }
+
+    // titleCase("I'm a little tea pot");
+
+    // function largestOfFour(arr){
+    //     //returns an new array with the largest values in each sub array
+    //     var subArray=[];
+    //     for (var i=0; i<arr.length; i++){
+    //         var largest=null;
+    //         for (var j=0; j<arr[i].length; j++){
+    //             if (arr[i][j]>largest){
+    //                 largest= arr[i][j];
+    //             }
+    //         }
+    //         subArray.push(largest);
+    //     }
+    //     console.log(subArray);
+    // }
+    // largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+    // function confirmEnding(str, target) {
+    //     // Checks that end of phrase is equal to target
+    //     var length= 0
+        
+    //     while(length<target.length){
+    //         var i=0;
+    //         if (target[target.length-1-length]===str[str.length-1-length]){
+    //             length++;
+    //             continue;
+    //         }
+    //         else {console.log(false); return false;}
+    //     }
+    //     console.log(true);
+    //     return true;
+    // }
+    // confirmEnding("Bastian", "yan");
+
+    // function repeatStringNumTimes(str, num) {
+    //     // repeat after me
+    //     var count = 0
+    //     var newStr =""
+    //     while(count<num){
+    //         newStr+=str;
+    //         count++;
+    //     }
+    //     return newStr;
+    // }
+
+    // repeatStringNumTimes("abc", 3);
+
+    // function truncateString(str, limit){
+    //     var arr = [];
+    //     if (str.length-1<limit){
+    //         return str;
+    //     }
+    //     else if(limit<=3){
+    //         for (var j =0; j<limit; j++){
+    //             arr.push(str[j]);
+    //         }
+    //         var shortStr = arr.join("")+"...";
+    //         return shortStr;
+    //     }
+    //     else {
+    //         for (var i=0; i<limit-3; i++){
+    //             arr.push(str[i]);
+    //         }
+    //         var newStr = arr.join("")+"...";
+    //         return newStr;
+    //     }
+    // }
+
+    function ternTruncate(str, num){
+        //solution is much nicer and uses a ternary. From FCC advanced solution
+        if (str.length>num){
+            return str.slice(0, num>3 ? num-3 : num)+ "...";
+        }
+        return str;
+
+    }
+    ternTruncate("A-tisket a-tasket A green and yellow basket", 11);
+
 
 </script>
