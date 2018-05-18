@@ -23,34 +23,34 @@
     //     return start;
     // }
 
-    function palindrome(str) {
-        var lowercase = str.toLowerCase();
-        emptyArray=[];
+    // function palindrome(str) {
+    //     var lowercase = str.toLowerCase();
+    //     emptyArray=[];
        
-        for (var i=0; i<lowercase.length; i++){
-            if (lowercase[i]==1||lowercase[i]===2||lowercase[i]===3||lowercase[i]===4||lowercase[i]===5||lowercase[i]===6||lowercase[i]===7||lowercase[i]===8||lowercase[i]===9||lowercase[i]===0){
+    //     for (var i=0; i<lowercase.length; i++){
+    //         if (lowercase[i]==1||lowercase[i]===2||lowercase[i]===3||lowercase[i]===4||lowercase[i]===5||lowercase[i]===6||lowercase[i]===7||lowercase[i]===8||lowercase[i]===9||lowercase[i]===0){
               
-                emptyArray.push(lowercase[i]);
-            }
-            else if (lowercase.charCodeAt(i)<123&& lowercase.charCodeAt(i)>96){
-                emptyArray.push(lowercase[i]);
-            }
-        }
+    //             emptyArray.push(lowercase[i]);
+    //         }
+    //         else if (lowercase.charCodeAt(i)<123&& lowercase.charCodeAt(i)>96){
+    //             emptyArray.push(lowercase[i]);
+    //         }
+    //     }
         
-        reverseArray = [];
-        for (var x = emptyArray.length-1; x>=0; x--){
-            reverseArray.push(emptyArray[x]);
-        }
-        console.log(reverseArray);
-        for (var j=0; j<emptyArray.length; j++){
-            if (reverseArray[j]!==emptyArray[j]){
-                console.log(false);
-                return false;
-            }
-        }
+    //     reverseArray = [];
+    //     for (var x = emptyArray.length-1; x>=0; x--){
+    //         reverseArray.push(emptyArray[x]);
+    //     }
+    //     console.log(reverseArray);
+    //     for (var j=0; j<emptyArray.length; j++){
+    //         if (reverseArray[j]!==emptyArray[j]){
+    //             console.log(false);
+    //             return false;
+    //         }
+    //     }
         
-        return true;
-        }
+    //     return true;
+    //     }
 
         //FCC Beginner Solution
 
@@ -186,15 +186,134 @@
     //     }
     // }
 
-    function ternTruncate(str, num){
-        //solution is much nicer and uses a ternary. From FCC advanced solution
-        if (str.length>num){
-            return str.slice(0, num>3 ? num-3 : num)+ "...";
+    // function ternTruncate(str, num){
+    //     //solution is much nicer and uses a ternary. From FCC advanced solution
+    //     if (str.length>num){
+    //         return str.slice(0, num>3 ? num-3 : num)+ "...";
+    //     }
+    //     return str;
+
+    // }
+    // ternTruncate("A-tisket a-tasket A green and yellow basket", 11);
+
+//    function chunkyMonkey(arr, size){
+//         var newArr=[];
+//         var count = (arr.length%size===0) ? count=arr.length/size : count=Math.floor(arr.length/size) +1
+//         var i=0;
+//         var j=0;
+//         while (count>0){ 
+//             newArr[i]=arr.slice(j, j+size)
+//             i++;
+//             j+=size;
+//             count--;
+//         }
+//         console.log(newArr)
+//         return newArr; 
+        
+//     }
+    
+
+//     chunkyMonkey(["a","b","c","d","e"], 2)
+
+    // function slasherFlix(arr,howMany){
+    //     //takes an array and cuts off the head (0 index) as many times as necessary. returns array
+    //     while (howMany>0){
+    //         arr.splice(0,1);
+    //         howMany--;
+    //     }
+    //     return arr;
+
+    //     //or
+    //     //return arr.slice(howMany);
+    // }
+
+    // function mutations(arr){
+    //     //checks that the characters of string one can make up the characters in string 2
+    //     arr[1] = arr[1].toLowerCase();
+    //     arr[0] = arr[0].toLowerCase();
+    //     for (var i = 0; i<arr[1].length; i++){
+    //         if (arr[0].indexOf(arr[1][i])===-1){
+    //             console.log(false)
+    //         }
+            
+    //     }
+    //     console.log(true);
+
+
+    // }
+    // mutations(["Mary", "Army"]);
+
+    // function falsy(arr){
+    //     //returns an array with no falsy values (NaN, false, 0, null, undefined, "")
+    //     var newArr=[];
+    //     for (var i=0; i<arr.length; i++){
+    //         if (arr[i]){
+    //             newArr.push(arr[i]);
+    //         }
+    //     }
+    //     console.log(newArr)
+    //     return newArr;
+
+    //     //FCC Soluction
+    //     //return arr.filter(Boolean);
+    // }
+    // falsy([1, null, NaN, 2, undefined]);
+
+    // function destroyer(arr){
+    //     naughty=[];
+    //     for (var i = 1; i<arguments.length; i++){
+    //         naughty.push(arr[i]);
+    //     }
+    //     for (var j=0; j<arr.length; j++){
+    //         for (var k=0; k<naughty.length; k++){
+    //             if (arr[j]===naughty[k]){
+    //                 delete arr[j];
+    //             }
+    //         }
+    //     }
+    //     console.log(arr.filter(Boolean));
+    // }
+
+    // destroyer([1,2,3], 2, 3)
+
+    // console.log([5, 3, 20, 3].sort());
+
+    // function whereDoIBelong(arr, val){
+    //     //returns an index of where the value would go in a sorted array. Array can be unsorted to start
+    //     arr.sort(function(a,b){return a-b});
+    //     console.log(arr)
+    //     for (var i=0; i<arr.length; i++){
+    //         if (arr[i]>=val){
+    //             console.log(i);
+    //             return;
+    //         }
+    //     }
+    //     console.log(arr.length)
+    //     return;
+    // }
+
+    // whereDoIBelong([5, 3, 20, 3], 5);
+
+    function rot13(str){
+        //all letters will be in caps and need to be shifted by 13 letters for the true answer
+        var decoder = [];
+        for (var i=0;i<str.length;i++){
+            decoder.push(str[i].charCodeAt())
+            if (decoder[i]>90||decoder[i]<65){
+                decoder[i]=String.fromCharCode(decoder[i])
+                continue;
+            }
+            else if (decoder[i]+13>90){
+                decoder[i]= (decoder[i]+13)-91+(65)
+                decoder[i]=String.fromCharCode(decoder[i])
+            }
+            else {
+                decoder[i]+=13;
+                decoder[i]=String.fromCharCode(decoder[i]);    
+            }
         }
-        return str;
-
+        console.log(decoder.join(""))
     }
-    ternTruncate("A-tisket a-tasket A green and yellow basket", 11);
-
+    rot13("LBH QVQ VG!");
 
 </script>
