@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quoth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <div class="wrapper">
+        <div class="quote-box">
+            <div class="heading">
+                <h1>Quoth Construktor</h1>
+                <hr>
+            </div>
+            <div class = "about">
+                <h3>Toucheth yon button and receive an artful quoth. There will be delays from bothersome CORS provenance.</h3>
+            </div>
+            <div class = "button">
+                <button id = "generate-quote">Manipulate  <i class="icon ion-md-cog"></i></button>
+                <button id = "generate-tweet">Tweet  <i class="icon ion-logo-twitter"></i></button>
+            </div>
+            <div class="return-field">
+                <h4 id="quote-text"></h4>
+                <h4 id="quote-title"></h4>
+                <h4 id="quote-source"></h4>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#generate-quote').click( function(e) {
+                e.preventDefault();
+                $.ajax( {
+                url: 'https://cors-anywhere.herokuapp.com/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
+                success: function(data) {
+                    var post = data.shift(); // The data is an array of posts. Grab the first one.
+                    $('#quote-title').text(post.title);
+                    $('#quote-text').html(post.content);
+
+                    // If the Source is available, use it. Otherwise hide it.
+                    if (typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined') {
+                    $('#quote-source').html('Source:' + post.custom_meta.Source);
+                    } else {
+                    $('#quote-source').text('');
+                    }
+                },
+                cache: false
+                });
+            });
+            $("#generate-tweet").click(function(event){
+                event.preventDefault();
+                // change this to refer to our quote
+                var quote=encodeURIComponent($("#quote-text").text());
+                var author = encodeURIComponent($("#quote-title").text());
+                window.open("http://twitter.com/intent/tweet?url="
+                +"&text="+quote +"-"+author,"twitterwindow", "height=450, width=550, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0");
+                
+            })
+        });
+        
+    </script>
+</body>
+</html>

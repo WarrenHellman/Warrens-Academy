@@ -1,0 +1,76 @@
+
+*{
+    font-family: 'Yatra One', cursive;
+}
+.wrapper {
+    background-color: #48dbfb;
+    height: 900px;
+    border: 10px solid #0abde3;
+}
+.quote-box {
+    width: 60%;
+    min-height: 50%;
+    background-color: aliceblue;
+    margin-left: 20%;
+    margin-right: 15%;
+    margin-top: 100px;
+    border: 5px solid #2e86de;
+}
+hr {
+    width: 40%;
+    background-color: #8395a7;
+    height: 2px;
+}
+.heading {
+    text-align: center;
+    padding: 10px;
+}
+.about {
+    text-align: center;
+}
+.button {
+    text-align: center;
+}
+#generate-quote {
+    border-radius: 12px;
+    border: 3px solid #f368e0;
+    height: 40px;
+    width: 140px;
+    background-color: #ff9ff3;
+}
+#generate-quote:hover{
+    background-color:#01a3a4;
+    color:white;
+    border: 3px solid #00d2d3;
+    transition-duration: .4s;
+}
+#generate-tweet {
+    border-radius: 12px;
+    border: 3px solid #00d2d3;
+    height: 40px;
+    width: 140px;
+    background-color: #01a3a4; 
+}
+#generate-tweet:hover{
+    background-color:#ff9ff3;
+    color:white;
+    border: 3px solid #f368e0;
+    transition-duration: .4s;
+}
+.return-field {
+    width: 40%;
+    /* dynamic height */
+    min-height: 20%;
+    background-color: white;
+    position: relative;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #8395a7;
+}
+#quote-text {
+    padding: 5px;
+}

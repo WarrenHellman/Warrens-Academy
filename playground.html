@@ -227,21 +227,21 @@
     //     //return arr.slice(howMany);
     // }
 
-    // function mutations(arr){
-    //     //checks that the characters of string one can make up the characters in string 2
-    //     arr[1] = arr[1].toLowerCase();
-    //     arr[0] = arr[0].toLowerCase();
-    //     for (var i = 0; i<arr[1].length; i++){
-    //         if (arr[0].indexOf(arr[1][i])===-1){
-    //             console.log(false)
-    //         }
+    function mutations(arr){
+        //checks that the characters of string one can make up the characters in string 2
+        arr[1] = arr[1].toLowerCase();
+        arr[0] = arr[0].toLowerCase();
+        for (var i = 0; i<arr[1].length; i++){
+            if (arr[0].indexOf(arr[1][i])===-1){
+                console.log(false)
+            }
             
-    //     }
-    //     console.log(true);
+        }
+        console.log(true);
 
 
-    // }
-    // mutations(["Mary", "Army"]);
+    }
+    mutations(["Mary", "Aprmy"]);
 
     // function falsy(arr){
     //     //returns an array with no falsy values (NaN, false, 0, null, undefined, "")
@@ -312,8 +312,9 @@
                 decoder[i]=String.fromCharCode(decoder[i]);    
             }
         }
-        console.log(decoder.join(""))
+        
+        return decoder.join("");
     }
-    rot13("LBH QVQ VG!");
+    rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.");
 
 </script>
