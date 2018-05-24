@@ -1,0 +1,24 @@
+html, body {
+    height: 100%;
+    background-color: black;
+}
+
+.wrapper{
+    height: 100%;
+    width: auto;
+    text-align: center;
+    margin-top: 100px;
+}
+.title {
+    color:#ccff00;
+    font-size: 200%;
+}
+.city {
+    color: #ff00ce;
+}
+.temps {
+    color: #ccff00;
+}
+.outlook {
+    color: #ff00ce;
+}
