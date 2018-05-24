@@ -1,8 +1,15 @@
 html, body {
     height: 100%;
     background-color: black;
+    font-family: 'Open Sans', sans-serif;
 }
-
+.temp-changer {
+    color: #ff00ce;
+}
+a {
+    color: #7DF9FF;
+    text-decoration: none;
+}
 .wrapper{
     height: 100%;
     width: auto;
@@ -13,12 +20,30 @@ html, body {
     color:#ccff00;
     font-size: 200%;
 }
-.city {
+.display{
+    width: 45%;
+    font-size: 150%;
+    text-align: right;
+    display: inline-block;
     color: #ff00ce;
+    height: 250px;
+
 }
-.temps {
-    color: #ccff00;
+.variables{
+    color: #19DE12;
+    margin-left: 5%;
+    width: 45%;
+    font-size: 150%;
+    text-align: left;
+    display: inline-block;
+    height: 250px;
+    vertical-align: top;
 }
-.outlook {
-    color: #ff00ce;
+.variables-right{
+    height: 50px;
+    vertical-align: top;
 }
+.display-left{
+    height: 50px;
+}
+

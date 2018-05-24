@@ -6,19 +6,69 @@
     <title>Whether or Not</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
     <div class="container">
+        <h2 class = "temp-changer"><a href="">°F </a>/<a href=""> °C</a></h2>
         <div class ="wrapper">
             <div class="title">
                 <h1>Whether or Not<br> To Go Outside</h1>
-                <h4 class= "city">Current City: </h4>
-                <h4 class= "temps">Temps looking like: </h4>
-                <h4 class= "outlook">I recommend: </h4>
+            </div>
+            <div class="display">
+                <div class="display-left">
+                    <h4 class= "city">Current City: </h4>
+                </div>
+
+                <div class="display-left">
+                    <h4 class= "temps">Temps looking like: </h4>
+                </div>
+
+                <div class="display-left">
+                    <h4 class= "outlook">I recommend: </h4>
+                </div>
+
+            </div>
+            <div class="variables">
+                <div class="variables-right">
+                    <h4 class="current-city"></h4>
+                </div>
+
+                <div class="variables-right">
+                    <h4 id="current-temps"></h4>
+                </div>
+
+                <div class="variables-right">
+                    <h4 class="current-outlook"></h4>
+                </div>
+
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            //pulls location data for each computer
+            var district = geoplugin_city();
+            var zone = geoplugin_region();
+            var lat = geoplugin_latitude();
+            var long = geoplugin_longitude();
+            //returns city and state to the display field
+            $(".current-city").append("<option value='1' selected>"+district+", "+zone);  
+            //uses openweathermap api to get weather for your area. pulls lat and long from previous api
+            $.ajax({
+                url: "http://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+long+"&APPID=180a926458624f80c1d61e394308d779",
+                dataType : "jsonp",
+                success: function(parsed_json){
+                    console.log(parsed_json);
+                    var temp = Math.round(parsed_json["list"][0]["main"]["temp"]-273.15)+"°C";
+                    document.getElementById("current-temps").innerHTML=temp;
+                }
+            });  
+        });
+    </script>
     
 </body>
 </html>
