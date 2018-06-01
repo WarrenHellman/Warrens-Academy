@@ -55,7 +55,6 @@
             });
             $("#generate-tweet").click(function(event){
                 event.preventDefault();
-                // change this to refer to our quote
                 var quote=encodeURIComponent($("#quote-text").text());
                 var author = encodeURIComponent($("#quote-title").text());
                 window.open("http://twitter.com/intent/tweet?url="
