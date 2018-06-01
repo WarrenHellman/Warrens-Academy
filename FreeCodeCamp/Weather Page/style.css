@@ -6,6 +6,55 @@ html, body {
 .temp-changer {
     color: #ff00ce;
 }
+.left-icon{
+    display: inline-block;
+    width: 15%;
+    color: #7DF9FF;
+    font-size: 600%;
+    vertical-align: 50%;
+}
+.right-icon{
+    display: inline-block;
+    width: 15%;
+    color: #7DF9FF;
+    vertical-align: 50%;
+}
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.rotating {
+    -webkit-animation: rotating 5s linear infinite;
+    -moz-animation: rotating 5s linear infinite;
+    -ms-animation: rotating 5s linear infinite;
+    -o-animation: rotating 5s linear infinite;
+    animation: rotating 5s linear infinite;
+    display: inline-block;
+}
 a {
     color: #7DF9FF;
     text-decoration: none;
@@ -14,11 +63,12 @@ a {
     height: 100%;
     width: auto;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 .title {
     color:#ccff00;
     font-size: 200%;
+    display: inline-block;
 }
 .display{
     width: 45%;
@@ -40,8 +90,11 @@ a {
     vertical-align: top;
 }
 .variables-right{
-    height: 50px;
+
+    font-family: 'Open Sans', sans-serif;
     vertical-align: top;
+    height: 50px;
+
 }
 .display-left{
     height: 50px;

@@ -9,14 +9,21 @@
     <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
     <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 
 </head>
 <body>
     <div class="container">
-        <h2 class = "temp-changer"><a href="">°F </a>/<a href=""> °C</a></h2>
+        <h2 class = "temp-changer"><a id= "faren" href="">°F </a>/<a id= "cels" href=""> °C</a></h2>
         <div class ="wrapper">
+            <div class = "left-icon">
+                <i class='rotating icon ion-ios-sunny'></i>
+            </div>
             <div class="title">
                 <h1>Whether or Not<br> To Go Outside</h1>
+            </div>
+            <div class = "left-icon">
+                <i class='rotating icon ion-ios-snow'></i>
             </div>
             <div class="display">
                 <div class="display-left">
@@ -28,7 +35,7 @@
                 </div>
 
                 <div class="display-left">
-                    <h4 class= "outlook">I recommend: </h4>
+                    <h4 class= "outlook">How to dress: </h4>
                 </div>
 
             </div>
@@ -42,13 +49,14 @@
                 </div>
 
                 <div class="variables-right">
-                    <h4 class="current-outlook"></h4>
+                    <h4 id="current-outlook"></h4>
                 </div>
-
+                
             </div>
         </div>
     </div>
     <script>
+        
         $(document).ready(function() {
             //pulls location data for each computer
             var district = geoplugin_city();
@@ -62,11 +70,52 @@
                 url: "http://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+long+"&APPID=180a926458624f80c1d61e394308d779",
                 dataType : "jsonp",
                 success: function(parsed_json){
-                    console.log(parsed_json);
-                    var temp = Math.round(parsed_json["list"][0]["main"]["temp"]-273.15)+"°C";
-                    document.getElementById("current-temps").innerHTML=temp;
+                    var temp = Math.round(parsed_json["list"][0]["main"]["temp"]-273.15);
+                    
+                    document.getElementById("current-temps").innerHTML=temp+"°C";
+                    
+                    //
+                    $("body").on("click", "#faren", function(e){
+                        // e.preventDefault();
+                        var farenTemp= Math.round(parsed_json["list"][0]["main"]["temp"]*9/5-459.67);
+                        
+                        document.getElementById("current-temps").innerHTML=farenTemp+"°F";
+                        if(farenTemp<46){
+                            $("#current-temps").append("             " +"<i class='rotate icon ion-ios-snow'></i>");
+                        }
+                        else if(farenTemp<77){
+                            $("#current-temps").append("             " +"<i class='rotate icon ion-ios-partly-sunny'></i>")
+                        }
+                        else{
+                            $("#current-temps").append("             " +"<i class='rotate icon ion-ios-sunny'></i>");
+                        };
+                        return false;
+                    });
+                    //
+                    if(temp<8){
+                        $("#current-outlook").append("Wear a big fluffy coat!");
+                    }
+                    else if(temp<25){
+                        $("#current-outlook").append("Good news, you won't be hot! Bad news, it's still pretty cool out. Grab a hoody.");
+                    }
+                    else{
+                        $("#current-outlook").append("Dang, it's hot! Grab your flippy floppies, beach wear and extra water to prevent dehydration!");
+                    };
+                    if(temp<8){
+                        $("#current-temps").append("             " +"<i class='rotate icon ion-ios-snow'></i>");
+                    }
+                    else if(temp<25){
+                        $("#current-temps").append("             " +"<i class='rotate icon ion-ios-partly-sunny'></i>")
+                    }
+                    else{
+                        $("#current-temps").append("             " +"<i class='rotate icon ion-ios-sunny'></i>");
+                    };
+                    
                 }
-            });  
+                
+            });
+            
+            
         });
     </script>
     
