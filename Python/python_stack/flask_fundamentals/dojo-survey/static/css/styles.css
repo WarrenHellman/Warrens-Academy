@@ -1,0 +1,18 @@
+.wrapper {
+    border: 2px solid black;
+    width: 400px;
+    height: 500px;
+    padding: 10px;
+}
+.form {
+    padding: 10px;
+    display: inline-block;
+}
+.left {
+    float: left;
+    background-color: aqua;
+}
+.right {
+    float: right;
+}
+p {color: blue;}

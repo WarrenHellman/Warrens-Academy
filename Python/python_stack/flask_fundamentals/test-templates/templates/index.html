@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>My First Template</title>
+        <!-- the linking for flask requires a different format as seen after href. This tells flask to look for info in the static folder (required). All CSS and JS and other resources can be stored in folders inside static folder -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <h1>My first flask template with embedded Python</h1>
+        <!-- These python variables below are defined in our server.py file in Python and can be called by double curly bracks -->
+        <!-- this dynamic information on our webpages is handled by a Jinja2 engine -->
+        <p>Phrase: {{phrase}}</p>
+        <p>Times: {{times}}</p>
+        <!-- this is how you write a python function in HTML? -->
+        {% for x in range(0,times): %}
+            <p>{{phrase}}</p>
+        <!-- You also have to specify where your for loop or if loop ends with endfor or endif -->
+        {% endfor %}
+    </body>
+</html>
