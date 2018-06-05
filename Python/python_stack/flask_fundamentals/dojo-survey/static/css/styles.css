@@ -1,18 +1,24 @@
-.wrapper {
+.container{
     border: 2px solid black;
+    height: 400px;
     width: 400px;
-    height: 500px;
-    padding: 10px;
-}
-.form {
-    padding: 10px;
-    display: inline-block;
+    margin: 50px;
+    padding: 20px;
 }
 .left {
-    float: left;
-    background-color: aqua;
+    display: inline-block;
+    background-color: aquamarine;
+    height: 300px;
+    width: 190px;
+    vertical-align: top;
 }
 .right {
-    float: right;
+    display: inline-block;
+    vertical-align: top;
+    background-color: burlywood;
+    height: 300px;
+    width: 190px;
 }
-p {color: blue;}
+.wrapper {
+    display: inline-block;
+}

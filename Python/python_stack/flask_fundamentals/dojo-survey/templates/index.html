@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Dojo Survey</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-        <!-- <script src="main.js"></script> -->
-    </head>
-    <body>
-        <div class="wrapper">
-            <form class="form" action='/results' type='text'>
-                <p class='left'>Your Name:</p> <input class='right' type='text' name='name'>
-                <br>
-                <br>
-                <p class='left'>Your Location:</p> 
-                <select class='right'>
-                    <option value="san_jose">San Jose</option> 
-                    <option value="seattle">Seattle</option> 
-                    <option value="chicago">Chicago</option> 
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SIMPLE form exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+    <div class="container">
+
+        <div class="left">
+            <h4>Name:</h4>
+            <h4>Dojo Location:</h4>
+            <h4>Favorite Language</h4>
+            <h4>Comments:</h4>
+        </div>
+        <div class="right">
+            <form class="" action="/results" method="post">
+                <input type="text" name="name" placeholder="Enter name">
+                <select name="city">
+                    <option value="Seattle">Seattle</option>
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="Chicago">Chicago</option>
                 </select>
-                <br>
-                <br>
-                <p class='left'>Favorite Language:</p> 
-                <select class='right'>
-                    <option value="Python">Python</option> 
-                    <option value="JavaScript">Javascript</option> 
-                    <option value="c-sharp">C#</option> 
+                <select name="language">
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                    <option value="JavaScript">Javascript</option>
                 </select>
-                <br>
-                <br>
-                Comments: 
-                <br>
-                <textarea rows='4' cols= '50' name='comment' form='usercomment'>Looking forward to your comments!</textarea>
-                <br>
-                <input type='submit' value='Submit'>
+                <input name="comment" type="text" placeholder="Enter comment">
+                <input class="button" type="submit" value="Submit">
             </form>
         </div>
-        
-        
-    </body>
+    </div>
+    
+</body>
 </html>

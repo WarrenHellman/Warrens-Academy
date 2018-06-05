@@ -1,7 +1,36 @@
-<div class= 'wrapper'>
-    <h2>Submitted info:</h2>
-    Name: {{name}}
-    Dojo Location: {{}}
-    Favorite Language: {{}}
-    Comments: {{comment}}
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Showing SIMPLE results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h4>Submitted Info</h4>
+            <h4>Name</h4>
+            <h4>City</h4>
+            <h4>Language</h4>
+            <h4>Comments</h4>
+        </div>
+        <div class="right">
+            <h4>&nbsp</h4>
+            {% if result %}
+                <h4>{{ result['name'] }}</h4>
+                <h4>{{ result['city'] }}</h4>
+                <h4>{{ result['language'] }}</h4>
+                <h4>{{ result['comment'] }}</h4>
+            {% else %}
+                <h1>WTH!!</h1>
+            {% endif %}
+            <form action="/">
+                <input class="button" type="submit" name="" value="Go Back">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
