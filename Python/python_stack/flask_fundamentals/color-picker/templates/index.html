@@ -11,7 +11,9 @@
     </script>
 </head>
 <body>
-    <div class="background" style="background: rgb({{red}}, {{blue}}, {{green}})" ;>
+    <!-- This page submits info through a post route on the form. It takes the color values and plugs them into variables that change the rgb values for background color -->
+    <!-- Uncomment the below line for this to work. Currently gives an error but works fine -->
+    <!-- <div class="background" style="background: rgb({{red}}, {{blue}}, {{green}})" ;> -->
         <div class='container'> 
             <h1>Please Pick a Background Color!</h1>
             <div class= 'form-area'>
@@ -21,6 +23,7 @@
                     <h3>Green:</h3>
                 </div>
                 <div class='right'>
+                    <!-- The form table, must align action to the route and post methon the the route method -->
                     <form action='/results' method='post'>
                         <input class='inputs' type='text' name = 'red' placeholder="0-255" >
                         <input class='inputs' type='text' name = 'blue' placeholder="0-255">
