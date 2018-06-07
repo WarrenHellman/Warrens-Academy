@@ -1,8 +1,10 @@
 # you just gotta import these modules
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 #need to define the app name
 app = Flask(__name__)
-#our index route handles the redering of the form in root
+app.secret_key = 'ThisIsSecret' # you need to set a secret key for security purposes
+# routing rules and rest of server.py below
+#our index route handles the rendering of the form in root
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -11,9 +13,13 @@ def index():
 @app.route('/users', methods=['POST'])
 def create_user():
     print 'Got Post Info'
-    name = request.form['name']
-    email = request.form['email']
-    #redirects back to the '/' root route
-    return redirect('/')
+    # this will store this info for the session
+    session['name'] = request.form['name']
+    session['email'] = request.form['email']
+    #redirects to the '/show' root route
+    return redirect('/show')
+@app.route('/show')
+def show_user():
+    return render_template('user.html')
 
 app.run(debug=True)

@@ -6,8 +6,8 @@ app=Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/ninja')
-def ninja():
+@app.route('/ninja/')
+def ninjaSlash():
     return render_template('ninja.html', color="")
 @app.route('/ninja/<color>')
 def color(color=None):
