@@ -11,8 +11,13 @@ def index():
     return render_template('index.html')
 @app.route('/button', methods=['POST'])
 def button():
-    print 'hello'
+
     session['count']+=1
+    return redirect('/')
+@app.route('/reset', methods=['POST'])
+def reset():
+    # adds a reset button to the count
+    session['count']=-1
     return redirect('/')
 
 app.run(debug=True)

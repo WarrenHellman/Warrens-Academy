@@ -1,0 +1,20 @@
+.off {
+    height:150px;
+    width:150px;
+    background-color: red;
+    color:white;
+    text-align: center;
+    vertical-align: 50%;
+    border: 3px solid black;
+    margin-top: 20px;
+}
+.on {
+    height:150px;
+    width:150px;
+    background-color: green;
+    color:white;
+    text-align: center;
+    vertical-align: 50%;
+    border: 3px solid black;
+    margin-top: 20px;
+}
