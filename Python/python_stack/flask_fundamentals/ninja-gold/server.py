@@ -15,10 +15,11 @@ def index():
 @app.route('/process_money', methods=['POST'])
 def process():
     # doesn't add to new line each output
+    
     if request.form['building']=='farm':
         val = random.randrange(10,21)
         session['gold']+=val
-        activity= "\n-Earned "+str(val)+" gold from the farm! "+str(datetime.datetime.now())
+        activity= "-Earned "+str(val)+" gold from the farm! "+str(datetime.datetime.now())
         session['activity']+=activity
     elif request.form['building']=='cave':
         val = random.randrange(5,11)
@@ -43,6 +44,6 @@ def process():
         else:
             activity= "-Went into the casino and left with what you came with. Could have been worse!"+str(datetime.datetime.now())
             session['activity']+=activity
-    return render_template('index.html', gold=session['gold'], activity=session['activity'])
+    return render_template('index.html', gold=session['gold'], activity=activity)
 
 app.run(debug=True)
