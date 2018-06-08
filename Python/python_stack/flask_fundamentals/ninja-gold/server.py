@@ -18,7 +18,7 @@ def process():
     if request.form['building']=='farm':
         val = random.randrange(10,21)
         session['gold']+=val
-        activity= "-Earned "+str(val)+" gold from the farm! "+str(datetime.datetime.now())
+        activity= "\n-Earned "+str(val)+" gold from the farm! "+str(datetime.datetime.now())
         session['activity']+=activity
     elif request.form['building']=='cave':
         val = random.randrange(5,11)
