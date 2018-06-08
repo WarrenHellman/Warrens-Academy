@@ -10,6 +10,14 @@
 <body>
     <div class="container">
 
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         <div class="left">
             <h4>Name:</h4>
             <h4>Dojo Location:</h4>
@@ -18,18 +26,27 @@
         </div>
         <div class="right">
             <form class="" action="/results" method="post">
+                <br>
                 <input type="text" name="name" placeholder="Enter name">
+                <br>
+                <br>
                 <select name="city">
                     <option value="Seattle">Seattle</option>
                     <option value="San Francisco">San Francisco</option>
                     <option value="Chicago">Chicago</option>
                 </select>
+                <br>
+                <br>
                 <select name="language">
                     <option value="Python">Python</option>
                     <option value="C#">C#</option>
                     <option value="JavaScript">Javascript</option>
                 </select>
+                <br>
+                <br>
                 <input name="comment" type="text" placeholder="Enter comment">
+                <br>
+                <br>
                 <input class="button" type="submit" value="Submit">
             </form>
         </div>
