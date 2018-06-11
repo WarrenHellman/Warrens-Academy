@@ -22,9 +22,19 @@
 h3{
     text-align: center;
 }
-h3, #activity-log{
+#activity-log{
     text-align: left;
     margin-left: 5px;
+}
+#casino-win{
+    text-align: left;
+    margin-left: 5px;
+    color: green;
+}
+#casino-lose{
+    text-align: left;
+    margin-left: 5px;
+    color: red;
 }
 #activity-text{
     text-align: left;

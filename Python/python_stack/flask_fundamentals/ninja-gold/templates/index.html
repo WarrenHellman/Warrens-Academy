@@ -50,8 +50,17 @@
     <div class="activities">
         <h3 id="activity-text">Activities</h3>
         <div class="activity-box">
-            <h3 id='activity-log'>{{activity}}</h3>
-            <br>
+            {% for activity in session['activity'] %}
+                {% if 'casino' in activity %}
+                    {% if 'won' in activity %}
+                        <h3 id='casino-win'>{{activity}}</h3>
+                    {% elif 'lost' in activity %}
+                        <h3 id='casino-lose'>{{activity}}</h3>
+                    {% endif %}
+                {% else %}
+                    <h3 id='activity-log'>{{activity}}</h3>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 </body>
