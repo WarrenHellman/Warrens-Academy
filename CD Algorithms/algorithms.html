@@ -1974,6 +1974,103 @@
 
         // var array = [5];
         // insertSort(array);
+        
+
+        //////////////
+        //Dev Day Algo
+        //////////////
+
+
+        array =  ["hello", "is", "it", "me", "your", "looking", "for"];
+        // OUTPUT = [3,5,2,2,2,4,7] 
+        // 3 length of "for"
+        // 5 length of "hello"
+        
+        // Given an array of string return an array of integers, each index should contain the integer length of the previous index string.
+        
+        // ADVANCED:  Work with the same array thats passed in.
+        
+        // function prevLength(arr){
+            //Beginner
+            // var newArr=[]
+            // for (var i=0; i<arr.length; i++){
+            //     if (i===0){
+            //         newArr.push(arr[arr.length-1].length)
+            //     }
+            //     else {
+            //         newArr.push(arr[i-1].length)
+            //     }
+            // }
+            // return(newArr)
+            
+            // Advanced
+        //     var length=arr.length
+        //     for (var i=0; i<arr.length; i+=2){
+        //         if (i===0){
+        //             arr.unshift(arr[arr.length-1].length)
+        //         }
+        //         else {
+        //             arr.unshift(arr[i-1].length)
+        //         }
+        //     }
+        //     arr.length= length;
+        //     arr.reverse();
+        //     return arr 
+        // }
+            
+        // prevLength(array);
+
+        // { Name: "Beer", Price: 1 }
+        // Build me a shopping cart.  three methods addItem, removeItem, totalPrice.
+        function Item(name, price){
+            this.name=name;
+            this.price=price;
+        }
+        
+        function Shopping(){
+            var shoppingList=[];
+            this.addItem = function(item){
+                shoppingList.push(item);
+                return shoppingList;
+            };
+            this.removeItem = function(name){
+                for (var i=0; i<shoppingList.length; i++){
+                    if (shoppingList[i]['name']==name){
+                    shoppingList.splice(i,1)
+                    return shoppingList;
+                    }
+                    else{ continue;}
+                }
+            
+            }
+            this.totalPrice = function(){
+                var total=0
+                for (var j=0; j<shoppingList.length; j++){
+                    total+=shoppingList[j]['price']
+                }
+                return total;
+            }    
+            
+            
+
+        }
+        list = new Shopping();
+        var item1 = new Item('Brush', 3);
+        var item2 = new Item('Shoe', 40);
+        var item3 = new Item('Guitar', 140);
+        var item4 = new Item('Toy', 6);
+
+        list.addItem(item1)
+        list.addItem(item2)
+        list.addItem(item3)
+        list.addItem(item4)
+
+        list.totalPrice();
+        list.removeItem('Guitar');
+        list.totalPrice();
+        
+        
+            
     </script>
 </body>
 
