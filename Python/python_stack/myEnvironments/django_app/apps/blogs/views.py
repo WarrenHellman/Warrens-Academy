@@ -15,3 +15,8 @@ def create(request):
 def show(request, num):
     response = 'placeholder to display blog '+str(num)
     return HttpResponse(response)
+def edit(request, num):
+    response = 'placeholder to edit blog ' + str(num)
+    return HttpResponse(response)
+def destroy(request, num):
+    return redirect('/')
