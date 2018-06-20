@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'random_string/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+<h3 class = 'attempt'>Random Word (attempt #{{request.session.count}})</h3>
+
+<h1 class = 'generate-box'>{{random}}</h1>
+<form action='/generate' method = 'POST'>
+    {% csrf_token %}
+    <input type='submit' value='Generate'>
+</form>
+<form action='/reset' method = 'POST'>
+    {% csrf_token %}
+    <input type='submit' value='Reset'>
+</form>
