@@ -11,7 +11,16 @@ def new(request):
     response = "placeholder to display a new form to create a new blog"
     return HttpResponse(response)
 def create(request):
-    return redirect('/')
+	if request.method == "POST":
+		print "*"*50
+		print request.POST
+		print request.POST['name']
+		print request.POST['desc']
+		request.session['name'] = "test"  # more on session below
+		print "*"*50
+		return redirect("/")
+	else:
+		return redirect("/")
 def show(request, num):
     response = 'placeholder to display blog '+str(num)
     return HttpResponse(response)
