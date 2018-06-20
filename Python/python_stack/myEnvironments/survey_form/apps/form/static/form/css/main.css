@@ -1,0 +1,39 @@
+.container-index {
+    margin-left: 150px;
+    margin-top: 118px;
+}
+.container-results {
+    margin-left: 150px;
+    margin-top: 10px;
+}
+.counter-box {
+    border: 4px solid black;
+    background-color: forestgreen;
+    color: white;
+    height: 70px;
+    width: 450px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.form-box {
+    display: inline-block;
+    border: 4px solid black;
+    height: 300px;
+    width: 450px;
+    padding: 10px;
+}
+.left-box {
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    width: 200px;
+}
+.right-box {
+    display: inline-block;
+    margin-top: 3px;
+    vertical-align: top;
+    width: 150px;
+}
+.form-text-results{
+    margin-left: 5px;
+}

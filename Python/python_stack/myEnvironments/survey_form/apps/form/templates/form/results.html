@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'form/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+    
+    <div class = 'container-results'>
+        <div class = 'counter-box'>
+            <h3 class = 'counter-text'>Thanks for submitting the form! You have submitted this form {{request.session.count}} times!</h3>
+        </div>
+        <form method = 'post' action = 'submit'>
+            <div class = 'form-box'>
+                <div class = 'left-box'>
+                    <h3 class ='form-text'><u>Submitted Information</u></h3>
+                    <h3 class='form-text-results'>Name:</h3>
+                    <h3 class='form-text-results'>Location:</h3>
+                    <h3 class='form-text-results'>Language:</h3>
+                    <h3 class='form-text-results'>Comment: </h3>
+                </div>
+                <div class = 'right-box'>
+                    <h3>&nbsp</h3>
+                    <h3>{{request.session.name}}</h3>
+                    <h3>{{request.session.city}}</h3>
+                    <h3>{{request.session.language}}</h3>
+                    <h3>{{request.session.comments}}</h3>
+                </div>
+            </div>
+        </form>
+    </div>
