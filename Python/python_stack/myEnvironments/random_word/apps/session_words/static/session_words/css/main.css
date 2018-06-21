@@ -1,0 +1,28 @@
+.container {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 800px;
+    height: 800px;
+}
+.left-box {
+    height: 400px;
+    width: 350px;
+    display: inline-block;
+    vertical-align: top;
+}
+.right-box {
+    height: 400px;
+    width: 350px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+    border-left: 5px solid black;
+}
+.clear {
+    background-color: rosybrown;
+    margin-left: 200px;
+}
+
+.submit{
+    background-color: darkcyan;
+}

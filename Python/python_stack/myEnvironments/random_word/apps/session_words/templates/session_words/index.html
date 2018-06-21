@@ -1,0 +1,52 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'session_words/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+
+<div class = 'container'>
+    <div class = 'left-box'>
+        <h2>Add A New Word</h2>
+        <form action = 'session_words/process' method = 'post'>
+            {% csrf_token %}
+            <input name = 'add_word' type = 'text'>
+            
+            <h3>Choose Color</h3>
+            
+            <input type = 'radio' id = 'red-button' name = 'color' value = 'red' checked>
+            <label for= 'red-button'>Red</label>
+            <br>
+            <input type = 'radio' id = 'blue-button' name = 'color' value = 'blue'>
+            <label for= 'blue-button'>Blue</label>
+            <br>
+            <input type = 'radio' id = 'green-button' name = 'color' value = 'green'>
+            <label for= 'green-button'>Green</label>
+            <br>
+            <br>
+            <br>
+            <input type="hidden" name='fonts' value='false'>
+            <input type = 'checkbox' id = 'big_font' name='fonts' value = 'true'>
+            <label for= 'big-font'>show in BIG fonts!</label>
+            <br>
+            <br>
+            <input class = 'submit' type = 'submit' name= 'session-add' value = 'Add to Session!'>
+
+        </form>
+    </div>
+    <div class = 'right-box'>
+        <form action = 'session_words/clear' method = 'post'>
+            {% csrf_token %}
+            <br>
+            <br>
+            <input type = 'submit' class = 'clear' name = 'clear' value = 'Clear Session'>
+        
+        </form>
+        <div class = 'return-field'>
+
+            <!-- cycles through our dictionary adding the variables from each entry -->
+            {% for word in request.session.context %}
+                    <p><span style = 'color:{{word.color}};font-size:{{word.fonts}};'>{{word.add_word}}</span> added on- {{word.time}}</p>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
