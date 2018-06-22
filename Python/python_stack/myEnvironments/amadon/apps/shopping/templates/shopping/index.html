@@ -1,0 +1,68 @@
+
+<body>
+    <div class ='container'>
+        <h1>Welcome to Amadon!</h1>
+        <div class = 'store-box'>
+            <div class ='store-table'>
+                <table border="5" width='75%' cellpadding='4' cellspacing='3'>
+                    <tr>
+                        <th colspan="3">The Shop</th>
+                    </tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                    <tr align = 'center'>
+                        <td>T-Shirt</td>
+                        <td>$19.99</td>
+                        <td>
+                            <form action = '/buy' method = 'post'>
+                                {% csrf_token %}
+                                <select name = 'shirts'>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <input type = 'hidden' name ='product_id' value = '4'>
+                                <input type = 'submit' value = 'Purchase'>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr align = 'center'>
+                        <td>Hat</td>
+                        <td>$9.99</td>
+                        <td>
+                            <form action = '/buy' method = 'post'>
+                                {% csrf_token %}
+                                <select name = 'hats'>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <input type = 'hidden' name ='product_id' value = '5'>
+                                <input type = 'submit' value = 'Purchase'>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr align = 'center'>
+                        <td>Coozies</td>
+                        <td>$4.99</td>
+                        <td>
+                            <form action = '/buy' method = 'post'>
+                                {% csrf_token %}
+                                <select name = 'coozies'>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <input type = 'hidden' name ='product_id' value = '6'>
+                                <input type = 'submit' value = 'Purchase'>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</body>

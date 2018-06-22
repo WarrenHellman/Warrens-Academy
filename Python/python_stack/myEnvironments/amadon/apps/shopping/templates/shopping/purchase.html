@@ -1,0 +1,9 @@
+<h2>Thank you for your business!</h2>
+<h3>Your card has been charged {{request.session.total}}</h3>
+<h3>You have ordered {{request.session.itemNum}} items so far and have spend {{request.session.grandTotal}} with us!</h3>
+
+<a href="/">Go Back</a>
+<form action = '/clear', method = 'post'>
+    {% csrf_token %}
+    <input type = 'submit' value = 'Empty Cart'>
+</form>
