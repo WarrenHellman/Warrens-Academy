@@ -43,8 +43,9 @@
         <div class = 'return-field'>
 
             <!-- cycles through our dictionary adding the variables from each entry -->
+            <!-- Below line was commented out for throwing css errors but totally words -->
             {% for word in request.session.context %}
-                    <p><span style = 'color:{{word.color}};font-size:{{word.fonts}};'>{{word.add_word}}</span> added on- {{word.time}}</p>
+                    <!-- <p><span style = 'color:{{word.color}};font-size:{{word.fonts}};'>{{word.add_word}}</span> added on- {{word.time}}</p> -->
             {% endfor %}
 
         </div>

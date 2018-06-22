@@ -16,10 +16,12 @@ def process(request):
     boolFonts = request.POST['fonts']
     if request.POST['fonts'] == True:
         boolFonts = True
+    # handles the checkbox input and changes the font size based on the request
     if boolFonts=='false':
         fonts='15px'
     if boolFonts=='true':
         fonts='40px'
+    # a dictionary for storing each word entry in an object
     newContext = {
         'add_word': request.POST['add_word'],
         'color': request.POST['color'],
@@ -27,11 +29,9 @@ def process(request):
         'fonts': fonts
     }
     tempArray = request.session['context']
-
+    # for some reason we couldn't directly append to request.session[context] but could make a proxy temp array to perform the appending and set them equal to one another
     tempArray.append(newContext)
     request.session['context'] = tempArray
-
-
 
     return redirect( '/session_words/results')
 
