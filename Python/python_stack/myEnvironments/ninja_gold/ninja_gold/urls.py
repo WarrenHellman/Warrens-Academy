@@ -1,4 +1,4 @@
-"""django_app URL Configuration
+"""ninja_gold URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -17,7 +17,5 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^', include('apps.blogs.urls')),
-    url(r'^', include('apps.surveys.urls')),
-    url(r'^', include('apps.users.urls')),
+    url(r'^', include('apps.gold.urls')),
 ]

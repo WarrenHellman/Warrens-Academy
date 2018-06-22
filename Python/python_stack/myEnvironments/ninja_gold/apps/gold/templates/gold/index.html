@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ninja Gold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+<link rel="stylesheet" href="{% static 'gold/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <h3 id="current-money">Your Gold:</h3>
+    <div class="money-box">
+        <h3 id="total-money"></h3>
+    </div>
+
+    <div></div>
+    
+    <div class="loot-boxes">
+        <h3>Farm</h3>
+        <h3>Earns 10-20 gold</h3>
+        <form action="/process_money" method= "post">
+            <input type="hidden" name="building" value="farm">
+            <input class="sub-butt" type="submit" value="Find Gold!"> 
+        </form>
+    </div>
+    <div class="loot-boxes">
+        <h3>Cave</h3>
+        <h3>Earns 5-10 gold</h3>
+        <form action="/process_money" method= "post">
+            <input type="hidden" name="building" value="cave">
+            <input class="sub-butt" type="submit" value="Find Gold!"> 
+        </form>
+    </div>
+    <div class="loot-boxes">
+        <h3>House</h3>
+        <h3>Earns 2-5 gold</h3>
+        <form action="/process_money" method= "post">
+            <input type="hidden" name="building" value="house">
+            <input class="sub-butt" type="submit" value="Find Gold!"> 
+        </form>
+    </div>
+    <div class="loot-boxes">
+        <h3>Casino</h3>
+        <h3>Earns/Takes 0-50 gold</h3>
+        <form action="/process_money" method= "post">
+            <input type="hidden" name="building" value="casino">
+            <input class="sub-butt" type="submit" value="Find Gold!"> 
+        </form>
+    </div>
+    <div class="activities">
+        <h3 id="activity-text">Activities</h3>
+        <div class="activity-box">
+            
+        </div>
+    </div>
+</body>
+</html>

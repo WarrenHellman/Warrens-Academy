@@ -4,6 +4,10 @@ from __future__ import unicode_literals
 from django.shortcuts import render, HttpResponse, redirect
 
 # Create your views here.
+def home(request):
+	response = 'Please visit /blogs for blogs, /surveys for surveys and /users for users'
+	return HttpResponse(response)
+
 def index(request):
     response = "placeholder to later display all the list of blogs"
     return HttpResponse(response)
