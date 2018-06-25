@@ -44,9 +44,13 @@ h3{
     height: 200px;
     width: 820px;
     border: 5px solid black;
-    margin-left: 5px;
+    margin-left: 10px;
     overflow: auto;
 }
+.activity-log{
+    margin-left: 10px;
+}
+
 .sub-butt{
     margin-left: 50px;
     margin-top:10px;
