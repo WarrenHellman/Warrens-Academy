@@ -32,6 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.first_app',
+    'apps.dojo',
+    'apps.likesBooks',
+    'apps.book_authors',
+    'apps.users_database',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
