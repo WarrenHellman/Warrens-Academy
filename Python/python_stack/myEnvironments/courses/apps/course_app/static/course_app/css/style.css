@@ -1,0 +1,11 @@
+#desc-text {
+    height: 80px;
+}
+.submit {
+    color:white;
+    background-color: green;
+}
+.delete {
+    color:white;
+    background-color: red;
+}

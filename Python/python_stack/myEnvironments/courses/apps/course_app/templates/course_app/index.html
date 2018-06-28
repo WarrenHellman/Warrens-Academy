@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Courses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'course_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div class = 'form-box'>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class ='form-text'>
+            <h1>Add a new course</h1>
+            <form action = '/add' method = 'post'>
+                {% csrf_token %}
+                <div class ='form-group'>
+                    <label for = 'course'>Course:</label>
+                    <input type ='text' name= 'name'>
+                </div>
+                <br>
+                <div class = 'form-group'>
+                    <label for = 'description'>Description:</label>
+                    <input id='desc-text' type = 'text' name = 'description' height ='40'>
+                </div>
+                
+                <input class = 'submit' type = 'submit' value = 'Add'>
+                
+            </form>
+        </div>
+        <div class='courses-table'>
+            <h1>Courses</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Courses</th>
+                        <th>Description</th>
+                        <th>Date Added</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Self updateding table. I love this thing -->
+                    {% for course in courses %}
+                    <tr>
+                        <td>{{ course.name }}</td>
+                        <td>{{ course.description }} </td>
+                        <td>{{ course.created_at }}</td>
+                        <td><a href='/delete/{{ course.id }}'>Remove</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
