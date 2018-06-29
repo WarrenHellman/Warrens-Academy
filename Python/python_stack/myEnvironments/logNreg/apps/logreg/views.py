@@ -3,9 +3,15 @@ from __future__ import unicode_literals
 from .models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
+# can't import bcrypt but this runs if you run the server from the command line, uncomment import and register function call
+# import bcrypt
+
+
 # Create your views here.
 def index(request):
+
     return render(request, 'logreg/index.html')
+
 
 def register(request):
     errors = User.objects.validator(request.POST)
@@ -21,6 +27,11 @@ def register(request):
         user.last_name = request.POST['last']
         user.email = request.POST['email']
         user.password = request.POST['password']
+
+        # uncomment
+        # hashed = bcrypt.hashpw(user.password.encode(), bcrypt.gensalt())
+        # user.password = hashed
+
         user.save()
         request.session['method']='registered'
         return redirect('/success/register/'+str(id), {'user':User.objects.get(id=id)})

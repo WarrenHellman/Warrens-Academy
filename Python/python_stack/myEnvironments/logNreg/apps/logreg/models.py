@@ -2,6 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models
+# can't import bcrypt but this runs if you run the server from the command line. Uncomment below line and login validator reference
+# import bcrypt
+
 
 # Create your models here.
 class UserManager(models.Manager):
@@ -23,13 +26,19 @@ class UserManager(models.Manager):
         errors = {}
         if not User.objects.filter(email=postData['log-email']):
             errors['log-email'] = 'That email address has not been registered'
+        user = self.filter(email=postData['log-email'])
+
+        # uncomment below
+        # for word in user:
+            # if not bcrypt.checkpw(postData['password'].encode(), word.password.encode()):
+            #     errors['password']='Passwords do not match'
+        
         return errors
 
 
 class User(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    # doesn't account for unqiue values
     email = models.EmailField(max_length=100)
     password = models.CharField(max_length=50)
 
