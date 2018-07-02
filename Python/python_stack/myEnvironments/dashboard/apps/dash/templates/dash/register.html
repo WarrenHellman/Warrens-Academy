@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/css/bootstrap.css' %}" media="screen" title="no title"  charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="/">The Dashboard</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right login-right">
+                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class='container'>
+        <h1>Register</h1>
+        <form action="/dashboard" method='POST'>    
+            <div class='row'>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+            </div>
+            <div class='row'>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
+                    <label for="first">First Name:</label>
+                    <input type="text" class="form-control" id="first">
+                </div>
+            </div>
+            <div class='row'>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
+                    <label for="last">Last Name:</label>
+                    <input type="text" class="form-control" id="last">
+                </div>
+            </div>
+            <div class='row'>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+            </div>
+            <div class='row'>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+            </div>
+            <div class='row'>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
+                    <label for="conpwd">Confirm Password:</label>
+                    <input type="password" class="form-control" id="conpwd">
+                </div>
+            </div>
+            <!-- Could change this to a more dynamic float, instead of margin left of 300px -->
+            <input class='submit' type='submit' value='submit'>
+        </form>
+        <br>
+        <a href="/signin">Already have an account? Log in!</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/js/bootstrap.js' %}" media="screen" title="no title"  charset="utf-8">
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/css/bootstrap.css' %}" media="screen" title="no title"  charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    
+</head>
+
+<!-- Items to add later: -->
+<!-- -loading circle for page -->
+
+
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="/">The Dashboard</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right login-right">
+                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class='container'>
+
+        <div class='page-header'>
+            <div class="jumbotron ">
+                <h2>Welcome to the Dashboard! </h2>
+                <p>Step inside and see what was built!</p>
+                <form action="/signin" method='GET'>
+                    <button type='submit' class="btn btn-primary" role="button">Enter</button>
+                </form>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <h4>Manage Users</h4>
+                    <p>Using this application you can add, remove and edit users</p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <h4>Leave Messages</h4>
+                    <p>Users can leave a message for other users</p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <h4>Edit User Information</h4>
+                    <p>As an admin you can edit other user's information(email addresses, first name, last name, etc)</p>
+                </div>
+            </div>
+        </div>
+        <form action="/dashboard" method='GET'>
+            <button type='submit' class="btn btn-primary" role="button">Dashboard Delete!!!</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/js/bootstrap.js' %}" media="screen" title="no title"  charset="utf-8">
+
+
+</body>
+</html>
