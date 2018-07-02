@@ -28,48 +28,49 @@
             </ul>
         </div>
     </nav>
-
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="errormsg {{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <div class='container'>
         <h1>Register</h1>
-        <form action="/dashboard" method='POST'>    
+        <form action="/newUser" method='POST'>    
+            {% csrf_token %}
             <div class='row'>
                 <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email">
+                    <input type="email" class="form-control" name="email">
                 </div>
             </div>
             <div class='row'>
                 <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
                     <label for="first">First Name:</label>
-                    <input type="text" class="form-control" id="first">
+                    <input type="text" class="form-control" name="first">
                 </div>
             </div>
             <div class='row'>
                 <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
                     <label for="last">Last Name:</label>
-                    <input type="text" class="form-control" id="last">
-                </div>
-            </div>
-            <div class='row'>
-                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email">
+                    <input type="text" class="form-control" name="last">
                 </div>
             </div>
             <div class='row'>
                 <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd">
+                    <input type="password" class="form-control" name="pwd">
                 </div>
             </div>
             <div class='row'>
                 <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-8">
                     <label for="conpwd">Confirm Password:</label>
-                    <input type="password" class="form-control" id="conpwd">
+                    <input type="password" class="form-control" name="conpwd">
                 </div>
             </div>
             <!-- Could change this to a more dynamic float, instead of margin left of 300px -->
-            <input class='submit' type='submit' value='submit'>
+            <input class='submit' type='submit' value='Submit'>
         </form>
         <br>
         <a href="/signin">Already have an account? Log in!</a>

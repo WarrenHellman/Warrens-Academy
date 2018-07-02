@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     {% load static %}
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-            <a class="navbar-brand" href="/">The Dashboard</a>
+            <a class="navbar-brand" href="/">The Dashboard-Admin</a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
@@ -38,6 +38,7 @@
                         <th>Email</th>
                         <th>Created At</th>
                         <th>User Level</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +46,7 @@
                     {% for user in users %}
                     <tr>
                         <td>{{ user.id }}</td>
-                        <td>{{ user.first }} {{ user.last }}</td>
+                        <td><a href="/users/edit/{{ user.id }}"> {{ user.first }} {{ user.last }}</a></td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.created_at }}</td>
                         
@@ -54,6 +55,7 @@
                             {% else %}
                                 <td>Normal</td>
                             {% endif %}
+                        <td><a href="/users/edit/{{ user.id }}">edit    </a> <a href="/remove/{{ user.id }}">remove</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

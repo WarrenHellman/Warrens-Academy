@@ -3,6 +3,29 @@
     background-color: green;
     margin-left: 300px;
 }
+.return {
+    color: white;
+    background-color: green;
+
+}
 .login-right {
     margin-right: 10em;
+}
+li {
+    color:red;
+}
+
+.edit-info {
+    padding: 20px;
+    border:2px solid black;
+    display: inline-block;
+    width: 40%;
+}
+.change-pass {
+    padding: 20px;
+    vertical-align: top;
+    margin-left: 40px;
+    border:2px solid black;
+    display: inline-block;
+    width: 40%;
 }
