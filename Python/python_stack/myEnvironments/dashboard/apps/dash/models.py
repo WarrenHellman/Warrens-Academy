@@ -28,7 +28,15 @@ class UserManager(models.Manager):
 
         for word in user:
             if not bcrypt.checkpw(postData['pwd'].encode(), word.password.encode()):
-                errors['pwd']='Passwords do not match'
+                errors['pwd']='Please check your password'
+        
+        return errors
+    def updateValidator(self, postData):
+        errors = {}
+        if postData['password']!= postData['conpwd']:
+            errors['password'] = 'Passwords do not match'
+        if len(postData['password'])<8:
+            errors['password'] = 'Password must be at least 8 characters'
         
         return errors
 
@@ -44,3 +52,10 @@ class User(models.Model):
     description = models.CharField(max_length=500)
 
     objects = UserManager()
+
+class Message(models.Model):
+    content = models.CharField(max_length=500, null=True, blank=True)
+    user = models.ForeignKey(User, related_name='messages')
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+

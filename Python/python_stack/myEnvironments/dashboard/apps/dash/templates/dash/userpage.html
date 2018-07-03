@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/css/bootstrap.css' %}" media="screen" title="no title"  charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-glyphicons.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="/">The Dashboard</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right login-right">
+                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Border styling not working and divs aren't lining up -->
+    
+    <div class='container'>
+        <div class="about-me">
+            <h3>{{ user.first }} {{ user.last }}</h3>
+            <div class="d-inline-block about-field">
+                <p class="about">Registered At:</p>
+                <p class="about">User ID:</p>
+                <p class="about">Email Address:</p>
+                <p class="about">Description:</p>
+            </div> 
+            <div class="d-inline-block about-info">
+                <p class="about">{{ user.created_at }}</p>
+                <p class="about">#{{ user.id }}</p>
+                <p class="about">{{ user.email }}</p>
+                <p class="about">{{ user.description }}</p>
+            </div>    
+        </div>
+        <div class="form-group leavemsg">
+            <h3>Leave a message for {{ user.first }}</h3>
+            <form action="/postmsg/{{ user.id }}" method='POST'>
+                {% csrf_token %}
+                <textarea class="form-control" rows="5" name="leavemsg"></textarea>
+                <br>
+                <input class='return' type='submit' value='Post'>
+            </form>
+        </div>
+        <div class="messages">
+            {% for message in messages %}
+                <p>{{ message.content }}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dash/js/bootstrap.js' %}" media="screen" title="no title"  charset="utf-8">
+    
+
+</body>
+</html>

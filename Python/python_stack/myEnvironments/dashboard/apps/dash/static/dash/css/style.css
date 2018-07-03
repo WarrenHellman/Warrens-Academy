@@ -29,3 +29,28 @@ li {
     display: inline-block;
     width: 40%;
 }
+.description {
+    padding: 20px;
+    border:2px solid black;
+    display: inline-block;
+    width: 80%;
+    margin-top: 40px;
+}
+.leavemsg {
+    
+    padding: 20px;
+    display: inline-block;
+    width: 80%;
+    
+}
+.about-info {
+    width:300px;
+    height: auto;
+    display: inline-block;
+}
+.about-field {
+    display: inline-block;
+    width:120px;
+    height: auto;
+    vertical-align: top;
+}

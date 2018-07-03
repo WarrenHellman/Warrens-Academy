@@ -30,10 +30,10 @@
     
     <div class='container'>
         <div class='d-inline-block'>
-            <h1>Edit User #{{ user.id }}</h1>
+            <h1>Edit Profile</h1>
         </div>
         <div class='d-inline-block'>
-            <form action="/dashboard/admin">
+            <form action="/dashboard">
                 <input class='return' type='submit' value='Return to Dashboard'>
             </form>
             
@@ -41,6 +41,13 @@
         <br>
         <div class="d-inline-block edit-info">
             <h3>Edit User Information</h3>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="errormsg {{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <form action="/update/{{ user.id }}" method='POST'>    
                 {% csrf_token %}
                 <div class='row'>
@@ -61,15 +68,7 @@
                         <input type="text" class="form-control" name="last" value="{{ user.last }}">
                     </div>
                 </div>
-                <div class='row'>
-                    <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                        <label for="sel1">Select User Level:</label>
-                        <select class="form-control" name="user_level">
-                            <option>Normal</option>
-                            <option>Admin</option>
-                        </select>
-                    </div>
-                </div>
+                
                 <!-- Could change this to a more dynamic float, instead of margin left of 300px -->
                 <input class='submit' type='submit' value='Save'>
             </form>
@@ -101,6 +100,16 @@
                 <input class='submit' type='submit' value='Update Password'>
             </form>
         </div>
+        <div class="form-group description">
+            <h3>Add a Description!</h3>
+            <form action="/description/{{ user.id }}" method='POST'>
+                {% csrf_token %}
+                <label for="description">Description:</label>
+                <textarea class="form-control" rows="5" name="description">{{ user.description }}</textarea>
+                <br>
+                <input class='return' type='submit' value='Save'>
+            </form>
+        </div>  
     </div>
 
 
