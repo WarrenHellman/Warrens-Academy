@@ -24,7 +24,7 @@
                 <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right login-right">
-                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> {{ request.session.login }}</a></li>
             </ul>
         </div>
     </nav>
@@ -46,7 +46,11 @@
                 {% for user in users %}
                 <tr>
                     <td>{{ user.id }}</td>
-                    <td><a href="/users/show/{{ user.id }}">{{ user.first }} {{ user.last }}</a></td>
+                    {% if user.id == request.session.user_id %}
+                        <td><a href="/users/edituser/{{ user.id }}">{{ user.first }} {{ user.last }}</a></td>
+                    {% else %}
+                        <td><a href="/users/show/{{ user.id }}">{{ user.first }} {{ user.last }}</a></td>
+                    {% endif %}
                     <td>{{ user.email }}</td>
                     <td>{{ user.created_at }}</td>
                     

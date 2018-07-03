@@ -22,7 +22,7 @@
                 <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right login-right">
-                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> {{ request.session.login }}</a></li>
             </ul>
         </div>
     </nav>

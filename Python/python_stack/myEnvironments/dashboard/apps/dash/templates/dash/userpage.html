@@ -22,7 +22,7 @@
                 <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right login-right">
-                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span>{{ request.session.login }}</a></li>
             </ul>
         </div>
     </nav>
@@ -80,19 +80,11 @@
                     </div>
                     <div class='comment-field'>
                         {% for comment in comments %}
-                        message-user-id{{ message.user_id }}
-                        <br>
-                        user-id{{ user.id }}
-                        <br>
-                        message-id{{ message.id }}
-                        <br>
-                        comment-id{{ comment.id }}
-                        <br>
-                        comment-message-id{{ comment.message_id }}
-                        <br>
-                            {% if comment.message_id == message.id %}
-                                <p>{{ comment.content }}</p>
-                            {% endif %}
+                        
+                            <!-- {% if comment.message_id == message.id %} -->
+                                <h3>{{ comment.content }}</h3>
+                                <h3>{{ comment.message_id }}</h3>
+                            <!-- {% endif %} -->
                         {% endfor %}
 
                         <div class="form-group leave-comment">

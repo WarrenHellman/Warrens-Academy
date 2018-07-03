@@ -11,7 +11,13 @@ def index(request):
     return render(request, 'dash/index.html')
 
 def signin(request):
-    
+    if request.session['login']=='Log Out':
+        request.session['login']='Sign In'
+        request.session['user_id']=None
+        request.session['user_level']=None
+    else:
+        request.session['login']='Sign In'
+        request.session['user_level']=None
     return render(request, 'dash/signin.html')
 
 def passcheck(request):
@@ -23,16 +29,23 @@ def passcheck(request):
     
     else:
         user = User.objects.get(email=request.POST['email'])
+        request.session['login']='Log Out'
+        request.session['user_id']=user.id
         if user.user_level == 9:
+            request.session['user_level']='admin'
             return redirect('/dashboard/admin')
         else: 
+            request.session['user_level']='normal'
             return redirect('/dashboard')
 
 def dashAdmin(request):
-    context = {
-        'users':User.objects.all()
-    }
-    return render(request, 'dash/dashAdmin.html', context)
+    if request.session['user_id']==None:
+        return redirect('/signin')
+    else:
+        context = {
+            'users':User.objects.all()
+        }
+        return render(request, 'dash/dashAdmin.html', context)
 
 def register(request):
     return render(request, 'dash/register.html')
@@ -44,10 +57,13 @@ def dashboard(request):
     return render(request, 'dash/dashboard.html', context)
 
 def edit(request, id):
-    context= {
-        'user': User.objects.get(id=id)
-    }    
-    return render(request, 'dash/edit.html', context)
+    if request.session['user_level']=='admin':
+        context= {
+            'user': User.objects.get(id=id)
+        }    
+        return render(request, 'dash/edit.html', context)
+    else:
+        return redirect('/signin')
 def remove(request, id):
     user = User.objects.get(id=id)
     user.delete()
@@ -124,14 +140,21 @@ def newUser(request):
         else: 
             user.user_level = 1
         user.save()
-
+        if request.session['login']=='Sign In':
+            request.session['login']='Log Out'
+        request.session['user_id']=user.id
         return redirect('/dashboard', {'user':User.objects.get(id=id)})
 
 def editUser(request, id):
-    context = {
-        'user' : User.objects.get(id=id)    
-    }
-    return render(request, ('dash/userEdit.html'), context)
+    user = User.objects.get(id=id)
+    if user.id == request.session['user_id']:
+        context = {
+            'user' : User.objects.get(id=id)    
+        }
+
+        return render(request, ('dash/userEdit.html'), context)
+    else: 
+        return redirect('/signin')
 def description(request, id):
     user=User.objects.get(id=id)
     user.description = request.POST['description']
@@ -159,12 +182,14 @@ def postmsg(request, id):
 def postcomment(request, id):
     message = Message.objects.get(id=id)
     id= message.id
-    context = {
-        'message' : Message.objects.get(id=id), 
-    }
+    print id
+    # context = {
+    #     'message' : Message.objects.get(id=id), 
+    # }
 
     comment = Comment.objects.create(content=request.POST['leave-comment'], message = Message.objects.get(id=id))
     user = message.user_id
-
+    print comment.message_id
     comment.save()
-    return redirect('/users/show/'+str(user), context)
+    return redirect('/users/show/'+str(user), {'comments': Comment.objects.all()})
+    # add , context
