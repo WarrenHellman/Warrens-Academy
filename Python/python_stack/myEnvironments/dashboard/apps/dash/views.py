@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
-from .models import User, Message
+from .models import User, Message, Comment
 from django.contrib import messages
 import bcrypt
 
@@ -138,8 +138,11 @@ def description(request, id):
     user.save()
     return redirect('/dashboard')
 def userpage(request, id):
+
     context = {
-        'user' : User.objects.get(id=id)    
+        'user' : User.objects.get(id=id) ,
+        'messages' : Message.objects.filter(user=User.objects.all()),   
+        'comments' : Comment.objects.filter(message=Message.objects.all())
     }
     return render(request, ('dash/userpage.html'), context)
 def postmsg(request, id):
@@ -148,8 +151,20 @@ def postmsg(request, id):
     context = {
         'user' : User.objects.get(id=id)    
     }
-    message = Message.objects.create()
-    message.content = request.POST['leavemsg']
+    message = Message.objects.create(content=request.POST['leavemsg'], user = User.objects.get(id=id))
+    
     message.save()
 
-    return redirect('/users/show'+str(id), context)
+    return redirect('/users/show/'+str(id), context)
+def postcomment(request, id):
+    message = Message.objects.get(id=id)
+    id= message.id
+    context = {
+        'message' : Message.objects.get(id=id), 
+    }
+
+    comment = Comment.objects.create(content=request.POST['leave-comment'], message = Message.objects.get(id=id))
+    user = message.user_id
+
+    comment.save()
+    return redirect('/users/show/'+str(user), context)

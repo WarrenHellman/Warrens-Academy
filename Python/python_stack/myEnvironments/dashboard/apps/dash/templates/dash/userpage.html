@@ -54,8 +54,57 @@
             </form>
         </div>
         <div class="messages">
+
             {% for message in messages %}
-                <p>{{ message.content }}</p>
+                <!-- needs to show the posting user -->
+                {% if message.user_id == user.id %}
+                    message-user-id{{ message.user_id }}
+                    <br>
+                    user-id{{ user.id }}
+                    <br>
+                    message-id{{ message.id }}
+                    <br>
+                    
+                    <div class="msg-field">
+                        <div class="msg-top">
+                            <h4 class='poster'><a href="/users/show/{{ message.user_id }}">{{ user.first }} {{ user.last }}</a> wrote:</h4>    
+                        </div>
+                        <div class="msg-top">
+                            <p class='time-stamp'>{{ message.created_at }}</p>
+                        </div>
+                        
+                        <div class='msg'>
+                            
+                            <p>{{ message.content }}</p>
+                        </div>
+                    </div>
+                    <div class='comment-field'>
+                        {% for comment in comments %}
+                        message-user-id{{ message.user_id }}
+                        <br>
+                        user-id{{ user.id }}
+                        <br>
+                        message-id{{ message.id }}
+                        <br>
+                        comment-id{{ comment.id }}
+                        <br>
+                        comment-message-id{{ comment.message_id }}
+                        <br>
+                            {% if comment.message_id == message.id %}
+                                <p>{{ comment.content }}</p>
+                            {% endif %}
+                        {% endfor %}
+
+                        <div class="form-group leave-comment">
+                            <form action="/post-comment/{{ message.id }}" method='POST'>
+                                {% csrf_token %}
+                                <textarea class="form-control" rows="3" name="leave-comment" placeholder="Leave a comment"></textarea>
+                                <br>
+                                <input class='return' type='submit' value='Post'>
+                            </form>
+                        </div>
+                    </div>   
+                {% endif %}
             {% endfor %}
         </div>
     </div>

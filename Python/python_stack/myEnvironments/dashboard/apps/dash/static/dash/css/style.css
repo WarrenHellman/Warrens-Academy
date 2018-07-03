@@ -54,3 +54,27 @@ li {
     height: auto;
     vertical-align: top;
 }
+.msg {
+    width:70%;
+    height: 70px;
+    margin-left: 7%;
+    margin-bottom: 10px;
+    padding:10px;
+    border:1px solid black;
+}
+.msg-top {
+    display:inline-block;
+    width: 40%;
+    height: auto;
+    margin-left: 7%;
+}
+.time-stamp {
+    margin-left: 35%;
+}
+.leave-comment {
+    width:68%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    padding:10px;
+
+}

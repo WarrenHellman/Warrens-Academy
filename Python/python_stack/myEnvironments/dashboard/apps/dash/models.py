@@ -59,3 +59,8 @@ class Message(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
+class Comment(models.Model):
+    content = models.CharField(max_length=500, null=True, blank=True)
+    message = models.ForeignKey(Message, related_name='comments')
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)

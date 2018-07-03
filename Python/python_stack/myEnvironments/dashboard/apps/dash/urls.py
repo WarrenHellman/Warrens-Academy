@@ -18,4 +18,5 @@ url(r'^users/edituser/(?P<id>\d+)$', views.editUser),
 url(r'^description/(?P<id>\d+)$', views.description),
 url(r'^users/show/(?P<id>\d+)$', views.userpage),
 url(r'^postmsg/(?P<id>\d+)$', views.postmsg),
+url(r'^post-comment/(?P<id>\d+)$', views.postcomment),
 ]
