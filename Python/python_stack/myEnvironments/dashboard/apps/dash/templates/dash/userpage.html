@@ -15,14 +15,14 @@
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header">
+            <div class="navbar-header hover">
             <a class="navbar-brand" href="/">The Dashboard</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <ul class="nav navbar-nav hover">
+                <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right login-right">
-                <li><a href="/signin"><span class="glyphicon glyphicon-user"></span>{{ request.session.login }}</a></li>
+            <ul class="nav navbar-nav navbar-right login-right hover">
+                <li class="hover"><a href="/signin"><span class="glyphicon glyphicon-user"></span> {{ request.session.login }}</a></li>
             </ul>
         </div>
     </nav>
@@ -54,17 +54,9 @@
             </form>
         </div>
         <div class="messages">
-
             {% for message in messages %}
                 <!-- needs to show the posting user -->
                 {% if message.user_id == user.id %}
-                    message-user-id{{ message.user_id }}
-                    <br>
-                    user-id{{ user.id }}
-                    <br>
-                    message-id{{ message.id }}
-                    <br>
-                    
                     <div class="msg-field">
                         <div class="msg-top">
                             <h4 class='poster'><a href="/users/show/{{ message.user_id }}">{{ user.first }} {{ user.last }}</a> wrote:</h4>    
@@ -79,13 +71,21 @@
                         </div>
                     </div>
                     <div class='comment-field'>
+
                         {% for comment in comments %}
-                        
-                            <!-- {% if comment.message_id == message.id %} -->
-                                <h3>{{ comment.content }}</h3>
-                                <h3>{{ comment.message_id }}</h3>
-                            <!-- {% endif %} -->
+                            {% if comment.message_id == message.id %}
+                                <div class="comment-top">
+                                    <h4 class='poster'><a href="">{{ user.first }} {{ user.last }}</a> commented:</h4>
+                                </div>
+                                <div class="comment-top">
+                                    <p class='time-stamp'>{{ comment.created_at }}</p>
+                                </div>
+                                <div class='comment'>
+                                    <p>{{ comment.content }}</p>
+                                </div>
+                            {% endif %}
                         {% endfor %}
+
 
                         <div class="form-group leave-comment">
                             <form action="/post-comment/{{ message.id }}" method='POST'>

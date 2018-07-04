@@ -164,17 +164,18 @@ def userpage(request, id):
 
     context = {
         'user' : User.objects.get(id=id) ,
-        'messages' : Message.objects.filter(user=User.objects.all()),   
-        'comments' : Comment.objects.filter(message=Message.objects.all())
+        'messages' : Message.objects.all(),   
+        'comments' : Comment.objects.all()
     }
     return render(request, ('dash/userpage.html'), context)
 def postmsg(request, id):
     user = User.objects.get(id=id)
     id= user.id
+    poster=request.session['user_id']
     context = {
         'user' : User.objects.get(id=id)    
     }
-    message = Message.objects.create(content=request.POST['leavemsg'], user = User.objects.get(id=id))
+    message = Message.objects.create(content=request.POST['leavemsg'], user = User.objects.get(id=poster))
     
     message.save()
 
@@ -182,14 +183,12 @@ def postmsg(request, id):
 def postcomment(request, id):
     message = Message.objects.get(id=id)
     id= message.id
-    print id
-    # context = {
-    #     'message' : Message.objects.get(id=id), 
-    # }
+    context = {
+        'message' : Message.objects.get(id=id),
+        'comments' : Comment.objects.all()
+    }
 
     comment = Comment.objects.create(content=request.POST['leave-comment'], message = Message.objects.get(id=id))
     user = message.user_id
-    print comment.message_id
     comment.save()
-    return redirect('/users/show/'+str(user), {'comments': Comment.objects.all()})
-    # add , context
+    return redirect('/users/show/'+str(user), context)

@@ -56,7 +56,7 @@ li {
 }
 .msg {
     width:70%;
-    height: 70px;
+    min-height: 70px;
     margin-left: 7%;
     margin-bottom: 10px;
     padding:10px;
@@ -77,4 +77,21 @@ li {
     margin-bottom: 10px;
     padding:10px;
 
+}
+.comment-top {
+    display:inline-block;
+    width: 32.5%;
+    height: auto;
+    margin-left: 12%;
+}
+.comment {
+    width:65%;
+    min-height: 70px;
+    margin-left: 12%;
+    margin-bottom: 10px;
+    padding:10px;
+    border:1px solid black;
+}
+.hover:hover {
+    background-color: #2EB8F6;
 }
