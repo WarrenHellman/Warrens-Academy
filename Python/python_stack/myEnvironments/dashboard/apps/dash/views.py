@@ -33,28 +33,37 @@ def passcheck(request):
         request.session['user_id']=user.id
         if user.user_level == 9:
             request.session['user_level']='admin'
-            return redirect('/dashboard/admin')
+            return redirect('/dashboard')
         else: 
             request.session['user_level']='normal'
             return redirect('/dashboard')
 
-def dashAdmin(request):
-    if request.session['user_id']==None:
-        return redirect('/signin')
-    else:
-        context = {
-            'users':User.objects.all()
-        }
-        return render(request, 'dash/dashAdmin.html', context)
+# def dashAdmin(request):
+#     if request.session['user_id']==None:
+#         return redirect('/signin')
+#     else:
+#         context = {
+#             'users':User.objects.all()
+#         }
+#         return render(request, 'dash/dashAdmin.html', context)
 
 def register(request):
     return render(request, 'dash/register.html')
 
 def dashboard(request):
-    context = {
-        'users':User.objects.all()
-    }
-    return render(request, 'dash/dashboard.html', context)
+    if request.session['user_level']=='admin':
+        if request.session['user_id']==None:
+            return redirect('/signin')
+        else:
+            context = {
+                'users':User.objects.all()
+            }
+            return render(request, 'dash/dashAdmin.html', context)
+    else:
+        context = {
+            'users':User.objects.all()
+        }
+        return render(request, 'dash/dashboard.html', context)
 
 def edit(request, id):
     if request.session['user_level']=='admin':
@@ -164,19 +173,22 @@ def userpage(request, id):
 
     context = {
         'user' : User.objects.get(id=id) ,
+        'users' : User.objects.all(),
         'messages' : Message.objects.all(),   
         'comments' : Comment.objects.all()
     }
+
+
     return render(request, ('dash/userpage.html'), context)
 def postmsg(request, id):
     user = User.objects.get(id=id)
     id= user.id
-    poster=request.session['user_id']
+    # poster=request.session['user_id']
     context = {
         'user' : User.objects.get(id=id)    
     }
-    message = Message.objects.create(content=request.POST['leavemsg'], user = User.objects.get(id=poster))
-    
+    message = Message.objects.create(content=request.POST['leavemsg'], user = User.objects.get(id=id))
+    message.poster_id = request.session['user_id']
     message.save()
 
     return redirect('/users/show/'+str(id), context)
@@ -187,8 +199,9 @@ def postcomment(request, id):
         'message' : Message.objects.get(id=id),
         'comments' : Comment.objects.all()
     }
-
+    
     comment = Comment.objects.create(content=request.POST['leave-comment'], message = Message.objects.get(id=id))
+    comment.poster_id = request.session['user_id']
     user = message.user_id
     comment.save()
     return redirect('/users/show/'+str(user), context)

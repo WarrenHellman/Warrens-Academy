@@ -56,11 +56,13 @@ class User(models.Model):
 class Message(models.Model):
     content = models.CharField(max_length=500, null=True, blank=True)
     user = models.ForeignKey(User, related_name='messages')
+    poster_id = models.IntegerField(null=True)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
 class Comment(models.Model):
     content = models.CharField(max_length=500, null=True, blank=True)
     message = models.ForeignKey(Message, related_name='comments')
+    poster_id = models.IntegerField(null=True)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)

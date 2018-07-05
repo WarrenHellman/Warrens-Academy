@@ -11,18 +11,25 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'dash/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.2.4/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
+
+
 <body>
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header hover">
             <a class="navbar-brand" href="/">The Dashboard</a>
             </div>
             <ul class="nav navbar-nav hover">
-                <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="/dashboard"><i class="icon ion-md-home"></i> Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav hover">
+                <li><a href="/users/edituser/{{ request.session.user_id }}"><i class="icon ion-ios-contact"></i> Profile</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right login-right hover">
-                <li class="hover"><a href="/signin"><span class="glyphicon glyphicon-user"></span> {{ request.session.login }}</a></li>
+                <li class="hover"><a href="/signin"><i class="icon ion-ios-person"></i> {{ request.session.login }}</a></li>
             </ul>
         </div>
     </nav>
@@ -59,7 +66,12 @@
                 {% if message.user_id == user.id %}
                     <div class="msg-field">
                         <div class="msg-top">
-                            <h4 class='poster'><a href="/users/show/{{ message.user_id }}">{{ user.first }} {{ user.last }}</a> wrote:</h4>    
+                            {% for user in users %}
+                                {% if user.id == message.poster_id %}
+                                <h4 class='poster'><a href="/users/show/{{ message.poster_id }}">{{ user.first }} {{ user.last }}</a> wrote:</h4>
+                                {% endif %}
+                            {% endfor %}
+                            <!-- <h4 class='poster'><a href="/users/show/{{ message.user_id }}">{{ user.first }} {{ user.last }}</a> wrote:</h4>     -->
                         </div>
                         <div class="msg-top">
                             <p class='time-stamp'>{{ message.created_at }}</p>
@@ -74,8 +86,16 @@
 
                         {% for comment in comments %}
                             {% if comment.message_id == message.id %}
+                                
+                            
                                 <div class="comment-top">
-                                    <h4 class='poster'><a href="">{{ user.first }} {{ user.last }}</a> commented:</h4>
+                                    <!-- <h4 class='poster'><a href="">{{ user.first }} {{ user.last }}</a> commented:</h4> -->
+                                    {% for user in users %}
+                                        {% if user.id == comment.poster_id %}
+                                        <h4 class='poster'><a href="/users/show/{{ comment.poster_id }}">{{ user.first }} {{ user.last }}</a> commented:</h4>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <!-- <h4 class='poster'><a href="/users/show/{{ comment.poster_id }}">{{ comment.poster_id }}</a> commented:</h4> -->
                                 </div>
                                 <div class="comment-top">
                                     <p class='time-stamp'>{{ comment.created_at }}</p>
