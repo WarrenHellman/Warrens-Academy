@@ -1,3 +1,5 @@
+<!-- Page that Admins see when they log in. A dashboard with more functionality -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,19 +54,21 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <!-- dynamic table for each new user -->
                 {% for user in users %}
                 <tr>
                     <td>{{ user.id }}</td>
+                    <!-- takes you to profile page where you can update yoru profile -->
                     <td><a href="/users/show/{{ user.id }}">{{ user.first }} {{ user.last }}</a></td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.created_at }}</td>
-                    
+                    <!-- admin or normal, depending on user level (1=normal, 9=admin) -->
                         {% if user.user_level == 9 %}
                             <td>Admin</td>
                         {% else %}
                             <td>Normal</td>
                         {% endif %}
+                    <!-- Could change this to a form so that server functions are not passed through a get -->
                     <td><a href="/users/edit/{{ user.id }}">edit    </a> <a onclick="if (!confirm('Are you sure you want to remove this user?')) return false;" href="/remove/{{ user.id }}">remove</a></td>
                 </tr>
                 {% endfor %}

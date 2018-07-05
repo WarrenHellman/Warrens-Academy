@@ -1,26 +1,42 @@
+/* Custom CSS that overrides bootstrap */
+/* submit buttons */
+
+/*  */
+/* NAV AREA */
+/*  */
+
+/* blue hover for nav bar items */
+.hover:hover {
+    background-color: #2EB8F6;
+}
+
 .submit {
     color: white;
     background-color: green;
     margin-left: 300px;
 }
+/* slightly different button, has own spacing */
 .return {
     color: white;
     background-color: green;
 
 }
+/* keeps login nav item away from right edge */
 .login-right {
     margin-right: 10em;
 }
+/* error message color */
 li {
     color:red;
 }
-
+/* spacing for edit block */
 .edit-info {
     padding: 20px;
     border:2px solid black;
     display: inline-block;
     width: 40%;
 }
+/* css for change password area */
 .change-pass {
     padding: 20px;
     vertical-align: top;
@@ -29,6 +45,7 @@ li {
     display: inline-block;
     width: 40%;
 }
+/* css for description box */
 .description {
     padding: 20px;
     border:2px solid black;
@@ -36,6 +53,7 @@ li {
     width: 80%;
     margin-top: 40px;
 }
+/* css for leave message box */
 .leavemsg {
     
     padding: 20px;
@@ -43,17 +61,20 @@ li {
     width: 80%;
     
 }
+/* css for about section of user page */
 .about-info {
     width:300px;
     height: auto;
     display: inline-block;
 }
+/* css for the about section responses */
 .about-field {
     display: inline-block;
     width:120px;
     height: auto;
     vertical-align: top;
 }
+/* css for message area */
 .msg {
     width:70%;
     min-height: 70px;
@@ -62,15 +83,18 @@ li {
     padding:10px;
     border:1px solid black;
 }
+/* formatting for the poster id for messages and comments */
 .msg-top {
     display:inline-block;
     width: 40%;
     height: auto;
     margin-left: 7%;
 }
+/* spacing for the time stamp */
 .time-stamp {
     margin-left: 35%;
 }
+/* css for comment field */
 .leave-comment {
     width:68%;
     margin-left: 10%;
@@ -78,12 +102,14 @@ li {
     padding:10px;
 
 }
+/* css for poster info and time stamp */
 .comment-top {
     display:inline-block;
     width: 32.5%;
     height: auto;
     margin-left: 12%;
 }
+/* css for the comment posts */
 .comment {
     width:65%;
     min-height: 70px;
@@ -91,7 +117,4 @@ li {
     margin-bottom: 10px;
     padding:10px;
     border:1px solid black;
-}
-.hover:hover {
-    background-color: #2EB8F6;
 }

@@ -1,3 +1,4 @@
+<!-- The wall. This is a user's page where others can leave comments. This was challending to work out the logic for posting comments and messages -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,11 +62,13 @@
             </form>
         </div>
         <div class="messages">
+            <!-- Gets all messages (all messages are returned here through a context list in views) -->
             {% for message in messages %}
-                <!-- needs to show the posting user -->
+                <!-- Only shows messages for the user who's page is displayed -->
                 {% if message.user_id == user.id %}
                     <div class="msg-field">
                         <div class="msg-top">
+                            <!-- This displays the user that posted the message by linking the poster ID with a user name -->
                             {% for user in users %}
                                 {% if user.id == message.poster_id %}
                                 <h4 class='poster'><a href="/users/show/{{ message.poster_id }}">{{ user.first }} {{ user.last }}</a> wrote:</h4>
@@ -83,13 +86,11 @@
                         </div>
                     </div>
                     <div class='comment-field'>
-
+                        <!-- Like messages, the views function returns a list of all comments and marries comment to it's parent message -->
                         {% for comment in comments %}
                             {% if comment.message_id == message.id %}
-                                
-                            
                                 <div class="comment-top">
-                                    <!-- <h4 class='poster'><a href="">{{ user.first }} {{ user.last }}</a> commented:</h4> -->
+                                    <!-- Also matches poster to their user name. A little challenging to figure out -->
                                     {% for user in users %}
                                         {% if user.id == comment.poster_id %}
                                         <h4 class='poster'><a href="/users/show/{{ comment.poster_id }}">{{ user.first }} {{ user.last }}</a> commented:</h4>
