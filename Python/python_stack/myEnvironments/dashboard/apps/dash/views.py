@@ -76,7 +76,7 @@ def edit(request, id):
 def remove(request, id):
     user = User.objects.get(id=id)
     user.delete()
-    return redirect('/dashboard/admin')
+    return redirect('/dashboard')
 def updatepwd(request, id):
     user = User.objects.get(id=id)
     errors = User.objects.updateValidator(request.POST)
@@ -92,7 +92,7 @@ def updatepwd(request, id):
         hashed = bcrypt.hashpw(user.password.encode(), bcrypt.gensalt())
         user.password = hashed
         user.save()
-        return redirect('/dashboard/admin')
+        return redirect('/dashboard')
 
 def update(request, id):
     user = User.objects.get(id=id)
@@ -104,7 +104,7 @@ def update(request, id):
     else:
         user.user_level=1
     user.save()
-    return redirect('/dashboard/admin')
+    return redirect('/dashboard')
 def add(request):
     return render(request, 'dash/add.html')
 
@@ -117,7 +117,6 @@ def addUser(request):
         return redirect('/register')
     else:
         user = User.objects.create()
-        id = user.id
         user.email = request.POST['email']
         user.first = request.POST['first']
         user.last = request.POST['last']
@@ -127,7 +126,7 @@ def addUser(request):
         user.user_level = 1
         user.save()
 
-        return redirect('/dashboard/admin', {'user':User.objects.get(id=id)})
+        return redirect('/dashboard', {'user':User.objects.get(id=request.session['user_id'])})
     
 def newUser(request):
     errors = User.objects.validator(request.POST)
@@ -174,7 +173,7 @@ def userpage(request, id):
     context = {
         'user' : User.objects.get(id=id) ,
         'users' : User.objects.all(),
-        'messages' : Message.objects.all(),   
+        'messages' : Message.objects.all().order_by('-created_at'),   
         'comments' : Comment.objects.all()
     }
 

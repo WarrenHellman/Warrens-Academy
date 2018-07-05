@@ -65,7 +65,7 @@
                         {% else %}
                             <td>Normal</td>
                         {% endif %}
-                    <td><a href="/users/edit/{{ user.id }}">edit    </a> <a href="/remove/{{ user.id }}">remove</a></td>
+                    <td><a href="/users/edit/{{ user.id }}">edit    </a> <a onclick="if (!confirm('Are you sure you want to remove this user?')) return false;" href="/remove/{{ user.id }}">remove</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -85,7 +85,8 @@
 
 
 
-
+    
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     {% load static %}
     <link rel="stylesheet" href="{% static 'dash/js/bootstrap.js' %}" media="screen" title="no title"  charset="utf-8">
