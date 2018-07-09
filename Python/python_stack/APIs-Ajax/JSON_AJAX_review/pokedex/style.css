@@ -1,0 +1,14 @@
+.pokemon {
+    height: auto;
+    width: 70%;
+    display: inline-block;
+}
+.pokedex {
+    padding: 10px;
+    width:25%;
+    position: fixed;
+    display: inline-block;
+    height: 500px;
+    border: 2px solid skyblue;
+    vertical-align: top;
+}
