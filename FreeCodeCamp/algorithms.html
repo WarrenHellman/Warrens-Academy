@@ -61,20 +61,55 @@
 
     // arrDiff(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub1", 2,4,6])
 
-    function forIn(arr, obj){
-        // just works for single items
-        var newArr=[];
-        for (var i=0; i<arr.length; i++){
-            var x;
-            for (x in arr[i]){
-                if (arr[i].hasOwnProperty(x) && arr[i][x] === obj[x]){
-                    newArr.push(arr[i]);
+    // function forIn(arr, obj){
+    //     // just works for single items
+    //     var newArr=[];
+    //     for (var i=0; i<arr.length; i++){
+    //         var x;
+    //         for (x in arr[i]){
+    //             if (arr[i].hasOwnProperty(x) && arr[i][x] === obj[x]){
+    //                 newArr.push(arr[i]);
+    //             }
+    //         }
+            
+    //     }
+    //     console.log(newArr);
+    // }
+    // forIn([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" })
+
+    function pigLatinTranslator(str) {
+        let vowel = ['a', 'e', 'i', 'o', 'u'];
+        for (var i=0; i<vowel.length; i++){
+            if (str[0]==vowel[i]){
+                console.log(str+'way');
+                return str+'way';
+            }
+        }
+        for (var j=0; j<vowel.length; j++){
+            if (str[1]==vowel[j]){
+                console.log(str.slice(1)+str[0]+'ay')
+                return str.slice(1)+str[0]+'ay';
+            }
+        }
+        for (var k=1; k<str.length; k++){
+            for (var k1=0; k1<vowel.length; k1++){
+                if (str[k]==vowel[k1]||str[k]=='y'){
+                    console.log(str.slice(k)+str.slice(0, k)+'ay')
+                    return str.slice(k)+str.slice(0, k)+'ay'
                 }
             }
-            
+        console.log(str+'ay')
+        return str+'ay'    
         }
-        console.log(newArr);
+        
+        
+        
     }
-    forIn([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" })
-
+    // pigLatinTranslator('celifornia')
+    // pigLatinTranslator('paragraphs')
+    pigLatinTranslator('glove')
+    // pigLatinTranslator('eight')
+    pigLatinTranslator('psche')
+    pigLatinTranslator('psyche')
+    pigLatinTranslator('ghdhdh')
 </script>

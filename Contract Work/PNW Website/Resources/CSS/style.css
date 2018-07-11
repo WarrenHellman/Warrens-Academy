@@ -1,0 +1,184 @@
+
+/* ------------------------------------------------------------------------- */
+/* ---------BASIC SETUP---------------- */
+/* ------------------------------------------------------------------------- */
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/* keeps extra content from overflowing on the x axis */
+body {
+    overflow-x: hidden;
+}
+
+html {
+    color:#555;
+    font-size: 20px;
+}
+h1, h2, h3, h4, p {
+    font-weight: 300;
+}
+
+h1, h2 {
+    font-size: 300%;
+}
+h4 {
+    font-size: 150%;
+}
+
+section {
+    padding-top: 50px;
+}
+
+.flex-container {
+    display:flex;
+    max-width: 1140px;
+    /* centers all margins instead of typing out instructions for each margin directions */
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* ------------------------------------------------------------------------- */
+/* ---------NAVIGATION---------------- */
+/* ------------------------------------------------------------------------- */
+
+.main-nav {
+    background-color: white;
+    height: 100px;
+}
+
+.main-nav-1 li {
+    display: inline-block;
+    margin-top: 55px;
+    margin-left: 50px;
+}
+
+.main-nav-1 li a:link,
+.main-nav-1 li a:visited {
+    color: #555;
+    padding: 8px 0px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;
+}
+.main-nav-1 li a:hover,
+.main-nav-1 li a:active {
+    border-bottom: 2px solid #6ab04c;
+}
+
+.main-nav-2 li {
+    display: inline-block;
+    margin-top: 55px;
+    margin-right: 50px;
+}
+
+.main-nav-2 li a:link,
+.main-nav-2 li a:visited {
+    color: #555;
+    padding: 8px 0px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;
+}
+.main-nav-2 li a:hover,
+.main-nav-2 li a:active {
+    border-bottom: 2px solid #6ab04c;
+}
+/* Want the logo to dip down a little into the top of the page */
+.logo {
+    height: 130px;    
+    width: 130px;
+    border: 5px solid white;
+    border-radius: 50%;
+    overflow-y: visible;
+}
+
+
+
+/* ------------------------------------------------------------------------- */
+/* ---------LANDING---------------- */
+/* ------------------------------------------------------------------------- */
+
+
+header {
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(img/interested-elk.png);
+    /* fits image to the space */
+    background-size: cover;
+    /* auto adjusts positioning dynamically */
+    background-position: center;
+    /* sets height to 100% of the viewport image */
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.landing-text {
+    margin-left: 15%;
+    margin-top: 15%;
+}
+
+h2 span {
+    color:red;
+}
+
+.landing-text h1 {
+    font-size: 400%;
+    color: white;
+}
+
+.landing-text h2 {
+    font-size: 300%;
+    color: white;
+}
+
+/* ------------------------------------------------------------------------- */
+/* ---------ABOUT---------------- */
+/* ------------------------------------------------------------------------- */
+
+.about {
+    background-color: #fffefe;
+}
+
+.about h2 {
+    margin-left: 20%;
+    margin-right: auto;
+    color: #555
+
+}
+
+.about p {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 50px;
+    color: #555;
+    line-height: 125%;
+}
+
+.about h3 {
+    margin-top: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 200%;
+    text-align: center;
+}
+.abv {
+    margin-left: 40%;
+    margin-right: auto;
+    font-size: 200%;
+    margin-top: 30px;
+}
+
+.about-thanks {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 30px;
+
+}
