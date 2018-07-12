@@ -110,7 +110,7 @@ section {
 
 
 header {
-    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(img/interested-elk.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.4)), url(img/interested-elk.png);
     /* fits image to the space */
     background-size: cover;
     /* auto adjusts positioning dynamically */
@@ -121,22 +121,27 @@ header {
 }
 
 .landing-text {
-    margin-left: 15%;
-    margin-top: 15%;
+    margin-left: 24%;
+    margin-top: 20%;
 }
 
 h2 span {
     color:red;
 }
 
-.landing-text h1 {
+/* .landing-text h1 {
     font-size: 400%;
     color: white;
+} */
+.landing-text img {
+    width: 60%;
+    height: auto;
 }
 
 .landing-text h2 {
     font-size: 300%;
     color: white;
+    margin-left: 2%;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -181,4 +186,12 @@ h2 span {
     margin-right: 25%;
     margin-top: 30px;
 
+}
+
+.sierra-link {
+    color: #6ab04c;
+}
+
+.about-mission a {
+    text-decoration: none;
 }
