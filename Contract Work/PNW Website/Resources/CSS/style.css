@@ -50,6 +50,7 @@ section {
 .main-nav {
     background-color: white;
     height: 100px;
+    border-radius: 5%;
 }
 
 .main-nav-1 li {
