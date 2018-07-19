@@ -113,28 +113,41 @@
     // pigLatinTranslator('psyche')
     // pigLatinTranslator('ghdhdh')
 
-    function dnaMatch(str){
-        let newArr = [];
-        let i=0;
-        while (i<str.length){
-            let pair;
-            if (str[i]=='A'){
-                pair = 'T';
-            }
-            else if (str[i]=='T'){
-                pair = 'A';
-            }
-            else if (str[i]=='C'){
-                pair = 'G';
-            }
-            else {
-                pair = 'C';
-            }
-            newArr[i]=[str[i],pair]
-            i++;
-        }
-        console.log(newArr);
-    }
+    // function dnaMatch(str){
+    //     let newArr = [];
+    //     let i=0;
+    //     while (i<str.length){
+    //         let pair;
+    //         if (str[i]=='A'){
+    //             pair = 'T';
+    //         }
+    //         else if (str[i]=='T'){
+    //             pair = 'A';
+    //         }
+    //         else if (str[i]=='C'){
+    //             pair = 'G';
+    //         }
+    //         else {
+    //             pair = 'C';
+    //         }
+    //         newArr[i]=[str[i],pair]
+    //         i++;
+    //     }
+    //     return newArr;
+    // }
 
-    dnaMatch("ATCG");
+    // dnaMatch("ATCG");
+
+    // function fearNotLetter(str){
+    //     for (var i=1; i<str.length;i++){
+    //         if (str.charCodeAt(i)-str.charCodeAt(i-1)!==1){
+    //             let missing = str.charCodeAt(i)-1
+    //             return String.fromCharCode((missing));
+    //         }
+    //     }
+    //     return undefined;
+    // }
+
+    // fearNotLetter('abce')
+
 </script>
