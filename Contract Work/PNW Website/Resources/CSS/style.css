@@ -44,6 +44,25 @@ hr {
     margin-top: 20px;
 }
 
+textarea,
+input[type=text],
+input[type=email] {
+    border: 2px solid #078646;
+    border-radius: 4px;
+}
+
+textarea:focus,
+input[type=text]:focus,
+input[type=email]:focus,
+textarea:hover,
+input[type=text]:hover,
+input[type=email]:hover {
+    border: 2px solid #D29000;
+    border-radius: 4px;
+    outline: none;
+}
+
+
 .flex-container {
     display:flex;
     max-width: 1140px;
@@ -273,67 +292,6 @@ h2 span {
     display: none;
 }
 
-/* Next & previous buttons */
-.prev, .next {
-cursor: pointer;
-position: absolute;
-top: 50%;
-width: auto;
-margin-top: -22px;
-padding: 16px;
-color: white;
-font-weight: bold;
-font-size: 18px;
-transition: 0.6s ease;
-border-radius: 0 3px 3px 0;
-}
-
-/* Position the "next button" to the right */
-.next {
-right: 0;
-border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-color: #f2f2f2;
-font-size: 15px;
-padding: 8px 12px;
-position: absolute;
-bottom: 8px;
-width: 100%;
-text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-color: #f2f2f2;
-font-size: 12px;
-padding: 8px 12px;
-position: absolute;
-top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-cursor: pointer;
-height: 15px;
-width: 15px;
-margin: 0 2px;
-background-color: #bbb;
-border-radius: 50%;
-display: inline-block;
-transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-background-color: #717171;
-}
 
 /* Fading animation */
 .fade {
@@ -357,12 +315,26 @@ to {opacity: 1}
 /* ---------CONTACT---------------- */
 /* ------------------------------------------------------------------------- */
 
+.contact-header-container {
+    display: grid;
+    justify-items: center;
+}
+.contact-text {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-align: center;
+}
+
 form {
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 130px 1fr;
     grid-column-gap: 16px;
+    grid-row-gap: 16px;
     width: 90%;
-
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 form label {
@@ -375,10 +347,73 @@ form textarea {
 }
 
 .form-container {
-    background-color: goldenrod;
     display:flex;
     width: 70%;
     margin-left: 15%;
+}
+
+#form-name {
+    grid-row: 1/2;
+}
+
+#form-email {
+    grid-row: 2/3;
+}
+
+#form-subject {
+    grid-row: 3/4;
+}
+
+#form-message {
+    grid-row: 4/5;
+}
+
+form input[type=submit]{
+    justify-self: center;
+    padding: 5px;
+    background-color: #fffefe;
+    border: 2px solid #078646;
+    border-radius: 4px;
+    color: #078646;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 110%;
+    outline: none;
+    margin-bottom: 4px;
+}
+
+form input[type=submit]:hover,
+form input[type=submit]:active {
+    padding: 7px;
+    border: 2px solid #D29000;
+    color: #D29000;
+    margin-bottom: 0px;
+}
+
+
+
+/* ------------------------------------------------------------------------- */
+/* ---------AVAILABILITY---------------- */
+/* ------------------------------------------------------------------------- */
+
+.availbility {
+    /* temp color */
+    background-color: wheat;
+}
+
+.availability-header-container {
+    display: grid;
+    justify-items: center;
+}
+.availability-map {
+    margin-top: 40px;
+    margin-left: 15%;
+    margin-right: auto;
+}
+.availability-map img {
+    width: 70%;
+    height: auto;
+    border: 2px solid #078646;
+    border-radius: 4px;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -397,8 +432,14 @@ form textarea {
 
 .footer-icons i {
     font-size: 200%;
-
+    color: #fffefe;
 }
 .footer-icons {
-    justify-content: center;
+    justify-self: end;
+    margin-right: 10%;
+}
+
+.footer-links a {
+    color: #fffefe;
+    text-decoration: none;
 }
