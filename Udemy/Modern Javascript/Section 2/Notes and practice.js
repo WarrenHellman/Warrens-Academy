@@ -10,12 +10,12 @@ document.querySelector('h1').style.color = 'red' // will make all h1 elements re
 
 console.table() // will show a table of an object literal
 console.error() // will show an error in console log, useful to flag an error for you
-console.warning() // will show a warning in console log
-console.clear() // clears it out
-console.time('anyName')
+// console.warning() // will show a warning in console log
+//console.clear() // clears it out
+//console.time('anyName')
 
 
-console.timeEnd('anyName') // logs the time in between the start (time) and end (timeEnd)
+//console.timeEnd('anyName') // logs the time in between the start (time) and end (timeEnd)
 
 // #############################
 // ########Variables############
@@ -93,13 +93,13 @@ val = (5).toString();
 
 //String to number
 val = Number('5')
-val = Number(true) = 1 // can be used for logical operators
-val = Number(false) = 0
-val = Number(null) = 0
-val = Number('hello') = NaN
+val = Number(true) //= 1 // can be used for logical operators
+val = Number(false) //= 0
+val = Number(null) //= 0
+val = Number('hello') //= NaN
 
-val = parseInt('100.3') = 100 //(whole number integer from string)
-val = parseFloat('100.3') = 100.3 //for the parseFloat
+val = parseInt('100.3') //= 100 //(whole number integer from string)
+val = parseFloat('100.3') //= 100.3 //for the parseFloat
 
 
 // #############################
@@ -112,9 +112,9 @@ const val1 = 5
 const val2 = 6
 const sum = val1 + val2// = 11, number
 
-const val1 = String(5)
-const val2 = 6
-const sum = val1 + val2 //= 56 //, string (it concatenates the two numbers but coerces 6 into a string)
+const val3 = String(5)
+const val4 = 6
+const sum1 = val3 + val4 //= 56 //, string (it concatenates the two numbers but coerces 6 into a string)
 
 // #############################
 // #######Math Object###########
@@ -122,7 +122,7 @@ const sum = val1 + val2 //= 56 //, string (it concatenates the two numbers but c
 
 const num1 = 100;
 const num2 = 50;
-let val;
+
 
 //Simple math with numbers
 
@@ -148,7 +148,6 @@ val = Math.floor(Math.random() * 100 +1 ) //gives a whole number between 1 and 1
 const firstName = 'Will';
 const lastName = 'John';
 
-let val;
 
 //Concatenation
 val = firstName + ' ' + lastName;
@@ -163,10 +162,10 @@ val = 'That\'s awesome and I can\'t wait' //the single quotes mess it up, could 
 
 
 //length
-val = firstname.length; // 4
+val = firstName.length; // 4
 
 //concat
-val = firstname.concat(' ', lastName); // concatenates the two
+val = firstName.concat(' ', lastName); // concatenates the two
 
 //Change changes
 val = firstName.toUpperCase(); //capitalizes
@@ -186,7 +185,7 @@ val = firstName.charAt(firstName.length-1);
 
 //substring()
 
-val = firstName.substring(0,2); // Will
+val = firstName.substring(0,2); // Wi
 
 //slice() 
 val = firstName.slice(0,2);//will do the same as substring and return 'Wi'
@@ -206,14 +205,14 @@ val = str.includes('Brad') // true, returns a boolean if it is found
 // #######Template Literal######
 // #############################
 
-const name= 'John'
-const age = 30
-const job = 'Web Developer'
-const city = 'Miami'
+const name1= 'John'
+const age1 = 30
+const job1 = 'Web Developer'
+const city1 = 'Miami'
 let html;
 
 //without template strings (es5)
-html = '<ul><li>Name: '+name+'</li><li>Age: '+age+ '</li><li>Job: '+job+'</li><li>City: '+city+'</li></ul>'
+html = '<ul><li>Name: '+name1+'</li><li>Age: '+age1+ '</li><li>Job: '+job1+'</li><li>City: '+city1+'</li></ul>'
 
 //With Template strings, uses variables in between ${variable} nested inside of ``, or grave accent
 
@@ -221,11 +220,10 @@ html = `
 <ul>
     <li>Name: ${name}</li>
     <li>Age: ${age}</li>
-    <li>Job: ${job}</li>
-    <li>City: ${city}</li>
+    <li>Job: ${job1}</li>
+    <li>City: ${city1}</li>
     <li>${2+2}</li>
-    <li>${hello()}</li>
-    <li>${ ternary }</li>
+    <li>${function hello(){}}</li>
 </ul>
 `;
 
@@ -278,7 +276,7 @@ val = numbers.concat(numbers2) //adds both arrays together
 
 //sorting arrays
 
-val = numbers.sort(fruit) //sorts alphabetically. Will not sort numbers correctly because of it sorts by first number only!
+//val = numbers.sort(fruit) //sorts alphabetically. Will not sort numbers correctly because of it sorts by first number only!
 
 //user compare function to sort numbers
 val = numbers.sort(function(x,y){
@@ -296,3 +294,113 @@ function under50(num){
 }
 
 val = numbers.find(under50) //will find the first number in the array under 50
+
+// #############################
+// #######Object Literals#######
+// #############################
+
+const person = {
+    firstName: 'Steve',
+    lastName: 'Smith',
+    age: 30,
+    email: 'steve@aol.com',
+    hobbies: ['music', 'sports'],
+    address: {
+        city: 'Miami',
+        state: 'FL'
+    },
+    getBirthYear: function(){
+        return 2017-this.age;
+    },
+
+};
+
+val=person
+
+//select key and values
+val=person.firstName;
+val=person['firstName'];
+val=person.age
+val=person.hobbies[1];
+val=person.getBirthYear();
+
+
+
+const people =[
+    {name: 'John', age: 30},
+    {name: 'Mike', age: 23}
+];
+
+for (let i=0; i<people.length; i++){
+    //console.log(people[i].name)
+    //console.log(people[i].age)
+
+}
+
+// #############################
+// #######Dates and Times#######
+// #############################
+
+const dateToday= new Date();
+let birthday = new Date('6-1-1984 11:25:10') 
+birthday = new Date('June 1 1984 11:25')
+//check MDN for more on dates
+val = today.getDate()
+// month starts at 0
+val = today.getMonth()
+val = today.getDay()
+val = today.getHours()
+val = today.getMinutes()
+val = today.getMilliseconds()
+val = today.getTime()
+
+birthday.setMonth(2)
+birthday.setDate(10)
+birthday.setFullYear(2018)
+birthday.setHours(9)
+birthday.setMinutes(4)
+
+// #############################
+// #######If and Comparison#####
+// #############################
+
+const id = 100;
+
+//equal to
+if (id == 101){
+    console.log('correct')
+}
+
+//Not Equal To
+
+if (id!=100){
+    console.log('correct')
+}
+
+//Equal to Value and Type
+
+// if (id === 100){
+//     console.log('correct')
+// }
+// else {console.log('incorrect')}
+
+
+// tests if undefined
+// if (typeof id !== 'undefined'){
+//     console.log(`The ID is ${id}`)
+// }
+// else {console.log('no ID')}
+
+//Ternary Operator
+
+(id === 100 ? 'CORRECT' : 'INCORRECT');
+
+// Without Braces, curly braces are not necessary!
+// if (id === 100)
+//     console.log('correct')
+// else 
+//     console.log('incorrect')
+
+// #############################
+// #######Switches##############
+// #############################
