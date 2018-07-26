@@ -463,7 +463,7 @@ function greet(firstName='John', lastName='Doe'){
 const square = function(x){
     return x*x;
 }
-console.log(square(8))
+// console.log(square(8))
 
 //Immediately invocable function expressions - IIFEs
 
@@ -487,8 +487,72 @@ todo.delete = function(){
     console.log('Delete todo...');
 }
 
-todo.add();
-todo.edit(22);
-todo.delete();
+// todo.add();
+// todo.edit(22);
+// todo.delete();
 
-console.log(todo)
+
+// #############################
+// #######Loops#################
+// #############################
+
+//for loops
+for (let i = 0; i<10; i++){
+    // console.log('i is equal to '+i)
+};
+
+//while loops
+
+// let i=0;
+// while (i < 10){
+//     console.log(i);
+//     i++;
+// }
+
+//Do While- runs regardless of the while condition
+
+// let i = 0;
+// do {
+//     console.log(i);
+//     i++;
+// }
+
+// while(i<10)
+
+const cars = ['Ford', 'Chevy', 'Honda', 'Toyota']
+
+// for(let i=0; i<cars.length; i++){
+//     console.log(cars[i]);
+// }
+
+// ForEach, used on arrays. takes in anonymous functions. Can take in 3 params, value, index and array
+// cars.forEach(function(car, index, array){
+//     console.log(`${index} : ${car}`);
+//     console.log(array)
+// });
+//Map
+
+// const users = [
+//     {id: 1, name:'Warren'},
+//     {id: 2, name:'Sherren'},
+//     {id: 3, name:'Eren'},
+// ];
+
+// const ids = users.map(function(user){
+//     return user.id;
+// });
+
+// console.log(ids);
+
+
+//For In Loop
+
+const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 40
+}
+
+for (let x in user){
+    console.log(`${x}: ${user[x]}`)
+}
