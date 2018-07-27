@@ -52,7 +52,7 @@ const hasKids=true;
 // null
 const car = null;
 // undefined
-let test;
+let test1;
 // Symbol, new primative type
 const sym = Symbol()
 
@@ -474,18 +474,18 @@ const square = function(x){
 
 //Property Methods
 
-const todo = {
-    add: function(){
-        console.log('Add todo..');
-    },
-    edit: function(id){
-        console.log(`Edit todo ${id}`);
-    }
-}
+// const todo = {
+//     add: function(){
+//         console.log('Add todo..');
+//     },
+//     edit: function(id){
+//         console.log(`Edit todo ${id}`);
+//     }
+// }
 // can also define methods outside of the object
-todo.delete = function(){
-    console.log('Delete todo...');
-}
+// todo.delete = function(){
+//     console.log('Delete todo...');
+// }
 
 // todo.add();
 // todo.edit(22);
@@ -497,9 +497,9 @@ todo.delete = function(){
 // #############################
 
 //for loops
-for (let i = 0; i<10; i++){
-    // console.log('i is equal to '+i)
-};
+// for (let i = 0; i<10; i++){
+//     // console.log('i is equal to '+i)
+// };
 
 //while loops
 
@@ -519,7 +519,7 @@ for (let i = 0; i<10; i++){
 
 // while(i<10)
 
-const cars = ['Ford', 'Chevy', 'Honda', 'Toyota']
+// const cars = ['Ford', 'Chevy', 'Honda', 'Toyota']
 
 // for(let i=0; i<cars.length; i++){
 //     console.log(cars[i]);
@@ -547,12 +547,116 @@ const cars = ['Ford', 'Chevy', 'Honda', 'Toyota']
 
 //For In Loop
 
-const user = {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 40
+// const user = {
+//     firstName: 'John',
+//     lastName: 'Doe',
+//     age: 40
+// }
+
+// for (let x in user){
+//     console.log(`${x}: ${user[x]}`)
+// }
+
+// #############################
+// #######Windows Object########
+// #############################
+
+//Window- global object, including DOM
+
+//can be accessed in the console by typing window. It will show all of the methods associated with the window
+
+//Alert
+
+// alert('Hello') //gives and alert messages
+
+//Prompt - allows you to type in some text
+
+// const input = prompt();
+// alert(input);
+
+//Confirm - often used when deleting something, will ask you to confirm
+
+// if (confirm('Are you sure?')){
+//     console.log('YES');
+// }
+// else {
+//     console.log('NO');
+// }
+
+val = window.outerHeight;
+val = window.outerWidth;
+val = window.innerWidth;
+val = window.innerHeight;
+
+//Scroll Points-- used to trigger events on scroll
+
+val = window.scrollY;
+val = window.scrollX;
+
+//Location Object
+
+val = window.location;
+val = window.location.host;
+val = window.location.port;
+val = window.location.href;
+// val = window.location.search;
+
+//Redirect- redirects you to an internal or external page
+// window.location.href = 'http://google.com'
+
+//Reload- will reload the page
+
+// window.location.reload();
+
+//History Object, a positive value will go forward in history, negative backwards
+
+// window.history.go(2);
+val = window.history.length //gives length of your history
+
+//Navigator Object - named after Netscape Navigator
+
+// val = window.navigator //history of your browser
+
+// val = window.navigator.appName
+// val = window.navigator.appVersion
+// val = window.navigator.userAgent
+// val = window.navigator.platform
+// val = val = window.navigator.language
+
+
+// #############################
+// #######Scope#################
+// #############################
+
+//Global Scope
+
+var a = 1;
+let b = 2;
+const c = 3;
+
+// function test(){
+//     var a = 4;
+//     let b = 5;
+//     const c = 6;
+//     console.log('Function Scope- var = '+a+', let = '+b+', and const = '+c)
+// }
+// test();
+
+// if(true){
+//     //Block Scope- In this both let and const will keep their global definition and var will be redefined
+//     var a = 4;
+//     let b = 5;
+//     const c = 6;
+//     console.log('Block Scope- var = '+a+', let = '+b+', and const = '+c)
+// }
+
+//var will change globally if you define a with it, let will stay the same
+for (let a = 0; a<10; a++) {
+    console.log('Loop: '+a)
 }
 
-for (let x in user){
-    console.log(`${x}: ${user[x]}`)
-}
+console.log('Global Scope- var = '+a+', let = '+b+', and const = '+c)
+
+
+
+console.log(val)
