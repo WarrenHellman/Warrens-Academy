@@ -290,3 +290,41 @@ link.setAttribute('title', 'Google')
 val = link.hasAttribute('title'); // returns Boolean
 
 console.log(val);
+
+// ################################
+// #######Event Listeners##########
+// ################################
+
+// document.querySelector('.clear-tasks').addEventListener('click', function(e){
+//     console.log('hello world');
+
+//     e.preventDefault(); // prevents default event behavior
+// });
+
+document.querySelector('.clear-tasks').addEventListener('click', onClick);
+
+function onClick(e){
+    // console.log('Clicked');
+    let val;
+    val = e; // gives all of the event on the clicked object
+
+    //Event target
+    val = e.target;
+    val = e.target.id;
+    val = e.target.className;
+    val = e.target.classList;
+    e.target.innerText='Hello'
+    //Event Type
+    val = e.type
+    //Timestamp
+    val = e.timeStamp;
+    //Coordinates event relative to window
+    val = e.clientY;
+
+    //Coordinates relative the the element
+    val = e.offsetY;
+    val = e.offsetX;
+
+    
+    console.log(val);
+}
