@@ -364,3 +364,56 @@ function runEvent(e){
     // heading.textContent= `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
     document.body.style.backgroundColor = `rgb(${e.offsetX},${e.offsetY},40)`
 }
+
+// ################################
+// #######Input and Form Events####
+// ################################
+
+const form = document.querySelector('form');
+const taskInput = document.getElementById('task');
+const heading = document.querySelector('h5')
+
+//Submit
+// form.addEventListener('submit', runEvent);
+
+//Keydown
+// taskInput.addEventListener('keydown', runEvent)
+
+//Keyup
+// taskInput.addEventListener('keydown', runEvent)
+
+//Keypress
+// taskInput.addEventListener('keypress', runEvent)
+
+//Focus- when you click in
+// taskInput.addEventListener('focus', runEvent)
+
+//blur- when you click out
+// taskInput.addEventListener('blur', runEvent)
+
+//cut
+// taskInput.addEventListener('cut', runEvent)
+
+//paste
+// taskInput.addEventListener('paste', runEvent)
+
+//copy
+// taskInput.addEventListener('copy', runEvent)
+
+//Input- any activity on element
+// taskInput.addEventListener('input', runEvent)
+
+
+
+//Clear input
+taskInput.value = '';
+
+function runEvent(e){
+    console.log(`EVENT TYPE: ${e.type}`);
+    
+    // heading.innerText = e.target.value;
+
+    //Get input value
+    // console.log(taskInput.value); //doesn't work
+    // e.preventDefault();
+}
