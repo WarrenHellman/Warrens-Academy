@@ -417,3 +417,32 @@ function runEvent(e){
     // console.log(taskInput.value); //doesn't work
     // e.preventDefault();
 }
+
+// ################################
+// #Event Bubbling & Delegation####
+// ################################
+
+//Bubbling, events work their way up through the parent elements. Follows the idea that by clicking on a child, you are also clicking on all parent elements
+
+//Delegation, target a parent element to apply event to child
+
+document.querySelector('.card-title').addEventListener('click', function(){
+  console.log('card title')
+})
+
+
+//Event Delegation
+
+// const delItem = document.querySelector('.delete-item')
+
+// delItem.addEventListener('click', deleteItem);
+
+document.body.addEventListener('click', deleteItem)
+
+function deleteItem(e){
+
+  if (e.target.parentElement.classList.contains('delete-item')){
+      console.log('delete item')
+      e.target.parentElement.parentElement.remove();
+  }
+}

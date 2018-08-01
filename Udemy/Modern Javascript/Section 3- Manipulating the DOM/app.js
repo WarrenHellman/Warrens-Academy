@@ -1,3 +1,3 @@
 // ################################
-// #Event Bubbling & Delegation####
+// #Session and local storage######
 // ################################
