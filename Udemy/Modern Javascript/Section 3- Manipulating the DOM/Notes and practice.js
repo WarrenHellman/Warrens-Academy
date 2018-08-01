@@ -328,3 +328,39 @@ function onClick(e){
     
     console.log(val);
 }
+
+// ################################
+// #######Mouse Events#############
+// ################################
+
+const clearBTn = document.querySelector('.clear-tasks');
+const card = document.querySelector('.card');
+const heading = document.querySelector('h5');
+
+//Click
+// clearBTn.addEventListener('click', runEvent)
+//Double click
+// clearBTn.addEventListener('dblclick', runEvent);
+//Mouse down/Up- on click down, or release
+// clearBTn.addEventListener('mousedown', runEvent);
+// clearBTn.addEventListener('mouseup', runEvent);
+//Mouseenter
+// clearBTn.addEventListener('mouseenter', runEvent);
+// clearBTn.addEventListener('mouseleave', runEvent);
+//Mouseover
+// clearBTn.addEventListener('mouseover', runEvent);
+//Mouseleave
+// clearBTn.addEventListener('mouseout', runEvent);
+
+//Mousemove
+card.addEventListener('mousemove', runEvent);
+
+
+
+
+//Event Handler
+function runEvent(e){
+    console.log(`EVENT TYPE: ${e.type}`)
+    // heading.textContent= `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+    document.body.style.backgroundColor = `rgb(${e.offsetX},${e.offsetY},40)`
+}
