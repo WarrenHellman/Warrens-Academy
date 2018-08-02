@@ -1,0 +1,76 @@
+.headBox {
+    width: 70%;
+    margin-left: 15%;
+    background-color: darkgrey;
+    color: whitesmoke;
+    padding: 2%;
+}
+.formWrapper {
+    width: 70%;
+    margin-left: 15%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(8, auto);
+    height: 800px;
+}
+.formQuestions {
+    display: grid;
+    
+    background-color: aqua;
+    justify-content: end; 
+    /* height: 800px; */
+}
+#survey-form {
+    display: grid;
+    grid-template-rows: repeat(4, 15px), 40px, 40px, 100px, 20px;
+    background-color: yellowgreen;
+    height: 800px;
+}
+
+#name-label {
+    grid-row: 1/2;
+}
+#email-label {
+    grid-row: 2/3;
+}
+#number-label {
+    grid-row: 3/4;
+}
+#occupation-label {
+    grid-row: 4/5;
+}
+#method-label {
+    grid-row: 5/6;
+}
+#injury-label {
+    grid-row: 6/7;
+}
+#comment-label {
+    grid-row: 7/8;
+}
+
+#input-name {
+    grid-row: 1/2;
+}
+#input-email {
+    grid-row: 2/3;
+}
+#input-number {
+    grid-row: 3/4;
+}
+#input-dropdown {
+    grid-row: 4/5;
+}
+#input-method {
+    grid-row: 5/6;
+}
+#input-injury {
+    grid-row: 6/7;
+}
+#input-comment {
+    grid-row: 7/8;
+}
+#input-submit {
+    grid-row: 8/9;
+}
