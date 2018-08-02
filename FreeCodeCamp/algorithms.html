@@ -149,5 +149,50 @@
     // }
 
     // fearNotLetter('abce')
+    // function convertHTML(str) {
+    //     let and = '&amp;';
+    //     let more = '&gt;';
+    //     let less = '&lt;';
+    //     let dblQuote= '&quot;';
+    //     let apos = '&apos;';
+    //     let arr=str.split("");
+    //     console.log(arr)
+    //     for (var i=0; i<arr.length; i++){
+    //         if (arr[i]==='&'){
+    //         arr[i]=and;
+    //         }
+    //         else if (arr[i]==='>'){
+    //         arr[i]=more;
+    //         }
+    //         else if (arr[i]==='<'){
+    //         arr[i]=less;
+    //         }
+    //         else if (arr[i]==='"'){
+    //         arr[i]=dblQuote;
+    //         }
+    //         else if (arr[i]==='\''){
+    //         arr[i]=apos;
+    //         }
+    //         str=arr.join('')
+    //     }
+    //     console.log(str)
+    //     return str;
+    // }
+
+    // convertHTML("Dolce & Gabbana");
+
+    function dropElements(arr, func) {
+        // Drop them elements.
+        let length=arr.length;
+        for (var i=0; i<arr.length; i++){
+            if (func(arr[i])===false){
+                arr=arr.slice((i+1),length)
+            }
+        }
+        console.log(arr);
+        return arr;
+    }
+
+    dropElements([1, 2, 3,9,4], function(n) {return n > 2; });
 
 </script>
