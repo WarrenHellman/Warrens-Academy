@@ -182,15 +182,13 @@
     // convertHTML("Dolce & Gabbana");
 
     function dropElements(arr, func) {
-        // Drop them elements.
-        let length=arr.length;
         for (var i=0; i<arr.length; i++){
-            if (func(arr[i])===false){
-                arr=arr.slice((i+1),length)
+            if (func(arr[i])==true){
+                return arr = arr.slice(i, arr.length);
             }
         }
-        console.log(arr);
-        return arr;
+        // if none are true
+        return arr=[];
     }
 
     dropElements([1, 2, 3,9,4], function(n) {return n > 2; });
