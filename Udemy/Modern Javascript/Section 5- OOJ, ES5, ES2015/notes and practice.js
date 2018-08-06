@@ -186,3 +186,38 @@ const warren = Object.create(personPrototypes, {
 
 console.log(warren)
 console.log(warren.greeting())
+
+// ##################################
+// #####ES6 Object Syntax############
+// ##################################
+
+class Person {
+  constructor(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.birthday = new Date(dob);
+  }
+  greeting() {
+    return `Hello there ${this.firstName} ${this.lastName}`
+  }
+  calculateAge(){
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear()-1970);
+  }
+  getsMarried(newLastName){
+    this.lastName = newLastName;
+  }
+
+  //Static Method
+  static addNumbers(num1, num2){
+    return num1 + num2
+  }
+}
+
+const mary = new Person('Mary', 'Thalasinos', '8/2/1986')
+
+console.log(mary)
+
+//Call Static methods
+console.log(Person.addNumbers(1,2));
