@@ -221,3 +221,38 @@ console.log(mary)
 
 //Call Static methods
 console.log(Person.addNumbers(1,2));
+
+// ##################################
+// #####Sub Classes##################
+// ##################################
+
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  greeting() {
+    return `Hello there ${this.firstName} ${this.lastName}`;
+  }
+}
+
+// Extends the methods from the parent class
+class Customer extends Person {
+  constructor(firstName, lastName, phone, membership){
+    super(firstName, lastName);
+
+    this.phone = phone;
+    this.membership = membership;
+  }
+  static getMembershipCost(){
+    return 500;
+  }
+}
+
+const warren = new Customer('Warren', 'Felix', '555-555-5555', 'Standard')
+
+console.log(warren)
+
+console.log(warren.greeting())
+console.log(Customer.getMembershipCost())
