@@ -64,3 +64,49 @@ const arr2 = new Array([1,2,3,4])
 
 const re1 = /\w+/;
 const re2 = new RegExp('\\w+');
+
+
+// ##################################
+// #########Prototypes###############
+// ##################################
+
+// Object.prototype
+
+function Person(firstName, lastName, dob){
+  this.firstName = firstName;
+  this.lastName = lastName;
+
+  this.birthday = new Date(dob);
+  // this.calculateAge = function(){
+  //   const diff = Date.now() - this.birthday.getTime();
+  //   const ageDate = new Date(diff);
+  //   return Math.abs(ageDate.getUTCFullYear() - 1970);
+  // }
+}
+
+// It is better to add methods to the prototype, instead of the constructor
+//Calculate age
+Person.prototype.calculateAge = function(){
+  const diff = Date.now() - this.birthday.getTime();
+  const ageDate = new Date(diff);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+//Get full name
+Person.prototype.getFullName = function(){
+  return `${this.firstName} ${this.lastName}`;
+}
+
+//Gets married
+Person.prototype.getsMarried = function(newLastName){
+  this.lastName = newLastName;
+}
+
+const warren = new Person('Warren', 'Hellman', '8/12/90')
+const mary = new Person('Mary', 'Contrary', 'March 20 1978')
+
+console.log(mary)
+warren.getsMarried('Korte')
+console.log(warren.getFullName());
+
+console.log(warren.hasOwnProperty('middleName'))
