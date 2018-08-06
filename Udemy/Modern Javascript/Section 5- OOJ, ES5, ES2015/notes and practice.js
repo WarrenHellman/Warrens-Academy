@@ -153,3 +153,36 @@ Customer.prototype.greeting = function(){
 }
 
 console.log(customer1.greeting());
+
+// ##################################
+// #####Using Object.create##########
+// ##################################
+
+// easier way without having to create a whole new constructor
+
+const personPrototypes = {
+  greeting: function(){
+    return `Hello there ${this.firstName} ${this.lastName}`
+  },
+  getsMarried: function(newLastName){
+    this.lastName = newLastName;
+  }
+}
+
+const mary = Object.create(personPrototypes);
+mary.firstName = 'Mary';
+mary.lastName= 'Williams';
+mary.age = 30;
+
+mary.getsMarried('Hellman')
+
+console.log(mary.greeting())
+
+const warren = Object.create(personPrototypes, {
+  firstName: {value: 'Warren'},
+  lastName: {value: 'Woodler'},
+  age: {value: 36}
+});
+
+console.log(warren)
+console.log(warren.greeting())
