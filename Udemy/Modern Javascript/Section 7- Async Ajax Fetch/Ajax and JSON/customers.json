@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "company": "Ace Designs",
+    "phone": "343-191-1999"
+  },
+  {
+    "id": 2,
+    "name": "Jeff Roe",
+    "company": "Space Designs",
+    "phone": "343-141-6666"
+  },
+  {
+    "id": 3,
+    "name": "Gumby Philips",
+    "company": "Place Designs",
+    "phone": "313-166-2222"
+  }
+]
